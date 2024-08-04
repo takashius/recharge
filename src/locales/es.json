@@ -1,0 +1,21 @@
+{
+  "translation": {
+    "signIn": {
+      "title": "Iniciar sesión",
+      "subTitle": "Inicie sesión para realizar un pago más rápido",
+      "keepMeIn": "Mantenerme conectado",
+      "forgotPass": "¿Has olvidado tu contraseña?",
+      "button": "Ingresar",
+      "notAccount": "¿No tienes una cuenta?",
+      "register": "Registrarse",
+      "form": {
+        "username": "Correo",
+        "password": "Contraseña",
+        "usernamePlaceholder": "Coloque su correo",
+        "passwordPlaceholder": "Coloque su clave"
+      }
+    },
+    "welcome": "Bienvenido",
+    "description": "Este es un ejemplo de i18n en React con Vite."
+  }
+}
