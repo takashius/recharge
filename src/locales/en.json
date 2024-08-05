@@ -15,6 +15,36 @@
         "passwordPlaceholder": "Enter your Password"
       }
     },
+    "signUp": {
+      "title": "Create your account",
+      "subTitle": "It’s totally free and super easy",
+      "button": "Sign up",
+      "alreadyRegistered": "Already registered?",
+      "form": {
+        "name": "Name",
+        "namePlaceholder": "Enter your name",
+        "lastName": "LastName",
+        "lastNamePlaceholder": "Enter your lastName",
+        "idCard": "Identification card",
+        "idCardPlaceholder": "Enter your identification card number",
+        "username": "Username",
+        "usernamePlaceholder": "Enter your username",
+        "email": "Email",
+        "emailPlaceholder": "Enter your email",
+        "phone": "Phone Number",
+        "phonePlaceholder": "Enter your phone",
+        "password": "Your Password",
+        "passwordPlaceholder": "Enter your password",
+        "rePassword": "Repeat password",
+        "rePasswordPlaceholder": "Repeat your password"
+      },
+      "TermsAndConditions": {
+        "partOne": "By creating account means you agree to the",
+        "partTwo": "Terms and Conditions",
+        "partThree": "and our",
+        "partFour": "Privacy Policy"
+      }
+    },
     "welcome": "Welcome",
     "description": "This is an example of i18n in React with Vite."
   }

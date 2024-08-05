@@ -22,8 +22,8 @@ export const routes = [
       { path: "/blogDetail", element: <BlogDetail /> },
       { path: "/blogSidebar", element: <BlogSidebar /> },
       { path: "/contact", element: <Contact /> },
+      { path: "/signIn", element: <SignIn /> },
+      { path: "/signUp", element: <SignUp /> },
     ],
   },
-  { path: "/signIn", element: <SignIn /> },
-  { path: "/signUp", element: <SignUp /> },
 ]
