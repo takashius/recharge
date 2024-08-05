@@ -9,11 +9,11 @@ export default function Home() {
             <div className="w-full px-4">
               <div className="mx-auto max-w-[570px] text-center wow fadeInUp" data-wow-delay=".2s">
                 <h1
-                  className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-5xl leading-tight sm:leading-tight md:leading-tight mb-5">
+                  className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-5xl leading-tight sm:leading-tight md:leading-tight my-10">
                   Startup Focused Tailwind CSS Template
                 </h1>
                 <p
-                  className="font-medium text-lg md:text-xl leading-relaxed md:leading-relaxed text-bodyColor dark:text-white dark:opacity-90 mb-12">
+                  className="font-medium text-lg md:text-xl leading-relaxed md:leading-relaxed text-bodyColor dark:text-white dark:opacity-90 mb-16">
                   A Complete Tailwind CSS Web Template Crafted for - Startup, SaaS, Business, Software and Agencies. Comes
                   with high-quality design and everything you need!
                 </p>
