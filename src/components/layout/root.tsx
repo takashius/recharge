@@ -4,7 +4,6 @@ import Header from './header'
 import Footer from './footer'
 import '../../App.css'
 import '../../main.css'
-// import '../../index.css'
 
 export default function Root() {
   useStickyHeader();
