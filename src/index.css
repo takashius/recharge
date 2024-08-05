@@ -2503,7 +2503,7 @@ input#checkboxLabel:checked~.box span {
   color: rgb(9 14 52 / var(--tw-text-opacity));
 }
 
-.text-body-color {
+.text-bodyColor {
   --tw-text-opacity: 1;
   color: rgb(149 156 177 / var(--tw-text-opacity));
 }
@@ -2832,7 +2832,7 @@ input#checkboxLabel:checked~.box span {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.dark .dark\:text-body-color {
+.dark .dark\:text-bodyColor {
   --tw-text-opacity: 1;
   color: rgb(149 156 177 / var(--tw-text-opacity));
 }

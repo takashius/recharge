@@ -26,7 +26,7 @@ export default function Header() {
                 <ul className="block lg:flex">
                   <li className="relative group">
                     <a href='#home'
-                      className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
+                      className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
                       Home
                     </a>
                   </li>
@@ -97,7 +97,7 @@ export default function Header() {
                 Sign In
               </Link>
               <Link to={'/signUp'}
-                className="hidden md:block text-base font-bold text-white bg-primary py-3 px-8 md:px-9 lg:px-6 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 rounded-md transition ease-in-up duration-300">
+                className="hidden md:block text-base font-bold text-white bg-primaryIcons py-3 px-8 md:px-9 lg:px-6 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 rounded-md transition ease-in-up duration-300">
                 Sign Up
               </Link>
               <div>

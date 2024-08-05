@@ -57,7 +57,7 @@ export default function ErrorPage() {
               </div>
               <h3 className="font-bold text-black dark:text-white text-3xl sm:text-4xl mb-4">Sorry, the page can’t be found
               </h3>
-              <p className="font-medium text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-10">
+              <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-10">
                 The page you were looking for appears to have been moved, deleted or does not exist.
               </p>
               <Link

@@ -13,7 +13,7 @@ export default function Footer() {
                   <img src="images/logo-2.svg" alt="logo" className="w-full dark:hidden" />
                   <img src="images/logo.svg" alt="logo" className="w-full hidden dark:block" />
                 </a>
-                <p className="text-body-color text-base font-medium leading-relaxed mb-9">Lorem ipsum dolor sit amet,
+                <p className="text-bodyColor text-base font-medium leading-relaxed mb-9">Lorem ipsum dolor sit amet,
                   consectetur adipiscing elit. Integer lobortis.</p>
                 <div className="flex items-center">
                   <a href="#" aria-label="social-link" className="text-[#CED3F6] hover:text-primary mr-6">
@@ -49,15 +49,15 @@ export default function Footer() {
                 <ul>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> Blog </a>
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> Blog </a>
                   </li>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> Pricing </a>
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> Pricing </a>
                   </li>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> About </a>
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> About </a>
                   </li>
                 </ul>
               </div>
@@ -68,16 +68,16 @@ export default function Footer() {
                 <ul>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> TOS </a>
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> TOS </a>
                   </li>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> Privacy Policy
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> Privacy Policy
                     </a>
                   </li>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> Refund Policy </a>
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> Refund Policy </a>
                   </li>
                 </ul>
               </div>
@@ -88,16 +88,16 @@ export default function Footer() {
                 <ul>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> Open Support
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> Open Support
                       Ticket </a>
                   </li>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> Terms of Use </a>
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> Terms of Use </a>
                   </li>
                   <li>
                     <a href="#"
-                      className="text-base font-medium inline-block text-body-color mb-4 hover:text-primary"> About </a>
+                      className="text-base font-medium inline-block text-bodyColor mb-4 hover:text-primary"> About </a>
                   </li>
                 </ul>
               </div>
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
         <div className="py-8 bg-primary bg-opacity-10">
           <div className="container">
-            <p className="text-body-color dark:text-white text-base text-center">&copy; Crafted by UIdeck for You!</p>
+            <p className="text-bodyColor dark:text-white text-base text-center">&copy; Crafted by UIdeck for You!</p>
           </div>
         </div>
         <div className="absolute right-0 top-14 z-[-1]">
@@ -188,7 +188,7 @@ export default function Footer() {
 
       <a href="#"
         onClick={() => setBackToTop(true)}
-        className={`${displayBackToTop ? 'flex' : 'hidden'} items-center justify-center bg-primary text-white w-10 h-10 rounded-md fixed bottom-8 right-8 left-auto z-[999] hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out back-to-top shadow-md`}>
+        className={`${displayBackToTop ? 'flex' : 'hidden'} items-center justify-center bg-primaryIcons text-white w-10 h-10 rounded-md fixed bottom-8 right-8 left-auto z-[999] hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out back-to-top shadow-md`}>
         <span className="w-3 h-3 border-t border-l border-white rotate-45 mt-[6px]"></span>
       </a>
     </>

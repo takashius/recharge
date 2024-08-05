@@ -13,7 +13,7 @@ export default function SignIn() {
                 <h3 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-3 text-center">
                   {t('signIn.title')}
                 </h3>
-                <p className="font-medium text-base text-body-color mb-11 text-center">
+                <p className="font-medium text-base text-bodyColor mb-11 text-center">
                   {t('signIn.subTitle')}
                 </p>
 
@@ -21,17 +21,17 @@ export default function SignIn() {
                   <div className="mb-8">
                     <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signIn.form.username')} </label>
                     <input type="email" name="email" placeholder={t('signIn.form.usernamePlaceholder')}
-                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                   </div>
                   <div className="mb-8">
                     <label htmlFor="password" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signIn.form.password')} </label>
                     <input type="password" name="password" placeholder={t('signIn.form.passwordPlaceholder')}
-                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                   </div>
                   <div className="flex items-center justify-between mb-8">
                     <div>
                       <label htmlFor="checkboxLabel"
-                        className="flex items-center cursor-pointer text-body-color text-sm font-medium select-none">
+                        className="flex items-center cursor-pointer text-bodyColor text-sm font-medium select-none">
                         <div className="relative">
                           <input type="checkbox" id="checkboxLabel" className="sr-only" />
                           <div
@@ -61,7 +61,7 @@ export default function SignIn() {
                     </button>
                   </div>
                 </form>
-                <p className="font-medium text-base text-body-color text-center">
+                <p className="font-medium text-base text-bodyColor text-center">
                   {t('signIn.notAccount')}
                   <Link to="/signUp" className="text-primary hover:underline"> {t('signIn.register')} </Link>
                 </p>

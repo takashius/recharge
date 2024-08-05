@@ -8,7 +8,7 @@ export default function BlogGrid() {
             <div className="w-full md:w-8/12 lg:w-7/12 px-4">
               <div className="max-w-[570px] mb-12 md:mb-0">
                 <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">Blog Grids</h1>
-                <p className="font-medium text-base text-body-color leading-relaxed">
+                <p className="font-medium text-base text-bodyColor leading-relaxed">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices.
                   Ut quis dapibus libero.
                 </p>
@@ -18,7 +18,7 @@ export default function BlogGrid() {
               <div className="text-end">
                 <ul className="flex items-center md:justify-end">
                   <li className="flex items-center">
-                    <a href="index.html" className="font-medium text-base text-body-color pr-1 hover:text-primary"> Home </a>
+                    <a href="index.html" className="font-medium text-base text-bodyColor pr-1 hover:text-primary"> Home </a>
                     <span className="block w-2 h-2 border-t-2 border-r-2 border-body-color rotate-45 mr-3"></span>
                   </li>
                   <li className="font-medium text-base text-primary">Blog Grids</li>
@@ -85,7 +85,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -100,12 +100,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -144,12 +144,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
                         </h4>
-                        <p className="text-xs text-body-color">Content Writer</p>
+                        <p className="text-xs text-bodyColor">Content Writer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -188,12 +188,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -217,7 +217,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -232,12 +232,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -261,7 +261,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -276,12 +276,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
                         </h4>
-                        <p className="text-xs text-body-color">Content Writer</p>
+                        <p className="text-xs text-bodyColor">Content Writer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -305,7 +305,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -320,12 +320,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -349,7 +349,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -364,12 +364,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -393,7 +393,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -408,12 +408,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
                         </h4>
-                        <p className="text-xs text-body-color">Content Writer</p>
+                        <p className="text-xs text-bodyColor">Content Writer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -437,7 +437,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -452,12 +452,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -481,7 +481,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -496,12 +496,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -525,7 +525,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -540,12 +540,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
                         </h4>
-                        <p className="text-xs text-body-color">Content Writer</p>
+                        <p className="text-xs text-bodyColor">Content Writer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -569,7 +569,7 @@ export default function BlogGrid() {
                     </a>
                   </h3>
                   <p
-                    className="text-base text-body-color font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
+                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
                   </p>
                   <div className="flex items-center">
@@ -584,12 +584,12 @@ export default function BlogGrid() {
                           <a href="#"
                             className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
                         </h4>
-                        <p className="text-xs text-body-color">Graphic Designer</p>
+                        <p className="text-xs text-bodyColor">Graphic Designer</p>
                       </div>
                     </div>
                     <div className="inline-block">
                       <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-body-color">15 Dec, 2023</p>
+                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
                     </div>
                   </div>
                 </div>
@@ -601,43 +601,43 @@ export default function BlogGrid() {
               <ul className="flex items-center pt-8 justify-center">
                 <li className="mx-1">
                   <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-body-color px-4 text-sm min-w-[36px] h-9">
+                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
                     Prev
                   </a>
                 </li>
                 <li className="mx-1">
                   <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-body-color px-4 text-sm min-w-[36px] h-9">
+                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
                     1
                   </a>
                 </li>
                 <li className="mx-1">
                   <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-body-color px-4 text-sm min-w-[36px] h-9">
+                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
                     2
                   </a>
                 </li>
                 <li className="mx-1">
                   <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-body-color px-4 text-sm min-w-[36px] h-9">
+                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
                     3
                   </a>
                 </li>
                 <li className="mx-1">
                   <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] text-body-color px-4 text-sm min-w-[36px] h-9 cursor-not-allowed">
+                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] text-bodyColor px-4 text-sm min-w-[36px] h-9 cursor-not-allowed">
                     ...
                   </a>
                 </li>
                 <li className="mx-1">
                   <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-body-color px-4 text-sm min-w-[36px] h-9">
+                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
                     12
                   </a>
                 </li>
                 <li className="mx-1">
                   <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-body-color px-4 text-sm min-w-[36px] h-9">
+                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
                     Next
                   </a>
                 </li>

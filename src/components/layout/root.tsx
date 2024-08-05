@@ -2,7 +2,9 @@ import { useStickyHeader, useSmoothScroll } from '../../hooks'
 import { Outlet } from "react-router-dom"
 import Header from './header'
 import Footer from './footer'
-import '../../index.css'
+import '../../App.css'
+import '../../main.css'
+// import '../../index.css'
 
 export default function Root() {
   useStickyHeader();

@@ -7,7 +7,7 @@ export default function About() {
             <div className="w-full md:w-8/12 lg:w-7/12 px-4">
               <div className="max-w-[570px] mb-12 md:mb-0">
                 <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">About Page</h1>
-                <p className="font-medium text-base text-body-color leading-relaxed">
+                <p className="font-medium text-base text-bodyColor leading-relaxed">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices.
                   Ut quis dapibus libero.
                 </p>
@@ -17,7 +17,7 @@ export default function About() {
               <div className="text-end">
                 <ul className="flex items-center md:justify-end">
                   <li className="flex items-center">
-                    <a href="index.html" className="font-medium text-base text-body-color pr-1 hover:text-primary"> Home </a>
+                    <a href="index.html" className="font-medium text-base text-bodyColor pr-1 hover:text-primary"> Home </a>
                     <span className="block w-2 h-2 border-t-2 border-r-2 border-body-color rotate-45 mr-3"></span>
                   </li>
                   <li className="font-medium text-base text-primary">About page</li>
@@ -73,13 +73,13 @@ export default function About() {
                     className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] lg:text-4xl xl:text-[45px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight mb-6">
                     Crafted for Startup, SaaS and Business Sites.
                   </h2>
-                  <p className="font-medium text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-11">
+                  <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-11">
                     The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business
                     applications with interactive panel discussions and roundtables.
                   </p>
                   <div className="flex flex-wrap -mx-3">
                     <div className="w-full sm:w-1/2 lg:w-full xl:w-1/2 px-3">
-                      <p className="flex items-center text-body-color text-lg font-medium mb-5">
+                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
                           className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -89,7 +89,7 @@ export default function About() {
                         </span>
                         Premium quality
                       </p>
-                      <p className="flex items-center text-body-color text-lg font-medium mb-5">
+                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
                           className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -99,7 +99,7 @@ export default function About() {
                         </span>
                         No code required
                       </p>
-                      <p className="flex items-center text-body-color text-lg font-medium mb-5">
+                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
                           className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -111,7 +111,7 @@ export default function About() {
                       </p>
                     </div>
                     <div className="w-full sm:w-1/2 lg:w-full xl:w-1/2 px-3">
-                      <p className="flex items-center text-body-color text-lg font-medium mb-5">
+                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
                           className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -121,7 +121,7 @@ export default function About() {
                         </span>
                         Regular updates
                       </p>
-                      <p className="flex items-center text-body-color text-lg font-medium mb-5">
+                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
                           className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -131,7 +131,7 @@ export default function About() {
                         </span>
                         Rich documentation
                       </p>
-                      <p className="flex items-center text-body-color text-lg font-medium mb-5">
+                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
                           className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -169,7 +169,7 @@ export default function About() {
                 <div className="mb-9">
                   <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4">Bug free
                     code</h3>
-                  <p className="text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
+                  <p className="text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua.
                   </p>
@@ -177,14 +177,14 @@ export default function About() {
                 <div className="mb-9">
                   <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4">Premier
                     support</h3>
-                  <p className="text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
+                  <p className="text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
                   </p>
                 </div>
                 <div className="mb-1">
                   <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4">Regular
                     updates</h3>
-                  <p className="text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
+                  <p className="text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
                     Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt consectetur adipiscing elit setim.
                   </p>
                 </div>

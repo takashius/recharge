@@ -9,6 +9,7 @@ const useDarkMode = () => {
 
     const darkModeToggler = () => {
       if (html) {
+        console.log('si hay html', darkMode);
         !darkMode ? html.classList.remove('dark') : html.classList.add('dark');
       }
     };

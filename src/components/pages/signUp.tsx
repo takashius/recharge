@@ -13,60 +13,60 @@ export default function SignUp() {
                 <h3 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-3 text-center">
                   {t('signUp.title')}
                 </h3>
-                <p className="font-medium text-base text-body-color mb-11 text-center">{t('signUp.subTitle')}</p>
+                <p className="font-medium text-base text-bodyColor mb-11 text-center">{t('signUp.subTitle')}</p>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex mb-8 col-span-2">
                     <div className='mr-6'>
                       <label htmlFor="name" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.name')} </label>
                       <input type="text" name="name" placeholder={t('signUp.form.namePlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.lastName')} </label>
                       <input type="text" name="name" placeholder={t('signUp.form.lastNamePlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
                   <div className="flex mb-8 col-span-2">
                     <div className='mr-6'>
                       <label htmlFor="idCard" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.idCard')} </label>
                       <input type="text" name="idCard" placeholder={t('signUp.form.idCardPlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
                       <label htmlFor="username" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.username')} </label>
                       <input type="text" name="username" placeholder={t('signUp.form.usernamePlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
                   <div className="flex mb-8 col-span-2">
                     <div className="mr-6">
                       <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.email')} </label>
                       <input type="email" name="email" placeholder={t('signUp.form.emailPlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.phone')} </label>
                       <input type="tel" name="phone" placeholder={t('signUp.form.phonePlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
                   <div className="flex mb-8 col-span-2">
                     <div className="mr-6">
                       <label htmlFor="password" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.password')} </label>
                       <input type="password" name="password" placeholder={t('signUp.form.passwordPlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
                       <label htmlFor="rePassword" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.phone')} </label>
                       <input type="password" name="rePassword" placeholder={t('signUp.form.phonePlaceholder')}
-                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-body-color text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                        className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
 
 
                   <div className="flex mb-8 col-span-2">
-                    <label htmlFor="checkboxLabel" className="flex cursor-pointer text-body-color text-sm font-medium select-none">
+                    <label htmlFor="checkboxLabel" className="flex cursor-pointer text-bodyColor text-sm font-medium select-none">
                       <div className="relative">
                         <input type="checkbox" id="checkboxLabel" className="sr-only" />
                         <div
@@ -96,7 +96,7 @@ export default function SignUp() {
                   </div>
                 </form>
 
-                <p className="font-medium text-base text-body-color text-center">
+                <p className="font-medium text-base text-bodyColor text-center">
                   {t('signUp.alreadyRegistered')}
                   <Link to={'/signIn'} className="text-primary hover:underline"> {t('signIn.title')} </Link>
                 </p>
