@@ -1,4 +1,5 @@
 import Root from "./components/layout/root"
+import Auth from "./components/layout/auth"
 import ErrorPage from "./components/layout/ErrorPage"
 
 import Home from "./components/pages/home"
@@ -24,6 +25,13 @@ export const routes = [
       { path: "/contact", element: <Contact /> },
       { path: "/signIn", element: <SignIn /> },
       { path: "/signUp", element: <SignUp /> },
+    ],
+  },
+  {
+    path: '/user',
+    element: <Auth />,
+    errorElement: <ErrorPage />,
+    children: [
     ],
   },
 ]
