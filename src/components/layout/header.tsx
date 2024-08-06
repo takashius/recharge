@@ -1,19 +1,20 @@
-import { Link } from 'react-router-dom';
-import { useDarkMode } from '../../hooks';
-import FlagEsp from '../icons/flagEsp';
-import FlagUsa from '../icons/flagUsa';
-import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { Link } from 'react-router-dom'
+import { useDarkMode } from '../../hooks'
+import FlagEsp from '../icons/flagEsp'
+import FlagUsa from '../icons/flagUsa'
+import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
 
 export default function Header() {
-  const { i18n } = useTranslation();
-  const toggleDarkMode = useDarkMode();
-  const [isEsp, setIsEsp] = useState(false);
+  const { t, i18n } = useTranslation()
+  const toggleDarkMode = useDarkMode()
+  const [isEsp, setIsEsp] = useState(false)
 
   const changeLanguage = () => {
     setIsEsp(!isEsp);
-    i18n.changeLanguage(isEsp ? 'es' : 'en');
+    i18n.changeLanguage(isEsp ? 'es' : 'en')
   };
+
   return (
     <header className="header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center">
       <div className="container">
@@ -27,7 +28,7 @@ export default function Header() {
           <div className="flex px-4 justify-between items-center w-full">
             <div>
               <button id="navbarToggler" aria-label="Mobile Menu"
-                className="block absolute right-4 top-1/2 translate-y-[-50%] lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg">
+                className="block absolute right-4 top-1/2 translate-y-[-50%] lg:hidden focus:ring-2 ring-primary08 px-3 py-[6px] rounded-lg">
                 <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark dark:bg-white"></span>
                 <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark dark:bg-white"></span>
                 <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark dark:bg-white"></span>
@@ -38,25 +39,25 @@ export default function Header() {
                   <li className="relative group">
                     <a href='#home'
                       className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
-                      Home
+                      {t('header.home')}
                     </a>
                   </li>
                   <li className="relative group">
                     <a href="#about"
                       className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
-                      About
+                      {t('header.about')}
                     </a>
                   </li>
                   <li className="relative group">
                     <a href='#pricing'
                       className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
-                      Pricing
+                      {t('header.pricing')}
                     </a>
                   </li>
                   <li className="relative group">
                     <a href='#contact'
                       className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
-                      Support
+                      {t('header.support')}
                     </a>
                   </li>
                   <li className="relative group submenu-item">
@@ -105,11 +106,11 @@ export default function Header() {
             <div className="flex justify-end items-center pr-16 lg:pr-0">
               <Link to={'/signIn'}
                 className="hidden md:block text-base font-bold text-dark dark:text-white hover:opacity-70 py-3 px-7">
-                Sign In
+                {t('signIn.button')}
               </Link>
               <Link to={'/signUp'}
-                className="hidden md:block text-base font-bold text-white bg-primaryIcons py-3 px-8 md:px-9 lg:px-6 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 rounded-md transition ease-in-up duration-300">
-                Sign Up
+                className="hidden md:block text-base font-bold text-white bg-primary py-3 px-8 md:px-9 lg:px-6 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 rounded-md transition ease-in-up duration-300">
+                {t('signUp.button')}
               </Link>
               <div>
                 <label htmlFor="darkToggler"

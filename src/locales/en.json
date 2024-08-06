@@ -1,5 +1,11 @@
 {
   "translation": {
+    "header": {
+      "home": "Home",
+      "about": "About",
+      "pricing": "Pricing",
+      "support": "Support"
+    },
     "signIn": {
       "title": "Sign in to your account",
       "subTitle": "Login to your account for a faster checkout",

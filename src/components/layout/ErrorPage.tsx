@@ -62,7 +62,7 @@ export default function ErrorPage() {
               </p>
               <Link
                 to="/"
-                className="text-base font-bold text-white bg-primary py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:bg-white hover:text-primary shadow-signUp rounded-md">
+                className="text-base font-bold text-white bg-primary08 py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:bg-white hover:text-primary08 shadow-signUp rounded-md">
                 Back to Homepage
               </Link>
             </div>

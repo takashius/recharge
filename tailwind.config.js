@@ -13,10 +13,10 @@ export default {
       colors: {
         bgCustom: '#090e34',
         dark: '#1d2144',
-        primary: '#4a6cf708',
+        primary: '#4a6cf7',
         secondary: '#ff49db',
         bodyColor: '#959cb1',
-        primaryIcons: '#4a6cf7',
+        primary08: '#4a6cf708',
         primaryButton: '#4a6cf7cc',
         yellow: '#fbb040'
       },

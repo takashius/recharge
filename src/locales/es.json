@@ -1,5 +1,11 @@
 {
   "translation": {
+    "header": {
+      "home": "Inicio",
+      "about": "Nosotros",
+      "pricing": "Precios",
+      "support": "Soporte"
+    },
     "signIn": {
       "title": "Iniciar sesión",
       "subTitle": "Inicie sesión para realizar un pago más rápido",

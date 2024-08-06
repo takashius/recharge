@@ -19,7 +19,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center justify-center">
                   <a href="#features"
-                    className="text-base font-semibold text-white bg-primaryIcons py-4 px-8 hover:bg-opacity-80 mx-2 rounded-md transition duration-300 ease-in-out">
+                    className="text-base font-semibold text-white bg-primary py-4 px-8 hover:bg-opacity-80 mx-2 rounded-md transition duration-300 ease-in-out">
                     Get Started
                   </a>
                   <a href="#about"
@@ -137,7 +137,7 @@ export default function Home() {
 
       </section>
 
-      <section id="features" className="bg-primary/5 bg-opacity-[3%] pt-[120px] pb-[50px]">
+      <section id="features" className="bg-primary08/5 bg-opacity-[3%] pt-[120px] pb-[50px]">
         <div className="container">
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
@@ -154,7 +154,7 @@ export default function Home() {
             <div className="w-full md:w-1/2 lg:w-1/3 px-4">
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".15s">
                 <div
-                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primaryIcons">
+                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <svg width="40" height="41" viewBox="0 0 40 41" className="fill-current">
                     <path opacity="0.5"
                       d="M37.7778 40.2223H24C22.8954 40.2223 22 39.3268 22 38.2223V20.0001C22 18.8955 22.8954 18.0001 24 18.0001H37.7778C38.8823 18.0001 39.7778 18.8955 39.7778 20.0001V38.2223C39.7778 39.3268 38.8823 40.2223 37.7778 40.2223Z" />
@@ -173,7 +173,7 @@ export default function Home() {
             <div className="w-full md:w-1/2 lg:w-1/3 px-4">
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".2s">
                 <div
-                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primaryIcons">
+                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
                     <path opacity="0.5"
                       d="M20.5914 34.2584C20.2394 34.5172 19.7603 34.5175 19.408 34.2593L4.19163 23.1079C3.8395 22.8498 3.36065 22.85 3.00873 23.1084L1.09802 24.5111C0.553731 24.9107 0.553731 25.7237 1.09802 26.1233L19.4082 39.5655C19.7604 39.824 20.2396 39.824 20.5918 39.5655L38.9029 26.1226C39.4469 25.7232 39.4473 24.9107 38.9036 24.5109L36.9701 23.0889C36.6177 22.8298 36.1378 22.8297 35.7854 23.0888L20.5914 34.2584Z" />
@@ -192,7 +192,7 @@ export default function Home() {
             <div className="w-full md:w-1/2 lg:w-1/3 px-4">
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".25s">
                 <div
-                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primaryIcons">
+                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
                     <path opacity="0.5"
                       d="M20 30C22.75 30 25 32.25 25 35C25 37.75 22.75 40 20 40C17.25 40 15 37.75 15 35C15 32.25 17.25 30 20 30ZM35 30C37.75 30 40 32.25 40 35C40 37.75 37.75 40 35 40C32.25 40 30 37.75 30 35C30 32.25 32.25 30 35 30ZM35 15C37.75 15 40 17.25 40 20C40 22.75 37.75 25 35 25C32.25 25 30 22.75 30 20C30 17.25 32.25 15 35 15Z" />
@@ -211,7 +211,7 @@ export default function Home() {
             <div className="w-full md:w-1/2 lg:w-1/3 px-4">
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".1s">
                 <div
-                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primaryIcons">
+                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <svg width="40" height="42" viewBox="0 0 40 42" className="fill-current">
                     <path opacity="0.5"
                       d="M31.8943 25.3303C34.1233 25.3303 36.1497 26.1409 37.5682 27.762L39.1464 26.1839C39.4614 25.8689 39.9999 26.092 39.9999 26.5374V32.936C39.9999 33.2121 39.7761 33.436 39.4999 33.436H33.1014C32.6559 33.436 32.4328 32.8974 32.7478 32.5825L35.5418 29.7885C34.5286 28.9779 33.3128 28.37 31.8943 28.37C29.0573 28.37 26.8282 30.599 26.8282 33.436C26.8282 36.273 29.0573 38.5021 31.8943 38.5021C33.3549 38.5021 34.6511 37.844 35.6345 36.8244C35.8406 36.6107 36.1187 36.4756 36.4155 36.4756H38.6535C39.0072 36.4756 39.2477 36.833 39.0881 37.1487C37.7427 39.8107 35.0781 41.5417 31.8943 41.5417C27.4361 41.5417 23.7886 37.8941 23.7886 33.436C23.7886 28.9779 27.4361 25.3303 31.8943 25.3303Z" />
@@ -230,7 +230,7 @@ export default function Home() {
             <div className="w-full md:w-1/2 lg:w-1/3 px-4">
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".15s">
                 <div
-                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primaryIcons">
+                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
                     <path opacity="0.5"
                       d="M39 12C39.5523 12 40 12.4477 40 13V39C40 39.5523 39.5523 40 39 40H13C12.4477 40 12 39.5523 12 39V33C12 32.4477 12.4477 32 13 32H31C31.5523 32 32 31.5523 32 31V13C32 12.4477 32.4477 12 33 12H39Z" />
@@ -248,7 +248,7 @@ export default function Home() {
             <div className="w-full md:w-1/2 lg:w-1/3 px-4">
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".2s">
                 <div
-                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primaryIcons">
+                  className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <svg width="40" height="45" viewBox="0 0 40 45" className="fill-current">
                     <path opacity="0.5"
                       d="M31.579 37.8948C28.6737 37.8948 26.3158 35.5369 26.3158 32.6317C26.3158 31.9159 26.4527 31.2306 26.7135 30.6015C26.7959 30.4027 26.7605 30.1711 26.6083 30.019L24.9997 28.4103C24.7766 28.1872 24.4043 28.2238 24.2487 28.4983C23.5588 29.7145 23.1579 31.125 23.1579 32.6317C23.1579 37.2843 26.9263 41.0527 31.579 41.0527V43.0035C31.579 43.449 32.1175 43.6721 32.4325 43.3571L35.9622 39.8273C36.1575 39.6321 36.1575 39.3155 35.9622 39.1202L32.4325 35.5905C32.1175 35.2755 31.579 35.4986 31.579 35.9441V37.8948ZM31.579 24.2106V22.2598C31.579 21.8144 31.0404 21.5913 30.7254 21.9063L27.1957 25.436C27.0004 25.6313 27.0004 25.9479 27.1957 26.1431L30.7254 29.6729C31.0404 29.9879 31.579 29.7648 31.579 29.3193V27.3685C34.4842 27.3685 36.8421 29.7264 36.8421 32.6317C36.8421 33.3474 36.7052 34.0328 36.4444 34.6618C36.362 34.8606 36.3974 35.0922 36.5496 35.2444L38.1582 36.853C38.3813 37.0762 38.7536 37.0396 38.9092 36.7651C39.5991 35.5488 40 34.1384 40 32.6317C40 27.9791 36.2316 24.2106 31.579 24.2106Z" />
@@ -358,7 +358,7 @@ export default function Home() {
                     <div className="w-full sm:w-1/2 lg:w-full xl:w-1/2 px-3">
                       <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primaryIcons mr-4">
+                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
                             <path
                               d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
@@ -368,7 +368,7 @@ export default function Home() {
                       </p>
                       <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primaryIcons mr-4">
+                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
                             <path
                               d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
@@ -378,7 +378,7 @@ export default function Home() {
                       </p>
                       <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primaryIcons mr-4">
+                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
                             <path
                               d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
@@ -390,7 +390,7 @@ export default function Home() {
                     <div className="w-full sm:w-1/2 lg:w-full xl:w-1/2 px-3">
                       <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primaryIcons mr-4">
+                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
                             <path
                               d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
@@ -400,7 +400,7 @@ export default function Home() {
                       </p>
                       <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primaryIcons mr-4">
+                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
                             <path
                               d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
@@ -410,7 +410,7 @@ export default function Home() {
                       </p>
                       <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
                         <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primaryIcons mr-4">
+                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
                           <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
                             <path
                               d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
@@ -728,7 +728,7 @@ export default function Home() {
                     <input id="togglePlan" type="checkbox" className="sr-only" />
                     <div className="w-14 h-5 bg-[#1D2144] rounded-full shadow-inner"></div>
                     <div
-                      className="dot absolute w-7 h-7 bg-primaryIcons rounded-full shadow-switch-1 left-0 top-[-4px] transition flex items-center justify-center">
+                      className="dot absolute w-7 h-7 bg-primary rounded-full shadow-switch-1 left-0 top-[-4px] transition flex items-center justify-center">
                       <span className="active w-4 h-4 rounded-full bg-white"></span>
                     </div>
                   </div>
@@ -759,7 +759,7 @@ export default function Home() {
                 <div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -769,7 +769,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -779,7 +779,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -789,7 +789,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -799,7 +799,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="8" viewBox="0 0 8 8" className="fill-current stroke-current">
                         <path
                           d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z"
@@ -810,7 +810,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="8" viewBox="0 0 8 8" className="fill-current stroke-current">
                         <path
                           d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z"
@@ -865,7 +865,7 @@ export default function Home() {
                 <div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -875,7 +875,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -885,7 +885,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -895,7 +895,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -905,7 +905,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -915,7 +915,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="8" viewBox="0 0 8 8" className="fill-current stroke-current">
                         <path
                           d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z"
@@ -970,7 +970,7 @@ export default function Home() {
                 <div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -980,7 +980,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -990,7 +990,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -1000,7 +1000,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -1010,7 +1010,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center mb-3">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -1020,7 +1020,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center">
                     <span
-                      className="bg-primary bg-opacity-10 text-primaryIcons max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
                       <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
                         <path
                           d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
@@ -1268,7 +1268,7 @@ export default function Home() {
                     </div>
                     <div className="w-full px-4">
                       <a href="#"
-                        className="text-base font-medium text-white bg-primaryIcons py-4 px-9 hover:bg-opacity-80 hover:shadow-signUp rounded-md transition duration-300 ease-in-out">
+                        className="text-base font-medium text-white bg-primary py-4 px-9 hover:bg-opacity-80 hover:shadow-signUp rounded-md transition duration-300 ease-in-out">
                         Submit Ticket
                       </a>
                     </div>
@@ -1293,7 +1293,7 @@ export default function Home() {
                   <input type="email" name="email" placeholder="Enter your email"
                     className="w-full border border-body-color border-opacity-10 dark:border-white dark:border-opacity-10 dark:bg-[#242B51] rounded-md py-3 px-6 font-medium text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary focus:border-opacity-100 mb-4" />
                   <input type="submit" value="Subscribe"
-                    className="w-full border border-primary bg-primaryIcons rounded-md py-3 px-6 font-medium text-white text-base text-center outline-none cursor-pointer focus-visible:shadow-none hover:shadow-signUp hover:bg-opacity-80 transition duration-80 ease-in-out mb-4" />
+                    className="w-full border border-primary bg-primary rounded-md py-3 px-6 font-medium text-white text-base text-center outline-none cursor-pointer focus-visible:shadow-none hover:shadow-signUp hover:bg-opacity-80 transition duration-80 ease-in-out mb-4" />
                   <p className="text-base text-bodyColor text-center font-medium leading-relaxed">No spam guaranteed, So please
                     don’t send any spam mail.</p>
                 </form>
