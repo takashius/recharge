@@ -7,9 +7,6 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundColor: {
-        primary: 'rgb(74 108 247 / var(--tw-bg-opacity))'
-      },
       colors: {
         bgCustom: '#090e34',
         dark: '#1d2144',

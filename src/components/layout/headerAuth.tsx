@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
-import { useDarkMode } from '../../hooks'
 import FlagEsp from '../icons/flagEsp'
 import FlagUsa from '../icons/flagUsa'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import { Avatar, IconButton, Tooltip, Menu, MenuItem, ListItemIcon, Divider } from '@mui/material'
 import { Logout } from '@mui/icons-material'
+import { useTheme } from '../../context/ThemeContext'
 
 export default function Header() {
   const { t, i18n } = useTranslation()
-  const toggleDarkMode = useDarkMode()
+  const { toggleTheme } = useTheme();
   const [isEsp, setIsEsp] = useState(false)
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -32,8 +32,8 @@ export default function Header() {
         <div className="flex mx-[-16px] items-center justify-between relative">
           <div className="px-4 w-60 max-w-full">
             <Link to={'/'} className="w-full block py-8 header-logo">
-              <img src="images/logo-2.svg" alt="logo" className="w-full dark:hidden" />
-              <img src="images/logo.svg" alt="logo" className="w-full hidden dark:block" />
+              <img src="/images/logo-2.svg" alt="logo" className="w-full dark:hidden" />
+              <img src="/images/logo.svg" alt="logo" className="w-full hidden dark:block" />
             </Link>
           </div>
           <div className="flex px-4 justify-between items-center w-full">
@@ -118,7 +118,7 @@ export default function Header() {
               <div>
                 <label htmlFor="darkToggler"
                   className="cursor-pointer w-9 h-9 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-gray-2 dark:bg-dark-bg text-black dark:text-white">
-                  <input type="checkbox" name="darkToggler" id="darkToggler" onClick={toggleDarkMode} className="sr-only" aria-label="darkToggler" />
+                  <input type="checkbox" name="darkToggler" id="darkToggler" onClick={toggleTheme} className="sr-only" aria-label="darkToggler" />
                   <svg viewBox="0 0 23 23" className="stroke-current dark:hidden w-5 h-5 md:w-6 md:h-6" fill="none">
                     <path
                       d="M9.55078 1.5C5.80078 1.5 1.30078 5.25 1.30078 11.25C1.30078 17.25 5.80078 21.75 11.8008 21.75C17.8008 21.75 21.5508 17.25 21.5508 13.5C13.3008 18.75 4.30078 9.75 9.55078 1.5Z"

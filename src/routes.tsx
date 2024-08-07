@@ -11,6 +11,8 @@ import BlogDetail from "./components/pages/blogDetail"
 import SignIn from "./components/pages/signIn"
 import SignUp from "./components/pages/signUp"
 
+import Cards from "./components/pages/auth/cards"
+
 export const routes = [
   {
     path: '/',
@@ -32,6 +34,7 @@ export const routes = [
     element: <Auth />,
     errorElement: <ErrorPage />,
     children: [
+      { path: "/user/cards", element: <Cards /> },
     ],
   },
 ]
