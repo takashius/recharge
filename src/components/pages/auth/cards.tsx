@@ -4,7 +4,7 @@ import { useDemoData } from '@mui/x-data-grid-generator'
 import Background from '../../layout/background'
 import { useTranslation } from 'react-i18next'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { useTheme } from '../../../context/ThemeContext'
+import { useTheme } from 'src/context/ThemeContext'
 
 export default function Cards() {
   const { theme } = useTheme()
