@@ -1,13 +1,18 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import path from 'path'
+import react from '@vitejs/plugin-react'
+import macrosPlugin from 'vite-plugin-babel-macros';
+import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
+    macrosPlugin(),
+  ],
   resolve: {
     alias: {
-      '@hooks': path.resolve(__dirname, './src/hooks'),
+      "src": path.resolve(__dirname, "./src"),
+      "mocks": path.resolve(__dirname, "./mocks"),
     },
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 })
