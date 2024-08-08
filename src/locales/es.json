@@ -51,6 +51,17 @@
         "partFour": "Política de privacidad"
       }
     },
+    "cards": {
+      "title": "Tarjetas del usuario",
+      "new": "Nueva recarga",
+      "table": {
+        "number": "Número",
+        "name": "Nombre",
+        "balance": "Balance",
+        "date": "Fecha",
+        "actions": "Acciones"
+      }
+    },
     "welcome": "Bienvenido",
     "description": "Este es un ejemplo de i18n en React con Vite."
   }
