@@ -1,24 +1,65 @@
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import { esES, enUS } from '@mui/x-data-grid/locales'
-import { useDemoData } from '@mui/x-data-grid-generator'
 import Background from '../../layout/background'
 import { useTranslation } from 'react-i18next'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useTheme } from '../../../context/ThemeContext'
+import { Edit, Delete, Bills } from '../../icons'
 
 export default function Cards() {
   const { theme } = useTheme()
-  const { i18n } = useTranslation()
-  const { data } = useDemoData({
-    dataSet: 'Commodity',
-    rowLength: 16,
-    maxColumns: 6,
-  });
-  const muiTheme = createTheme({
-    palette: {
-      mode: theme == 'dark' ? 'dark' : 'light',
+  const { t, i18n } = useTranslation()
+
+  const renderButton = (value: any) => {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <a href='#' data-id={value}
+          className="text-sm font-bold text-white bg-primary py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
+          <Edit />
+        </a>
+        <a href='#' data-id={value}
+          className="text-sm font-bold ml-2 text-white bg-orange-400 py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
+          <Bills />
+        </a>
+        <a href='#' data-id={value}
+          className="text-sm font-bold ml-2 text-white bg-red-600 py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
+          <Delete />
+        </a>
+      </div>
+    )
+  }
+
+
+  const columns = [
+    { field: 'number', headerName: t('cards.table.number'), flex: 1 },
+    { field: 'name', headerName: t('cards.table.name'), flex: 1 },
+    { field: 'balance', headerName: t('cards.table.balance'), flex: 1 },
+    { field: 'date', headerName: t('cards.table.date'), flex: 1 },
+    {
+      field: 'actions',
+      headerName: t('cards.table.actions'),
+      renderCell: renderButton,
+      flex: 1
+    }
+  ]
+  const rows = [
+    {
+      id: 1,
+      number: 'ERGDF354',
+      name: 'Pedro Perez',
+      balance: '14.587,00',
+      date: '15/05/2024',
+      add: 'Test adicional'
     },
-  });
+    {
+      id: 2,
+      number: 'AS54ER5',
+      name: 'Juan Ramirez',
+      balance: '14.658,20',
+      date: '17/05/2024'
+    },
+  ]
+  const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
   const currentLang = i18n.resolvedLanguage
   const langEsp = esES.components.MuiDataGrid.defaultProps.localeText
   const langEng = enUS.components.MuiDataGrid.defaultProps.localeText
@@ -31,14 +72,23 @@ export default function Cards() {
             <div
               className="relative z-10 rounded-md bg-primary bg-opacity-[3%] dark:bg-opacity-10 p-8 sm:p-11 lg:p-8 xl:p-11 mb-5 wow fadeInUp"
               data-wow-delay=".2s">
-
+              <div className="flex justify-between items-center mb-3">
+                <h2 className="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-2xl xl:text-3xl">
+                  {t('cards.title')}
+                </h2>
+                <a href='#'
+                  className="text-sm font-bold text-white bg-primary py-2 px-4 md:px-5 lg:px-4 xl:px-5 hover:shadow-signUp hover:bg-opacity-90 rounded-full transition ease-in-up duration-300">
+                  {t('cards.new')}
+                </a>
+              </div>
 
               <div className="w-full h-screen bg-white dark:bg-transparent">
                 <ThemeProvider theme={muiTheme}>
                   <DataGrid
-                    {...data}
+                    columns={columns}
+                    rows={rows}
                     localeText={currentLang === 'es' ? langEsp : langEng}
-                    disableColumnFilter
+                    disableColumnSelector
                     slots={{ toolbar: GridToolbar }}
                     slotProps={{
                       toolbar: {
@@ -55,6 +105,7 @@ export default function Cards() {
         </div>
       </div>
     </section>
+
   </>
   );
 }
