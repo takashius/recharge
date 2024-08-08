@@ -1,10 +1,10 @@
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import { esES, enUS } from '@mui/x-data-grid/locales'
-import Background from '../../layout/background'
+import Background from 'src/components/layout/background'
 import { useTranslation } from 'react-i18next'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { useTheme } from '../../../context/ThemeContext'
-import { Edit, Delete, Bills } from '../../icons'
+import { useTheme } from 'src/context/ThemeContext'
+import { Edit, Delete, Bills } from 'src/components/icons'
 
 export default function Cards() {
   const { theme } = useTheme()
