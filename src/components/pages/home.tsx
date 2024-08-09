@@ -699,40 +699,45 @@ export default function Home() {
                 className="bg-primary/5 bg-opacity-[3%] dark:bg-dark rounded-md p-11 mb-12 lg:mb-5 sm:p-[55px] lg:p-11 xl:p-[55px] wow fadeInUp"
                 data-wow-delay=".15s
               ">
-                <h2 className="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-2xl xl:text-3xl mb-3">Need
-                  Help? Open a Ticket</h2>
-                <p className="text-bodyColor text-base font-medium mb-12">Our support team will get back to you ASAP via email.
+                <h2 className="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-2xl xl:text-3xl mb-3">
+                  {t('home.contact.title')}
+                </h2>
+                <p className="text-bodyColor text-base font-medium mb-12">
+                  {t('home.contact.subTitle')}
                 </p>
                 <form>
                   <div className="flex flex-wrap mx-[-16px]">
                     <div className="w-full md:w-1/2 px-4">
                       <div className="mb-8">
-                        <label htmlFor="name" className="block text-sm font-medium text-dark dark:text-white mb-3"> Your Name
+                        <label htmlFor="name" className="block text-sm font-medium text-dark dark:text-white mb-3">
+                          {t('home.contact.form.name')}
                         </label>
-                        <input type="text" placeholder="Enter your name"
+                        <input type="text" placeholder={t('home.contact.form.namePlaceholder')}
                           className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                       </div>
                     </div>
                     <div className="w-full md:w-1/2 px-4">
                       <div className="mb-8">
-                        <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-3"> Your Email
+                        <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-3">
+                          {t('home.contact.form.email')}
                         </label>
-                        <input type="email" placeholder="Enter your email"
+                        <input type="email" placeholder={t('home.contact.form.emailPlaceholder')}
                           className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                       </div>
                     </div>
                     <div className="w-full px-4">
                       <div className="mb-8">
-                        <label htmlFor="message" className="block text-sm font-medium text-dark dark:text-white mb-3"> Your Message
+                        <label htmlFor="message" className="block text-sm font-medium text-dark dark:text-white mb-3">
+                          {t('home.contact.form.message')}
                         </label>
-                        <textarea name="message" placeholder="Enter your Message"
+                        <textarea name="message" placeholder={t('home.contact.form.messagePlaceholder')}
                           className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary resize-none"></textarea>
                       </div>
                     </div>
                     <div className="w-full px-4">
                       <a href="#"
                         className="text-base font-medium text-white bg-primary py-4 px-9 hover:bg-opacity-80 hover:shadow-signUp rounded-md transition duration-300 ease-in-out">
-                        Submit Ticket
+                        {t('home.contact.form.submit')}
                       </a>
                     </div>
                   </div>
@@ -744,21 +749,23 @@ export default function Home() {
                 className="relative z-10 rounded-md bg-primary/5 bg-opacity-[3%] dark:bg-opacity-10 p-8 sm:p-11 lg:p-8 xl:p-11 mb-5 wow fadeInUp"
                 data-wow-delay=".2s
               ">
-                <h3 className="text-black dark:text-white font-bold text-2xl leading-tight mb-4">Subscribe to receive future
-                  updates</h3>
+                <h3 className="text-black dark:text-white font-bold text-2xl leading-tight mb-4">
+                  {t('home.subscribe.title')}
+                </h3>
                 <p
                   className="font-medium text-base text-bodyColor leading-relaxed pb-11 mb-11 border-b border-body-color border-opacity-25 dark:border-white dark:border-opacity-25">
-                  Lorem ipsum dolor sited Sed ullam corper consectur adipiscing Mae ornare massa quis lectus.
+                  {t('home.subscribe.subTitle')}
                 </p>
                 <form>
-                  <input type="text" name="name" placeholder="Enter your name"
+                  <input type="text" name="name" placeholder={t('home.contact.form.namePlaceholder')}
                     className="w-full border border-body-color border-opacity-10 dark:border-white dark:border-opacity-10 dark:bg-[#242B51] rounded-md py-3 px-6 font-medium text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary focus:border-opacity-100 mb-4" />
-                  <input type="email" name="email" placeholder="Enter your email"
+                  <input type="email" name="email" placeholder={t('home.contact.form.emailPlaceholder')}
                     className="w-full border border-body-color border-opacity-10 dark:border-white dark:border-opacity-10 dark:bg-[#242B51] rounded-md py-3 px-6 font-medium text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary focus:border-opacity-100 mb-4" />
                   <input type="submit" value="Subscribe"
                     className="w-full border border-primary bg-primary rounded-md py-3 px-6 font-medium text-white text-base text-center outline-none cursor-pointer focus-visible:shadow-none hover:shadow-signUp hover:bg-opacity-80 transition duration-80 ease-in-out mb-4" />
-                  <p className="text-base text-bodyColor text-center font-medium leading-relaxed">No spam guaranteed, So please
-                    don’t send any spam mail.</p>
+                  <p className="text-base text-bodyColor text-center font-medium leading-relaxed">
+                    {t('home.subscribe.note')}
+                  </p>
                 </form>
                 <div className="absolute top-0 left-0 z-[-1]">
                   <svg width="370" height="596" viewBox="0 0 370 596" fill="none" xmlns="http://www.w3.org/2000/svg">

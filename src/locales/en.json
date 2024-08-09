@@ -2,9 +2,16 @@
   "translation": {
     "header": {
       "home": "Home",
-      "about": "About",
-      "pricing": "Pricing",
-      "support": "Support"
+      "schedules": "Schedules",
+      "news": "News",
+      "tours": "Tours",
+      "institutional": "Institutional",
+      "history": "History",
+      "philosophy": "Philosophy",
+      "authorities": "Authorities",
+      "infrastructure": "Infrastructure",
+      "gallery": "Image gallery",
+      "videos": "Videos"
     },
     "home": {
       "cta": {
@@ -35,6 +42,25 @@
       "news": {
         "title": "Latest News",
         "subTitle": "Stay Informed with the Latest Updates"
+      },
+      "contact":{
+        "title": "Need help?",
+        "subTitle": "Our support team will get back to you ASAP via email.",
+        "form": {
+          "name": "Your Name",
+          "email": "Your Email",
+          "message": "Your Message",
+          "namePlaceholder":"Enter your name",
+          "emailPlaceholder":"Enter your email",
+          "messagePlaceholder":"Enter your message",
+          "submit": "Submit"
+        }
+      },
+      "subscribe": {
+        "title": "Subscribe to receive future updates",
+        "subTitle":"Receive the latest news directly to your email",
+        "note": "No spam guaranteed, So please don’t send any spam mail.",
+        "submit": "Subscribe"
       }
     },
     "signIn": {

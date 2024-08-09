@@ -2,9 +2,16 @@
   "translation": {
     "header": {
       "home": "Inicio",
-      "about": "Nosotros",
-      "pricing": "Precios",
-      "support": "Soporte"
+      "schedules": "Horarios",
+      "news": "Noticias",
+      "tours": "Recorridos",
+      "institutional": "Institucional",
+      "history": "Historia",
+      "philosophy": "Filosofía",
+      "authorities": "Autoridades",
+      "infrastructure": "Infraestructura",
+      "gallery": "Galería de Imágenes",
+      "videos": "Videos"
     },
     "home": {
       "cta": {
@@ -35,6 +42,25 @@
       "news": {
         "title": "Últimas noticias",
         "subTitle": "Mantente Informado con las Últimas Actualizaciones"
+      },
+      "contact":{
+        "title": "¿Necesita ayuda?",
+        "subTitle": "Nuestro equipo de soporte se comunicará con usted lo antes posible por correo electrónico.",
+        "form": {
+          "name": "Tu Nombre",
+          "email": "Tu Correo Electrónico",
+          "message": "Tu Mensaje",
+          "namePlaceholder":"Ingresa tu nombre",
+          "emailPlaceholder":"Ingresa tu correo electrónico",
+          "messagePlaceholder":"Ingresa tu mensaje",
+          "submit": "Enviar"
+        }
+      },
+      "subscribe": {
+        "title": "Suscríbete para recibir futuras actualizaciones",
+        "subTitle":"Recibe las últimas noticias directamente en tu correo",
+        "note": "Garantizamos no enviar spam, así que por favor no envíes correos no deseados.",
+        "submit": "Suscribirse"
       }
     },
     "signIn": {

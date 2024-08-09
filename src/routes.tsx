@@ -22,7 +22,7 @@ export const routes = [
     children: [
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
-      { path: "/blogGrid", element: <BlogGrid /> },
+      { path: "/news", element: <BlogGrid /> },
       { path: "/blogDetail", element: <BlogDetail /> },
       { path: "/blogSidebar", element: <BlogSidebar /> },
       { path: "/contact", element: <Contact /> },

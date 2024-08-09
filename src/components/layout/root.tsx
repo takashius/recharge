@@ -1,4 +1,4 @@
-import { useStickyHeader, useSmoothScroll } from '../../hooks'
+import { useStickyHeader } from '../../hooks'
 import { Outlet } from "react-router-dom"
 import Header from './header'
 import Footer from './footer'
@@ -7,7 +7,6 @@ import '../../main.css'
 
 export default function Root() {
   useStickyHeader();
-  useSmoothScroll();
 
   return (
     <>

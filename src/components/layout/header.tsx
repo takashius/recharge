@@ -36,67 +36,60 @@ export default function Header() {
                 className="absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white dark:bg-dark lg:dark:bg-transparent lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none">
                 <ul className="block lg:flex">
                   <li className="relative group">
-                    <a href='#home'
+                    <Link to={'/'}
                       className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
                       {t('header.home')}
+                    </Link>
+                  </li>
+                  <li className="relative group">
+                    <a href="#"
+                      className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
+                      {t('header.schedules')}
                     </a>
                   </li>
                   <li className="relative group">
-                    <a href="#about"
+                    <a href='#'
                       className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
-                      {t('header.about')}
+                      {t('header.tours')}
                     </a>
                   </li>
                   <li className="relative group">
-                    <a href='#pricing'
+                    <Link to={'/news'}
                       className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
-                      {t('header.pricing')}
-                    </a>
-                  </li>
-                  <li className="relative group">
-                    <a href='#contact'
-                      className="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
-                      {t('header.support')}
-                    </a>
+                      {t('header.news')}
+                    </Link>
                   </li>
                   <li className="relative group submenu-item">
                     <a href="#"
                       className="text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:pl-0 lg:pr-4 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12 relative after:absolute after:w-2 after:h-2 after:border-b-2 after:border-r-2 after:border-current after:rotate-45 lg:after:right-0 after:right-1 after:top-1/2 after:translate-y-[-50%] after:mt-[-2px]">
-                      Pages
+                      {t('header.institutional')}
                     </a>
                     <div
                       className="submenu hidden relative lg:absolute w-[250px] top-full lg:top-[110%] left-0 rounded-md lg:shadow-lg p-4 lg:block lg:opacity-0 lg:invisible group-hover:opacity-100 lg:group-hover:visible lg:group-hover:top-full bg-white dark:bg-dark transition-[top] duration-300">
-                      <Link to={'/about'}
+                      <Link to={'/'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
-                        About Page
+                        {t('header.history')}
                       </Link>
-                      <Link to={'/contact'}
+                      <Link to={'/'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
-                        Contact Page
+                        {t('header.philosophy')}
                       </Link>
-                      <Link to={'/blogGrid'}
+                      <Link to={'/'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
-                        Blog Grid Page
+                        {t('header.authorities')}
                       </Link>
                       <Link to={'/blogSidebar'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
-                        Blog Sidebar Page
+                        {t('header.infrastructure')}
                       </Link>
                       <Link to={'/blogDetail'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
-                        Blog Details Page
+                        {t('header.gallery')}
                       </Link>
-                      <Link to={'/signIn'}
+                      <Link to={'/'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
-                        Sign In Page
+                        {t('header.videos')}
                       </Link>
-                      <Link to={'/signUp'}
-                        className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
-                        Sign Up Page
-                      </Link>
-                      <a href="404.html"
-                        className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70"> 404 Page
-                      </a>
                     </div>
                   </li>
                 </ul>
