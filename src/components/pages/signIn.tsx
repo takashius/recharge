@@ -55,10 +55,13 @@ export default function SignIn() {
                     </div>
                   </div>
                   <div className="mb-6">
-                    <button
+                    {/* <button
                       className="w-full flex items-center justify-center text-base font-medium text-white bg-primary py-4 px-9 hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out rounded-md">
                       {t('signIn.button')}
-                    </button>
+                    </button> */}
+                    <Link to="/user/cards" className="w-full flex items-center justify-center text-base font-medium text-white bg-primary py-4 px-9 hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out rounded-md">
+                      {t('signIn.button')}
+                    </Link>
                   </div>
                 </form>
                 <p className="font-medium text-base text-bodyColor text-center">

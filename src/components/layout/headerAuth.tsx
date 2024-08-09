@@ -32,7 +32,7 @@ export default function Header() {
         <div className="flex mx-[-16px] items-center justify-between relative">
           <div className="px-4 w-60 max-w-full">
             <Link to={'/'} className="w-full block py-8 header-logo">
-              <img src="images/logo_codesa.png" alt="logo" className="w-full" />
+              <img src="/images/logo_codesa.png" alt="logo" className="w-full" />
             </Link>
           </div>
           <div className="flex px-4 justify-between items-center w-full">
@@ -47,7 +47,7 @@ export default function Header() {
                 className="absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white dark:bg-dark lg:dark:bg-transparent lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none">
                 <ul className="block lg:flex">
                   <li className="relative group">
-                    <Link to={'/'}
+                    <Link to={'/user/cards'}
                       className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
                       {t('header.home')}
                     </Link>

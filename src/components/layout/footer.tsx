@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="w-full md:w-1/2 lg:w-4/12 xl:w-5/12 px-4">
               <div className="mb-16 max-w-[360px]">
                 <Link to={'/'} className="inline-block mb-8">
-                  <img src="images/logo_codesa.png" alt="logo" className="w-40" />
+                  <img src="/images/logo_codesa.png" alt="logo" className="w-40" />
                 </Link>
                 <p className="text-bodyColor text-base font-medium leading-relaxed mb-9">Lorem ipsum dolor sit amet,
                   consectetur adipiscing elit. Integer lobortis.</p>
