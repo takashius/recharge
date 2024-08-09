@@ -6,10 +6,12 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useTheme } from 'src/context/ThemeContext'
 import { Edit, Delete, Bills } from 'src/components/icons'
 import { Link } from 'react-router-dom'
+import { pageTitle } from 'src/hooks'
 
 export default function Cards() {
   const { theme } = useTheme()
   const { t, i18n } = useTranslation()
+  pageTitle(`${t('title')} - ${t('cards.title')}`)
 
   const renderButton = (value: any) => {
     return (
@@ -29,7 +31,6 @@ export default function Cards() {
       </div>
     )
   }
-
 
   const columns: GridColDef[] = [
     { field: 'number', headerName: t('cards.table.number'), flex: 1 },

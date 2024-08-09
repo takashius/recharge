@@ -1,4 +1,8 @@
+import { useTranslation } from 'react-i18next'
+import { pageTitle } from 'src/hooks'
 export default function BlogGrid() {
+  const { t } = useTranslation()
+  pageTitle(`${t('title')} - ${t('header.news')}`)
   return (
     <>
 

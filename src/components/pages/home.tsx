@@ -8,9 +8,11 @@ import {
   Security as SecurityIcon
 } from '@mui/icons-material'
 import ImageSlider from '../ui/ImageSlider'
+import { pageTitle } from 'src/hooks'
 
 export default function Home() {
   const { t } = useTranslation()
+  pageTitle(t('title'))
 
   return (
     <>

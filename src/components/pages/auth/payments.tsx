@@ -6,10 +6,12 @@ import { useTheme } from 'src/context/ThemeContext'
 import { useTranslation } from 'react-i18next'
 import { Warning, Refresh, Check } from 'src/components/icons'
 import { useEffect, useState } from 'react'
+import { pageTitle } from 'src/hooks'
 
 export default function Payments() {
   const { theme } = useTheme()
   const { t, i18n } = useTranslation()
+  pageTitle(`${t('title')} - ${t('payments.title')}`)
   const [loading, setLoading] = useState(true)
   const [rows, setRows] = useState<any>([])
 

@@ -1,8 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import { pageTitle } from 'src/hooks'
 
 export default function SignUp() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
+  pageTitle(`${t('title')} - ${t('signUp.title')}`)
   return (
     <>
       <section className="relative overflow-hidden z-10 pt-[180px] pb-[120px]">
