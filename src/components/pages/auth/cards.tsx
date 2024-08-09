@@ -1,10 +1,11 @@
-import { DataGrid, GridToolbar } from '@mui/x-data-grid'
+import { DataGrid, GridToolbar, GridColDef } from '@mui/x-data-grid'
 import { esES, enUS } from '@mui/x-data-grid/locales'
 import Background from 'src/components/layout/background'
 import { useTranslation } from 'react-i18next'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useTheme } from 'src/context/ThemeContext'
 import { Edit, Delete, Bills } from 'src/components/icons'
+import { Link } from 'react-router-dom'
 
 export default function Cards() {
   const { theme } = useTheme()
@@ -17,10 +18,10 @@ export default function Cards() {
           className="text-sm font-bold text-white bg-primary py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
           <Edit />
         </a>
-        <a href='#' data-id={value}
+        <Link to={'/user/payments'} data-id={value}
           className="text-sm font-bold ml-2 text-white bg-orange-400 py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
           <Bills />
-        </a>
+        </Link>
         <a href='#' data-id={value}
           className="text-sm font-bold ml-2 text-white bg-red-600 py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
           <Delete />
@@ -30,11 +31,22 @@ export default function Cards() {
   }
 
 
-  const columns = [
+  const columns: GridColDef[] = [
     { field: 'number', headerName: t('cards.table.number'), flex: 1 },
     { field: 'name', headerName: t('cards.table.name'), flex: 1 },
     { field: 'balance', headerName: t('cards.table.balance'), flex: 1 },
-    { field: 'date', headerName: t('cards.table.date'), flex: 1 },
+    {
+      field: 'date',
+      headerName: t('cards.table.date'),
+      flex: 1,
+      type: 'date',
+      valueGetter: (value: string) => {
+        const [day, month, year] = value.split('/');
+        const date = new Date(`${year}-${month}-${day}T00:00:00`);
+        const timezoneOffset = date.getTimezoneOffset() * 60000;
+        return new Date(date.getTime() + timezoneOffset);
+      },
+    },
     {
       field: 'actions',
       headerName: t('cards.table.actions'),
@@ -48,15 +60,14 @@ export default function Cards() {
       number: 'ERGDF354',
       name: 'Pedro Perez',
       balance: '14.587,00',
-      date: '15/05/2024',
-      add: 'Test adicional'
+      date: '17/05/2024'
     },
     {
       id: 2,
       number: 'AS54ER5',
       name: 'Juan Ramirez',
       balance: '14.658,20',
-      date: '17/05/2024'
+      date: '22/05/2024'
     },
   ]
   const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })

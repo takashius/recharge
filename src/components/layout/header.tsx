@@ -21,8 +21,7 @@ export default function Header() {
         <div className="flex mx-[-16px] items-center justify-between relative">
           <div className="px-4 w-60 max-w-full">
             <Link to={'/'} className="w-full block py-8 header-logo">
-              <img src="images/logo-2.svg" alt="logo" className="w-full dark:hidden" />
-              <img src="images/logo.svg" alt="logo" className="w-full hidden dark:block" />
+              <img src="images/logo_codesa.png" alt="logo" className="w-full" />
             </Link>
           </div>
           <div className="flex px-4 justify-between items-center w-full">

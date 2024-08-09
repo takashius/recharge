@@ -1,5 +1,17 @@
+import { useTranslation } from 'react-i18next'
+import {
+  DirectionsBus as BusIcon,
+  Map as MapIcon,
+  Notifications as NotificationsIcon,
+  ConfirmationNumber as TicketIcon,
+  People as PeopleIcon,
+  Security as SecurityIcon
+} from '@mui/icons-material'
+import ImageSlider from '../ui/ImageSlider'
 
 export default function Home() {
+  const { t } = useTranslation()
+
   return (
     <>
       <section id="home"
@@ -10,23 +22,12 @@ export default function Home() {
               <div className="mx-auto max-w-[570px] text-center wow fadeInUp" data-wow-delay=".2s">
                 <h1
                   className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-5xl leading-tight sm:leading-tight md:leading-tight my-10">
-                  Startup Focused Tailwind CSS Template
+                  {t('home.cta.title')}
                 </h1>
                 <p
                   className="font-medium text-lg md:text-xl leading-relaxed md:leading-relaxed text-bodyColor dark:text-white dark:opacity-90 mb-16">
-                  A Complete Tailwind CSS Web Template Crafted for - Startup, SaaS, Business, Software and Agencies. Comes
-                  with high-quality design and everything you need!
+                  {t('home.cta.subTitle')}
                 </p>
-                <div className="flex items-center justify-center">
-                  <a href="#features"
-                    className="text-base font-semibold text-white bg-primary py-4 px-8 hover:bg-opacity-80 mx-2 rounded-md transition duration-300 ease-in-out">
-                    Get Started
-                  </a>
-                  <a href="#about"
-                    className="text-base font-semibold text-black bg-black bg-opacity-10 dark:text-white dark:bg-white dark:bg-opacity-10 py-4 px-8 hover:bg-opacity-20 dark:hover:bg-opacity-20 mx-2 rounded-md transition duration-300 ease-in-out">
-                    Learn More
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -142,7 +143,7 @@ export default function Home() {
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[570px] text-center mb-[100px] wow fadeInUp" data-wow-delay=".1s">
-                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">Main Features</h2>
+                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">{t('home.features.title')}</h2>
                 <p className="text-bodyColor text-base md:text-lg leading-relaxed md:leading-relaxed">
                   There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
                   in some form.
@@ -155,18 +156,13 @@ export default function Home() {
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".15s">
                 <div
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
-                  <svg width="40" height="41" viewBox="0 0 40 41" className="fill-current">
-                    <path opacity="0.5"
-                      d="M37.7778 40.2223H24C22.8954 40.2223 22 39.3268 22 38.2223V20.0001C22 18.8955 22.8954 18.0001 24 18.0001H37.7778C38.8823 18.0001 39.7778 18.8955 39.7778 20.0001V38.2223C39.7778 39.3268 38.8823 40.2223 37.7778 40.2223Z" />
-                    <path
-                      d="M23.2222 0C22.6699 0 22.2222 0.447715 22.2222 1V12.3333C22.2222 12.8856 22.6699 13.3333 23.2222 13.3333H39C39.5523 13.3333 40 12.8856 40 12.3333V0.999999C40 0.447714 39.5523 0 39 0H23.2222ZM0 39C0 39.5523 0.447715 40 1 40H16.7778C17.3301 40 17.7778 39.5523 17.7778 39V27.6667C17.7778 27.1144 17.3301 26.6667 16.7778 26.6667H1C0.447716 26.6667 0 27.1144 0 27.6667V39ZM0 21.2222C0 21.7745 0.447715 22.2222 1 22.2222H16.7778C17.3301 22.2222 17.7778 21.7745 17.7778 21.2222V0.999999C17.7778 0.447714 17.3301 0 16.7778 0H1C0.447716 0 0 0.447715 0 1V21.2222Z" />
-                  </svg>
+                  <BusIcon fontSize="large" className="text-primary" />
                 </div>
-                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">Crafted for
-                  Startups</h3>
+                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
+                  {t('home.features.routesTitle')}
+                </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
-                  Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam
-                  perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                  {t('home.features.routesDescription')}
                 </p>
               </div>
             </div>
@@ -174,18 +170,13 @@ export default function Home() {
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".2s">
                 <div
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
-                  <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
-                    <path opacity="0.5"
-                      d="M20.5914 34.2584C20.2394 34.5172 19.7603 34.5175 19.408 34.2593L4.19163 23.1079C3.8395 22.8498 3.36065 22.85 3.00873 23.1084L1.09802 24.5111C0.553731 24.9107 0.553731 25.7237 1.09802 26.1233L19.4082 39.5655C19.7604 39.824 20.2396 39.824 20.5918 39.5655L38.9029 26.1226C39.4469 25.7232 39.4473 24.9107 38.9036 24.5109L36.9701 23.0889C36.6177 22.8298 36.1378 22.8297 35.7854 23.0888L20.5914 34.2584Z" />
-                    <path
-                      d="M19.408 28.931C19.7603 29.1896 20.2396 29.1894 20.5918 28.9306L36.3556 17.3466L38.8979 15.4883C39.4437 15.0894 39.4446 14.275 38.8996 13.8749L20.5918 0.43445C20.2396 0.175911 19.7604 0.175913 19.4082 0.434452L1.09706 13.8774C0.553051 14.2767 0.552712 15.0892 1.09638 15.4891L3.62222 17.3466L19.408 28.931Z" />
-                  </svg>
+                  <MapIcon fontSize="large" className="text-primary" />
                 </div>
                 <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
-                  High-quality Design</h3>
+                  {t('home.features.trackingTitle')}
+                </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
-                  Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam
-                  perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                  {t('home.features.trackingDescription')}
                 </p>
               </div>
             </div>
@@ -193,18 +184,13 @@ export default function Home() {
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".25s">
                 <div
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
-                  <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
-                    <path opacity="0.5"
-                      d="M20 30C22.75 30 25 32.25 25 35C25 37.75 22.75 40 20 40C17.25 40 15 37.75 15 35C15 32.25 17.25 30 20 30ZM35 30C37.75 30 40 32.25 40 35C40 37.75 37.75 40 35 40C32.25 40 30 37.75 30 35C30 32.25 32.25 30 35 30ZM35 15C37.75 15 40 17.25 40 20C40 22.75 37.75 25 35 25C32.25 25 30 22.75 30 20C30 17.25 32.25 15 35 15Z" />
-                    <path
-                      d="M20 15C22.75 15 25 17.25 25 20C25 22.75 22.75 25 20 25C17.25 25 15 22.75 15 20C15 17.25 17.25 15 20 15ZM20 0C22.75 0 25 2.25 25 5C25 7.75 22.75 10 20 10C17.25 10 15 7.75 15 5C15 2.25 17.25 0 20 0ZM5 30C7.75 30 10 32.25 10 35C10 37.75 7.75 40 5 40C2.25 40 0 37.75 0 35C0 32.25 2.25 30 5 30ZM5 15C7.75 15 10 17.25 10 20C10 22.75 7.75 25 5 25C2.25 25 0 22.75 0 20C0 17.25 2.25 15 5 15ZM5 0C7.75 0 10 2.25 10 5C10 7.75 7.75 10 5 10C2.25 10 0 7.75 0 5C0 2.25 2.25 0 5 0ZM35 0C37.75 0 40 2.25 40 5C40 7.75 37.75 10 35 10C32.25 10 30 7.75 30 5C30 2.25 32.25 0 35 0Z" />
-                  </svg>
+                  <NotificationsIcon fontSize="large" className="text-primary" />
                 </div>
                 <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">All
-                  Essential Components</h3>
+                  {t('home.features.notificationsTitle')}
+                </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
-                  Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam
-                  perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                  {t('home.features.notificationsDescription')}
                 </p>
               </div>
             </div>
@@ -212,18 +198,13 @@ export default function Home() {
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".1s">
                 <div
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
-                  <svg width="40" height="42" viewBox="0 0 40 42" className="fill-current">
-                    <path opacity="0.5"
-                      d="M31.8943 25.3303C34.1233 25.3303 36.1497 26.1409 37.5682 27.762L39.1464 26.1839C39.4614 25.8689 39.9999 26.092 39.9999 26.5374V32.936C39.9999 33.2121 39.7761 33.436 39.4999 33.436H33.1014C32.6559 33.436 32.4328 32.8974 32.7478 32.5825L35.5418 29.7885C34.5286 28.9779 33.3128 28.37 31.8943 28.37C29.0573 28.37 26.8282 30.599 26.8282 33.436C26.8282 36.273 29.0573 38.5021 31.8943 38.5021C33.3549 38.5021 34.6511 37.844 35.6345 36.8244C35.8406 36.6107 36.1187 36.4756 36.4155 36.4756H38.6535C39.0072 36.4756 39.2477 36.833 39.0881 37.1487C37.7427 39.8107 35.0781 41.5417 31.8943 41.5417C27.4361 41.5417 23.7886 37.8941 23.7886 33.436C23.7886 28.9779 27.4361 25.3303 31.8943 25.3303Z" />
-                    <path
-                      d="M18.7226 33.436C18.7226 31.3572 19.2513 29.4548 19.9799 27.7285C20.0541 27.5529 19.9264 27.3567 19.7358 27.3567C15.8856 27.3567 12.6433 24.1144 12.6433 20.2642C12.6433 16.414 15.8856 13.1717 19.7358 13.1717C23.586 13.1717 26.8283 16.414 26.8283 20.2642C26.8283 20.5105 27.3897 21.0054 27.6246 20.9313C28.9274 20.5206 30.2827 20.2642 31.8943 20.2642C32.775 20.2642 33.6557 20.4173 34.5364 20.5905C34.7422 20.6309 34.9339 20.4739 34.9339 20.2642C34.9339 19.8699 34.9339 19.3904 34.8787 18.9362C34.827 18.5117 34.9599 18.0636 35.3001 17.8045L38.9868 14.9955C39.3921 14.5902 39.3921 14.1849 39.1894 13.7797L35.1857 6.77316C35.153 6.71599 35.1272 6.65499 35.1021 6.59411C34.9143 6.13895 34.5848 6.08618 34.1135 6.08007C33.9863 6.07841 33.86 6.10354 33.7419 6.15079L29.3957 7.88927C29.0613 8.02302 28.6829 7.96367 28.3887 7.75599C27.6155 7.21023 26.7521 6.75466 25.8752 6.31262C25.5838 6.16573 25.3813 5.88702 25.3335 5.56423L24.6729 1.10574C24.6265 0.792572 24.6613 0.389935 24.3993 0.212245C24.2235 0.0930361 23.9828 0 23.7886 0H15.6829C15.3021 0 14.7424 0.35783 14.6762 0.73726C14.6678 0.785579 14.6661 0.834927 14.6589 0.883445L13.9492 5.67408C13.894 6.04692 13.6313 6.35205 13.2873 6.50604C12.4439 6.88359 11.673 7.42345 10.8193 7.89265C10.5647 8.03264 10.26 8.04143 9.99178 7.92966L5.73545 6.15619C5.61358 6.10541 5.48273 6.07832 5.35072 6.08016C4.8506 6.08715 4.49147 6.1485 4.13234 6.68719L0.0794975 13.7797C-0.123145 14.1849 0.0794976 14.5902 0.484782 14.9955L4.34631 17.9376C4.59456 18.1268 4.74261 18.4216 4.7079 18.7317C4.65068 19.243 4.53762 19.8101 4.53762 20.2642C4.53762 20.6648 4.53762 21.1534 4.59561 21.614C4.64767 22.0276 4.52563 22.4644 4.20164 22.7267L0.484782 25.7355C0.0794976 26.1408 0.0794978 26.5461 0.28214 26.9514L4.33498 34.0439C4.5154 34.4047 4.85644 34.4443 5.35811 34.4486C5.48532 34.4497 5.61152 34.4249 5.72964 34.3776L10.0758 32.6392C10.4102 32.5054 10.7887 32.5648 11.0829 32.7724C11.8561 33.3182 12.7195 33.7738 13.5964 34.2158C13.8878 34.3627 14.0903 34.6414 14.1381 34.9642L14.8616 39.8476C14.8688 39.8961 14.871 39.9453 14.8768 39.994C14.9222 40.3734 15.3145 40.7311 15.8856 40.7311H19.13C19.9191 40.7311 20.4065 39.8523 20.0627 39.1421C19.1998 37.3593 18.7226 35.4573 18.7226 33.436Z" />
-                  </svg>
+                  <TicketIcon fontSize="large" className="text-primary" />
                 </div>
                 <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">Speed
-                  Optimized</h3>
+                  {t('home.features.ratesTitle')}
+                </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
-                  Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam
-                  perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                  {t('home.features.ratesDescription')}
                 </p>
               </div>
             </div>
@@ -231,17 +212,13 @@ export default function Home() {
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".15s">
                 <div
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
-                  <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
-                    <path opacity="0.5"
-                      d="M39 12C39.5523 12 40 12.4477 40 13V39C40 39.5523 39.5523 40 39 40H13C12.4477 40 12 39.5523 12 39V33C12 32.4477 12.4477 32 13 32H31C31.5523 32 32 31.5523 32 31V13C32 12.4477 32.4477 12 33 12H39Z" />
-                    <rect width="28" height="28" rx="1" />
-                  </svg>
+                  <PeopleIcon fontSize="large" className="text-primary" />
                 </div>
                 <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">Fully
-                  Customizable</h3>
+                  {t('home.features.serviceTitle')}
+                </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
-                  Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam
-                  perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                  {t('home.features.serviceDescription')}
                 </p>
               </div>
             </div>
@@ -249,18 +226,13 @@ export default function Home() {
               <div className="mb-[70px] wow fadeInUp" data-wow-delay=".2s">
                 <div
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
-                  <svg width="40" height="45" viewBox="0 0 40 45" className="fill-current">
-                    <path opacity="0.5"
-                      d="M31.579 37.8948C28.6737 37.8948 26.3158 35.5369 26.3158 32.6317C26.3158 31.9159 26.4527 31.2306 26.7135 30.6015C26.7959 30.4027 26.7605 30.1711 26.6083 30.019L24.9997 28.4103C24.7766 28.1872 24.4043 28.2238 24.2487 28.4983C23.5588 29.7145 23.1579 31.125 23.1579 32.6317C23.1579 37.2843 26.9263 41.0527 31.579 41.0527V43.0035C31.579 43.449 32.1175 43.6721 32.4325 43.3571L35.9622 39.8273C36.1575 39.6321 36.1575 39.3155 35.9622 39.1202L32.4325 35.5905C32.1175 35.2755 31.579 35.4986 31.579 35.9441V37.8948ZM31.579 24.2106V22.2598C31.579 21.8144 31.0404 21.5913 30.7254 21.9063L27.1957 25.436C27.0004 25.6313 27.0004 25.9479 27.1957 26.1431L30.7254 29.6729C31.0404 29.9879 31.579 29.7648 31.579 29.3193V27.3685C34.4842 27.3685 36.8421 29.7264 36.8421 32.6317C36.8421 33.3474 36.7052 34.0328 36.4444 34.6618C36.362 34.8606 36.3974 35.0922 36.5496 35.2444L38.1582 36.853C38.3813 37.0762 38.7536 37.0396 38.9092 36.7651C39.5991 35.5488 40 34.1384 40 32.6317C40 27.9791 36.2316 24.2106 31.579 24.2106Z" />
-                    <path
-                      d="M18.9474 32.6316C18.9474 35.4705 19.8099 38.0969 21.2941 40.2796C21.7904 41.0094 21.3054 42.1053 20.4229 42.1053H4.21053C1.87368 42.1053 0 40.2316 0 37.8947V4.21053C0 1.89474 1.87368 0 4.21053 0H6.31579H16.8421H29.4737C31.7895 0 33.6842 1.87368 33.6842 4.21053V17.9544C33.6842 18.5032 33.1804 18.9474 32.6316 18.9474C25.0737 18.9474 18.9474 25.0737 18.9474 32.6316Z" />
-                  </svg>
+                  <SecurityIcon fontSize="large" className="text-primary" />
                 </div>
                 <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">Regular
-                  Updates</h3>
+                  {t('home.features.security')}
+                </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
-                  Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam
-                  perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                  {t('home.features.securityDescription')}
                 </p>
               </div>
             </div>
@@ -273,12 +245,9 @@ export default function Home() {
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[570px] text-center mb-20 wow fadeInUp" data-wow-delay=".1s">
-                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">We are ready to
-                  help</h2>
-                <p className="text-bodyColor text-base md:text-lg leading-relaxed md:leading-relaxed">
-                  There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
-                  in some form.
-                </p>
+                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">
+                  {t('home.video')}
+                </h2>
               </div>
             </div>
           </div>
@@ -286,16 +255,7 @@ export default function Home() {
             <div className="w-full px-4">
               <div className="mx-auto max-w-[770px] rounded-md overflow-hidden wow fadeInUp" data-wow-delay=".15s">
                 <div className="relative items-center justify-center">
-                  <img src="images/video.jpg" alt="video image" className="w-full h-full object-cover object-center" />
-                  <div className="absolute w-full h-full top-0 right-0 flex items-center justify-center">
-                    <a href="#"
-                      className="glightbox w-[70px] h-[70px] rounded-full flex items-center justify-center bg-white bg-opacity-75 text-primary hover:bg-opacity-100 transition">
-                      <svg width="16" height="18" viewBox="0 0 16 18" className="fill-current">
-                        <path
-                          d="M15.5 8.13397C16.1667 8.51888 16.1667 9.48112 15.5 9.86602L2 17.6603C1.33333 18.0452 0.499999 17.564 0.499999 16.7942L0.5 1.20577C0.5 0.43597 1.33333 -0.0451549 2 0.339745L15.5 8.13397Z" />
-                      </svg>
-                    </a>
-                  </div>
+                  <iframe width="770" height="400" src="https://www.youtube.com/embed/Ji44xiupvTg?si=kxaAxN7YmRXyl8V8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
             </div>
@@ -306,181 +266,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pt-16">
-        <div className="container">
-          <div className="flex flex-wrap mx-[-16px]">
-            <div className="w-full px-4">
-              <div
-                className="bg-dark dark:bg-primary dark:bg-opacity-5 rounded-md flex flex-wrap items-center justify-center py-8 px-8 sm:px-10 md:py-[40px] md:px-[50px] xl:p-[50px] 2xl:py-[60px] 2xl:px-[70px] wow fadeInUp"
-                data-wow-delay=".1s
-              ">
-                <a href="https://uideck.com" target="_blank" rel="nofollow noreferrer"
-                  className="flex items-center justify-center lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 opacity-70 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100 transition">
-                  <img src="images/uideck.svg" alt="uideck" />
-                </a>
-                <a href="https://tailgrids.com" target="_blank" rel="nofollow noreferrer"
-                  className="flex items-center justify-center lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 opacity-70 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100 transition">
-                  <img src="images/tailgrids.svg" alt="tailgrids" />
-                </a>
-                <a href="https://lineicons.com" target="_blank" rel="nofollow noreferrer"
-                  className="flex items-center justify-center lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 opacity-70 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100 transition">
-                  <img src="images/lineicons.svg" alt="lineicons" />
-                </a>
-                <a href="https://ayroui.com" target="_blank" rel="nofollow noreferrer"
-                  className="flex items-center justify-center lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 opacity-70 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100 transition">
-                  <img src="images/ayroui.svg" alt="ayroui" />
-                </a>
-                <a href="https://plainadmin.com" target="_blank" rel="nofollow noreferrer"
-                  className="flex items-center justify-center lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 opacity-70 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100 transition">
-                  <img src="images/plainadmin.svg" alt="plainadmin" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="pt-[120px]">
-        <div className="container">
-          <div className="pb-[100px] border-b border-white border-opacity-[.15]">
-            <div className="flex flex-wrap items-center mx-[-16px]">
-              <div className="w-full lg:w-1/2 px-4">
-                <div className="mb-12 lg:mb-0 max-w-[570px] wow fadeInUp" data-wow-delay=".15s">
-                  <h2
-                    className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] lg:text-4xl xl:text-[45px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight mb-6">
-                    Crafted for Startup, SaaS and Business Sites.
-                  </h2>
-                  <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-11">
-                    The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business
-                    applications with interactive panel discussions and roundtables.
-                  </p>
-                  <div className="flex flex-wrap mx-[-12px]">
-                    <div className="w-full sm:w-1/2 lg:w-full xl:w-1/2 px-3">
-                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
-                        <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
-                          <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-                            <path
-                              d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-                          </svg>
-                        </span>
-                        Premium quality
-                      </p>
-                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
-                        <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
-                          <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-                            <path
-                              d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-                          </svg>
-                        </span>
-                        No code required
-                      </p>
-                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
-                        <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
-                          <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-                            <path
-                              d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-                          </svg>
-                        </span>
-                        Use for lifetime
-                      </p>
-                    </div>
-                    <div className="w-full sm:w-1/2 lg:w-full xl:w-1/2 px-3">
-                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
-                        <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
-                          <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-                            <path
-                              d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-                          </svg>
-                        </span>
-                        Regular updates
-                      </p>
-                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
-                        <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
-                          <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-                            <path
-                              d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-                          </svg>
-                        </span>
-                        Rich documentation
-                      </p>
-                      <p className="flex items-center text-bodyColor text-lg font-medium mb-5">
-                        <span
-                          className="w-[30px] h-[30px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary mr-4">
-                          <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-                            <path
-                              d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-                          </svg>
-                        </span>
-                        Developer friendly
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-1/2 px-4">
-                <div className="text-center lg:text-right wow fadeInUp" data-wow-delay=".2s">
-                  <img src="images/about-image.svg" alt="about-image" className="max-w-full mx-auto lg:mr-0" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pt-[100px] pb-[120px]">
-        <div className="container">
-          <div className="flex flex-wrap items-center mx-[-16px]">
-            <div className="w-full lg:w-1/2 px-4">
-              <div className="text-center lg:text-left mb-12 lg:mb-0 wow fadeInUp" data-wow-delay=".15s">
-                <img src="images/about-image-2.svg" alt="about image" className="max-w-full mx-auto lg:ml-0" />
-              </div>
-            </div>
-            <div className="w-full lg:w-1/2 px-4">
-              <div className="max-w-[470px] wow fadeInUp" data-wow-delay=".2s">
-                <div className="mb-9">
-                  <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4">Bug free
-                    code</h3>
-                  <p className="text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua.
-                  </p>
-                </div>
-                <div className="mb-9">
-                  <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4">Premier
-                    support</h3>
-                  <p className="text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                  </p>
-                </div>
-                <div className="mb-1">
-                  <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4">Regular
-                    updates</h3>
-                  <p className="text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed font-medium">
-                    Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt consectetur adipiscing elit setim.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="relative z-10 pt-[120px] pb-20 bg-primary/5 bg-opacity-[3%]">
         <div className="container">
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[570px] text-center mb-[100px] wow fadeInUp" data-wow-delay=".1s">
-                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">What Our Users
-                  Says</h2>
-                <p className="text-bodyColor text-base md:text-lg leading-relaxed md:leading-relaxed">
-                  There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
-                  in some form.
-                </p>
+                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">
+                  {t('home.testimonials')}
+                </h2>
               </div>
             </div>
           </div>
@@ -710,348 +503,18 @@ export default function Home() {
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[655px] text-center mb-[100px] wow fadeInUp" data-wow-delay=".1s">
-                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">Simple and
-                  Affordable Pricing</h2>
+                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">
+                  {t('home.slider.title')}
+                </h2>
                 <p className="text-bodyColor text-base md:text-lg leading-relaxed md:leading-relaxed max-w-[570px] mx-auto">
-                  There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
-                  in some form.
+                  {t('home.slider.subTitle')}
                 </p>
               </div>
             </div>
           </div>
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
-              <div className="flex justify-center mb-16 wow fadeInUp" data-wow-delay=".1s">
-                <span className="text-dark dark:text-white text-base font-semibold mr-4 monthly cursor-pointer"> Monthly </span>
-                <label htmlFor="togglePlan" className="flex items-center cursor-pointer">
-                  <div className="relative">
-                    <input id="togglePlan" type="checkbox" className="sr-only" />
-                    <div className="w-14 h-5 bg-[#1D2144] rounded-full shadow-inner"></div>
-                    <div
-                      className="dot absolute w-7 h-7 bg-primary rounded-full shadow-switch-1 left-0 top-[-4px] transition flex items-center justify-center">
-                      <span className="active w-4 h-4 rounded-full bg-white"></span>
-                    </div>
-                  </div>
-                </label>
-                <span className="text-dark dark:text-white text-base font-semibold ml-4 yearly cursor-pointer"> Yearly </span>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-wrap mx-[-16px]">
-            <div className="w-full md:w-1/2 lg:w-1/3 px-4">
-              <div className="relative z-10 bg-white dark:bg-[#1D2144] shadow-signUp px-8 py-10 rounded-md mb-10 wow fadeInUp"
-                data-wow-delay=".1s">
-                <div className="flex justify-between items-center">
-                  <h3 className="font-bold text-black dark:text-white text-3xl mb-2 price">
-                    $<span className="amount">40</span>
-                    <span className="text-dark dark:text-bodyColor time">/mo</span>
-                  </h3>
-                  <h4 className="text-white font-bold text-xl mb-2">Lite</h4>
-                </div>
-                <p className="text-base text-bodyColor mb-7">Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim.</p>
-                <div
-                  className="border-b border-body-color dark:border-white border-opacity-10 dark:border-opacity-10 pb-8 mb-8">
-                  <a href="#"
-                    className="font-semibold text-base text-white bg-primary w-full flex items-center justify-center rounded-md p-3 hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out">
-                    Start Free Trial
-                  </a>
-                </div>
-                <div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">All UI Components</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Use with Unlimited Projects</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Commercial Use</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Email Support</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="8" viewBox="0 0 8 8" className="fill-current stroke-current">
-                        <path
-                          d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z"
-                          strokeWidth="0.3" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Lifetime Access</p>
-                  </div>
-                  <div className="flex items-center">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="8" viewBox="0 0 8 8" className="fill-current stroke-current">
-                        <path
-                          d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z"
-                          strokeWidth="0.3" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Free Lifetime Updates</p>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 right-0 z-[-1]">
-                  <svg width="179" height="158" viewBox="0 0 179 158" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.5"
-                      d="M75.0002 63.256C115.229 82.3657 136.011 137.496 141.374 162.673C150.063 203.47 207.217 197.755 202.419 167.738C195.393 123.781 137.273 90.3579 75.0002 63.256Z"
-                      fill="url(#paint0_linear_70:153)" />
-                    <path opacity="0.3"
-                      d="M178.255 0.150879C129.388 56.5969 134.648 155.224 143.387 197.482C157.547 265.958 65.9705 295.709 53.1024 246.401C34.2588 174.197 100.939 83.7223 178.255 0.150879Z"
-                      fill="url(#paint1_linear_70:153)" />
-                    <defs>
-                      <linearGradient id="paint0_linear_70:153" x1="69.6694" y1="29.9033" x2="196.108" y2="83.2919"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                        <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-                      </linearGradient>
-                      <linearGradient id="paint1_linear_70:153" x1="165.348" y1="-75.4466" x2="-3.75136" y2="103.645"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                        <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/3 px-4">
-              <div className="relative z-10 bg-white dark:bg-[#1D2144] shadow-signUp px-8 py-10 rounded-md mb-10 wow fadeInUp"
-                data-wow-delay=".15s">
-                <div className="flex justify-between items-center">
-                  <h3 className="font-bold text-black dark:text-white text-3xl mb-2 price">
-                    $<span className="amount">399</span>
-                    <span className="text-dark dark:text-bodyColor time">/mo</span>
-                  </h3>
-                  <h4 className="text-white font-bold text-xl mb-2">Basic</h4>
-                </div>
-                <p className="text-base text-bodyColor mb-7">Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim.</p>
-                <div
-                  className="border-b border-body-color dark:border-white border-opacity-10 dark:border-opacity-10 pb-8 mb-8">
-                  <a href="#"
-                    className="font-semibold text-base text-white bg-primary w-full flex items-center justify-center rounded-md p-3 hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out">
-                    Start Free Trial
-                  </a>
-                </div>
-                <div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">All UI Components</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Use with Unlimited Projects</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Commercial Use</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Email Support</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Lifetime Access</p>
-                  </div>
-                  <div className="flex items-center">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="8" viewBox="0 0 8 8" className="fill-current stroke-current">
-                        <path
-                          d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z"
-                          strokeWidth="0.3" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Free Lifetime Updates</p>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 right-0 z-[-1]">
-                  <svg width="179" height="158" viewBox="0 0 179 158" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.5"
-                      d="M75.0002 63.256C115.229 82.3657 136.011 137.496 141.374 162.673C150.063 203.47 207.217 197.755 202.419 167.738C195.393 123.781 137.273 90.3579 75.0002 63.256Z"
-                      fill="url(#paint0_linear_70:153)" />
-                    <path opacity="0.3"
-                      d="M178.255 0.150879C129.388 56.5969 134.648 155.224 143.387 197.482C157.547 265.958 65.9705 295.709 53.1024 246.401C34.2588 174.197 100.939 83.7223 178.255 0.150879Z"
-                      fill="url(#paint1_linear_70:153)" />
-                    <defs>
-                      <linearGradient id="paint0_linear_70:153" x1="69.6694" y1="29.9033" x2="196.108" y2="83.2919"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                        <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-                      </linearGradient>
-                      <linearGradient id="paint1_linear_70:153" x1="165.348" y1="-75.4466" x2="-3.75136" y2="103.645"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                        <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/3 px-4">
-              <div className="relative z-10 bg-white dark:bg-[#1D2144] shadow-signUp px-8 py-10 rounded-md mb-10 wow fadeInUp"
-                data-wow-delay=".2s">
-                <div className="flex justify-between items-center">
-                  <h3 className="font-bold text-black dark:text-white text-3xl mb-2 price">
-                    $<span className="amount">589</span>
-                    <span className="text-dark dark:text-bodyColor time">/mo</span>
-                  </h3>
-                  <h4 className="text-white font-bold text-xl mb-2">Plus</h4>
-                </div>
-                <p className="text-base text-bodyColor mb-7">Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim.</p>
-                <div
-                  className="border-b border-body-color dark:border-white border-opacity-10 dark:border-opacity-10 pb-8 mb-8">
-                  <a href="#"
-                    className="font-semibold text-base text-white bg-primary w-full flex items-center justify-center rounded-md p-3 hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out">
-                    Start Free Trial
-                  </a>
-                </div>
-                <div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">All UI Components</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Use with Unlimited Projects</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Commercial Use</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Email Support</p>
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Lifetime Access</p>
-                  </div>
-                  <div className="flex items-center">
-                    <span
-                      className="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 8 6" className="fill-current">
-                        <path
-                          d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z" />
-                      </svg>
-                    </span>
-                    <p className="text-base font-medium text-bodyColor m-0">Free Lifetime Updates</p>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 right-0 z-[-1]">
-                  <svg width="179" height="158" viewBox="0 0 179 158" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.5"
-                      d="M75.0002 63.256C115.229 82.3657 136.011 137.496 141.374 162.673C150.063 203.47 207.217 197.755 202.419 167.738C195.393 123.781 137.273 90.3579 75.0002 63.256Z"
-                      fill="url(#paint0_linear_70:153)" />
-                    <path opacity="0.3"
-                      d="M178.255 0.150879C129.388 56.5969 134.648 155.224 143.387 197.482C157.547 265.958 65.9705 295.709 53.1024 246.401C34.2588 174.197 100.939 83.7223 178.255 0.150879Z"
-                      fill="url(#paint1_linear_70:153)" />
-                    <defs>
-                      <linearGradient id="paint0_linear_70:153" x1="69.6694" y1="29.9033" x2="196.108" y2="83.2919"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                        <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-                      </linearGradient>
-                      <linearGradient id="paint1_linear_70:153" x1="165.348" y1="-75.4466" x2="-3.75136" y2="103.645"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                        <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
+              <ImageSlider />
             </div>
           </div>
         </div>
@@ -1082,11 +545,11 @@ export default function Home() {
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[570px] text-center mb-[100px] wow fadeInUp" data-wow-delay=".1s">
-                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">Our Latest Blogs
+                <h2 className="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">
+                  {t('home.news.title')}
                 </h2>
                 <p className="text-bodyColor text-base md:text-lg leading-relaxed md:leading-relaxed">
-                  There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
-                  in some form.
+                  {t('home.news.subTitle')}
                 </p>
               </div>
             </div>

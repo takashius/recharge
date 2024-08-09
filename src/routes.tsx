@@ -12,6 +12,7 @@ import SignIn from "./components/pages/signIn"
 import SignUp from "./components/pages/signUp"
 
 import Cards from "./components/pages/auth/cards"
+import Payments from "./components/pages/auth/payments"
 
 export const routes = [
   {
@@ -35,6 +36,7 @@ export const routes = [
     errorElement: <ErrorPage />,
     children: [
       { path: "/user/cards", element: <Cards /> },
+      { path: "/user/payments", element: <Payments /> },
     ],
   },
 ]

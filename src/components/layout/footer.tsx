@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useScrollToTop } from "../../hooks"
 
 export default function Footer() {
@@ -9,10 +10,9 @@ export default function Footer() {
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full md:w-1/2 lg:w-4/12 xl:w-5/12 px-4">
               <div className="mb-16 max-w-[360px]">
-                <a href="index.html" className="inline-block mb-8">
-                  <img src="images/logo-2.svg" alt="logo" className="w-full dark:hidden" />
-                  <img src="images/logo.svg" alt="logo" className="w-full hidden dark:block" />
-                </a>
+                <Link to={'/'} className="inline-block mb-8">
+                  <img src="images/logo_codesa.png" alt="logo" className="w-40" />
+                </Link>
                 <p className="text-bodyColor text-base font-medium leading-relaxed mb-9">Lorem ipsum dolor sit amet,
                   consectetur adipiscing elit. Integer lobortis.</p>
                 <div className="flex items-center">
@@ -102,11 +102,6 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="py-8 bg-primary bg-opacity-10">
-          <div className="container">
-            <p className="text-bodyColor dark:text-white text-base text-center">&copy; Crafted by UIdeck for You!</p>
           </div>
         </div>
         <div className="absolute right-0 top-14 z-[-1]">
