@@ -95,7 +95,7 @@ export default function Header() {
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
                         {t('header.authorities')}
                       </Link>
-                      <Link to={'/blogSidebar'}
+                      <Link to={'/institutional/infrastructure'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
                         {t('header.infrastructure')}
                       </Link>

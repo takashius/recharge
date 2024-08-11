@@ -1,74 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { pageTitle } from 'src/hooks'
 import BreadCrumb from 'src/components/ui/breadCrumb'
+import { pageTitle } from 'src/hooks'
 
-export default function History() {
+export default function Infrastructure() {
   const { t } = useTranslation()
-  pageTitle(`${t('title')} - ${t('history.title')}`)
-
-  const GenerateJSX = () => {
-    const elements = [];
-
-    for (let i = 1; i <= 46; i++) {
-      elements.push(
-        <p key={`p${i}`} className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
-          {t(`history.p${i}`)}
-        </p>
-      );
-
-      // Añadir subtítulos en las posiciones correctas
-      if (i === 16) {
-        elements.push(
-          <h3 key="st1" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st1')}
-          </h3>
-        );
-      } else if (i === 17) {
-        elements.push(
-          <h3 key="st2" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st2')}
-          </h3>
-        );
-      } else if (i === 20) {
-        elements.push(
-          <h3 key="st3" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st3')}
-          </h3>
-        );
-        elements.push(
-          <h3 key="st4" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st4')}
-          </h3>
-        );
-      } else if (i === 28) {
-        elements.push(
-          <h3 key="st5" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st5')}
-          </h3>
-        );
-      } else if (i === 31) {
-        elements.push(
-          <h3 key="st6" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st6')}
-          </h3>
-        );
-      } else if (i === 35) {
-        elements.push(
-          <h3 key="st7" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st7')}
-          </h3>
-        );
-      } else if (i === 38) {
-        elements.push(
-          <h3 key="st8" className="font-bold text-black dark:text-white text-lg sm:text-sm my-5">
-            {t('history.st8')}
-          </h3>
-        );
-      }
-    }
-
-    return elements;
-  };
+  pageTitle(`${t('title')} - ${t('infrastructure.title')}`)
   return (
     <>
       <section className="relative z-10 pt-[150px] overflow-hidden">
@@ -76,12 +12,12 @@ export default function History() {
           <div className="flex flex-wrap items-center mx-[-16px]">
             <div className="w-full md:w-8/12 lg:w-7/12 px-4">
               <div className="max-w-[570px] mb-12 md:mb-0">
-                <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">{t('history.title')}</h1>
+                <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">{t('infrastructure.title')}</h1>
               </div>
             </div>
             <div className="w-full md:w-4/12 lg:w-5/12 px-4">
               <div className="text-end">
-                <BreadCrumb titlePage={t('history.title')} />
+                <BreadCrumb titlePage={t('infrastructure.title')} />
               </div>
             </div>
           </div>
@@ -127,7 +63,21 @@ export default function History() {
           <div className="flex flex-wrap items-center mx-[-16px]">
             <div className="w-full px-4">
               <div className="mb-12 md:mb-0">
-                <GenerateJSX />
+                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
+                  {t(`philosophy.p1`)}
+                </p>
+                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
+                  {t(`philosophy.p2`)}
+                </p>
+                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
+                  {t(`philosophy.p3`)}
+                </p>
+                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
+                  {t(`philosophy.p4`)}
+                </p>
+                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-11">
+                  {t(`philosophy.p5`)}
+                </p>
               </div>
             </div>
           </div>
