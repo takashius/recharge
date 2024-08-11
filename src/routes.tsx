@@ -12,6 +12,7 @@ import SignIn from "./components/pages/signIn"
 import SignUp from "./components/pages/signUp"
 
 import History from "./components/pages/institutional/history"
+import Philosophy from "./components/pages/institutional/philosophy"
 
 import Cards from "./components/pages/auth/cards"
 import Payments from "./components/pages/auth/payments"
@@ -31,6 +32,7 @@ export const routes = [
       { path: "/signIn", element: <SignIn /> },
       { path: "/signUp", element: <SignUp /> },
       { path: "/institutional/history", element: <History /> },
+      { path: "/institutional/philosophy", element: <Philosophy /> },
     ],
   },
   {

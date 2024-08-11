@@ -87,7 +87,7 @@ export default function Header() {
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
                         {t('header.history')}
                       </Link>
-                      <Link to={'/'}
+                      <Link to={'/institutional/philosophy'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
                         {t('header.philosophy')}
                       </Link>
