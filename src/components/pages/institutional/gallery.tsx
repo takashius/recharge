@@ -4,9 +4,9 @@ import { pageTitle } from 'src/hooks'
 import ImageGallery from 'src/components/ui/imageGallery'
 import imageData from 'src/assets/images.json'
 
-export default function Infrastructure() {
+export default function Gallery() {
   const { t } = useTranslation()
-  pageTitle(`${t('title')} - ${t('infrastructure.title')}`)
+  pageTitle(`${t('title')} - ${t('header.gallery')}`)
 
   return (
     <>
@@ -15,12 +15,12 @@ export default function Infrastructure() {
           <div className="flex flex-wrap items-center mx-[-16px]">
             <div className="w-full md:w-8/12 lg:w-7/12 px-4">
               <div className="max-w-[570px] mb-12 md:mb-0">
-                <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">{t('infrastructure.title')}</h1>
+                <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">{t('header.gallery')}</h1>
               </div>
             </div>
             <div className="w-full md:w-4/12 lg:w-5/12 px-4">
               <div className="text-end">
-                <BreadCrumb titlePage={t('infrastructure.title')} />
+                <BreadCrumb titlePage={t('header.gallery')} />
               </div>
             </div>
           </div>
@@ -66,21 +66,6 @@ export default function Infrastructure() {
           <div className="flex flex-wrap items-center mx-[-16px]">
             <div className="w-full px-4">
               <div className="mb-12 md:mb-0">
-                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
-                  {t(`philosophy.p1`)}
-                </p>
-                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
-                  {t(`philosophy.p2`)}
-                </p>
-                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
-                  {t(`philosophy.p3`)}
-                </p>
-                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-4">
-                  {t(`philosophy.p4`)}
-                </p>
-                <p className="font-medium text-bodyColor text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-11">
-                  {t(`philosophy.p5`)}
-                </p>
                 <ImageGallery data={imageData} />
               </div>
             </div>

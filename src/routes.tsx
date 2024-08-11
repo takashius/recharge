@@ -14,6 +14,7 @@ import SignUp from "./components/pages/signUp"
 import History from "./components/pages/institutional/history"
 import Philosophy from "./components/pages/institutional/philosophy"
 import Infrastructure from "./components/pages/institutional/infrastructure"
+import Gallery from "./components/pages/institutional/gallery"
 
 import Cards from "./components/pages/auth/cards"
 import Payments from "./components/pages/auth/payments"
@@ -35,6 +36,7 @@ export const routes = [
       { path: "/institutional/history", element: <History /> },
       { path: "/institutional/philosophy", element: <Philosophy /> },
       { path: "/institutional/infrastructure", element: <Infrastructure /> },
+      { path: "/institutional/gallery", element: <Gallery /> },
     ],
   },
   {
