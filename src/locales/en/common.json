@@ -1,0 +1,134 @@
+{
+  "title": "CODESA",
+  "header": {
+    "home": "Home",
+    "schedules": "Schedules",
+    "news": "News",
+    "tours": "Tours",
+    "institutional": "Institutional",
+    "history": "History",
+    "philosophy": "Philosophy",
+    "authorities": "Authorities",
+    "infrastructure": "Infrastructure",
+    "gallery": "Image gallery",
+    "videos": "Videos"
+  },
+  "home": {
+    "cta": {
+      "title": "Discover the Convenience of Public Transport",
+      "subTitle": "Explore our routes and schedules to plan your trip efficiently and comfortably. With CODESA, you will always arrive on time."
+    },
+    "features": {
+      "title": "Main Features",
+      "routesTitle": "Routes and Schedules",
+      "routesDescription": "Check out our routes and schedules to plan your trip efficiently. We offer a wide variety of lines covering the main areas of San Carlos, Punta del Este and Maldonado.",
+      "trackingTitle": "Satellite Tracking",
+      "trackingDescription": "Monitor the location of our buses in real time with our advanced satellite tracking system. This technology allows you to know exactly where your bus is and how much time is left until it arrives at your stop.",
+      "notificationsTitle": "Notifications",
+      "notificationsDescription": "Receive instant notifications about changes in schedules, fares and special services. Stay informed about any eventuality that may affect your trip.",
+      "ratesTitle": "Affordable Rates",
+      "ratesDescription": "We offer competitive and affordable rates for all our transportation services. Check out our rates and find out which payment options best suit your needs.",
+      "serviceTitle": "Customer Service",
+      "serviceDescription": "We provide excellent customer service to answer all your questions and queries. Our team is always available to help you with any problems or questions you may have.",
+      "security": "Security",
+      "securityDescription": "Garantizamos la seguridad de nuestros pasajeros en cada viaje. Nuestros ómnibus están equipados con las últimas tecnologías de seguridad y son operados por conductores altamente capacitados."
+    },
+    "video": "We are ready to help",
+    "testimonials": "Testimonials",
+    "slider": {
+      "title": "Customer Service",
+      "subTitle": "Our team is here to help you with any questions or issues. Contact us and receive personalized assistance!"
+    },
+    "news": {
+      "title": "Latest News",
+      "subTitle": "Stay Informed with the Latest Updates"
+    },
+    "contact": {
+      "title": "Need help?",
+      "subTitle": "Our support team will get back to you ASAP via email.",
+      "form": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "message": "Your Message",
+        "namePlaceholder": "Enter your name",
+        "emailPlaceholder": "Enter your email",
+        "messagePlaceholder": "Enter your message",
+        "submit": "Submit"
+      }
+    },
+    "subscribe": {
+      "title": "Subscribe to receive future updates",
+      "subTitle": "Receive the latest news directly to your email",
+      "note": "No spam guaranteed, So please don’t send any spam mail.",
+      "submit": "Subscribe"
+    }
+  },
+  "signIn": {
+    "title": "Sign in to your account",
+    "subTitle": "Login to your account for a faster checkout",
+    "keepMeIn": "Keep me signed in",
+    "forgotPass": "Forgot Password?",
+    "button": "Sign in",
+    "notAccount": "Don’t you have an account?",
+    "register": "Sign up",
+    "form": {
+      "username": "Your Email",
+      "password": "Your Password",
+      "usernamePlaceholder": "Enter your Email",
+      "passwordPlaceholder": "Enter your Password"
+    }
+  },
+  "signUp": {
+    "title": "Create your account",
+    "subTitle": "It’s totally free and super easy",
+    "button": "Sign up",
+    "alreadyRegistered": "Already registered?",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "lastName": "LastName",
+      "lastNamePlaceholder": "Enter your lastName",
+      "idCard": "Identification card",
+      "idCardPlaceholder": "Enter your identification card number",
+      "username": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone",
+      "password": "Your Password",
+      "passwordPlaceholder": "Enter your password",
+      "rePassword": "Repeat password",
+      "rePasswordPlaceholder": "Repeat your password"
+    },
+    "TermsAndConditions": {
+      "partOne": "By creating account means you agree to the",
+      "partTwo": "Terms and Conditions",
+      "partThree": "and our",
+      "partFour": "Privacy Policy"
+    }
+  },
+  "cards": {
+    "title": "User cards",
+    "new": "New recharge",
+    "table": {
+      "number": "Number",
+      "name": "Name",
+      "balance": "Balance",
+      "date": "Date",
+      "actions": "Actions"
+    }
+  },
+  "payments": {
+    "title": "Payments",
+    "table": {
+      "transaction": "Transaction",
+      "status": "Status",
+      "amount": "Amount",
+      "via": "Via",
+      "date": "Date"
+    }
+  },
+  "welcome": "Welcome",
+  "description": "This is an example of i18n in React with Vite."
+}

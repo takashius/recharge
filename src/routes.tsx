@@ -11,6 +11,8 @@ import BlogDetail from "./components/pages/blogDetail"
 import SignIn from "./components/pages/signIn"
 import SignUp from "./components/pages/signUp"
 
+import History from "./components/pages/institutional/history"
+
 import Cards from "./components/pages/auth/cards"
 import Payments from "./components/pages/auth/payments"
 
@@ -28,6 +30,7 @@ export const routes = [
       { path: "/contact", element: <Contact /> },
       { path: "/signIn", element: <SignIn /> },
       { path: "/signUp", element: <SignUp /> },
+      { path: "/institutional/history", element: <History /> },
     ],
   },
   {

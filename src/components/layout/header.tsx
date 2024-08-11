@@ -83,7 +83,7 @@ export default function Header() {
                     </a>
                     <div
                       className={`submenu ${!submenuOpen && 'hidden'} relative lg:absolute w-[250px] top-full lg:top-[110%] left-0 rounded-md lg:shadow-lg p-4 lg:block lg:opacity-0 lg:invisible group-hover:opacity-100 lg:group-hover:visible lg:group-hover:top-full bg-white dark:bg-dark transition-[top] duration-300`}>
-                      <Link to={'/'}
+                      <Link to={'/institutional/history'}
                         className="block text-sm rounded py-[10px] px-4 text-dark dark:text-white hover:opacity-70">
                         {t('header.history')}
                       </Link>

@@ -1,0 +1,134 @@
+{
+  "title": "CODESA",
+  "header": {
+    "home": "Inicio",
+    "schedules": "Horarios",
+    "news": "Noticias",
+    "tours": "Recorridos",
+    "institutional": "Institucional",
+    "history": "Historia",
+    "philosophy": "Filosofía",
+    "authorities": "Autoridades",
+    "infrastructure": "Infraestructura",
+    "gallery": "Galería de Imágenes",
+    "videos": "Videos"
+  },
+  "home": {
+    "cta": {
+      "title": "Descubre la Comodidad del Transporte Público",
+      "subTitle": "Explora nuestras rutas y horarios para planificar tu viaje de manera eficiente y cómoda. Con CODESA, siempre llegarás a tiempo."
+    },
+    "features": {
+      "title": "Características principales",
+      "routesTitle": "Rutas y Horarios",
+      "routesDescription": "Consulta nuestras rutas y horarios para planificar tu viaje de manera eficiente. Ofrecemos una amplia variedad de líneas que cubren las principales áreas de San Carlos, Punta del Este y Maldonado.",
+      "trackingTitle": "Seguimiento Satelital",
+      "trackingDescription": "Monitorea en tiempo real la ubicación de nuestros ómnibus con nuestro avanzado sistema de seguimiento satelital. Esta tecnología te permite saber exactamente dónde se encuentra tu ómnibus y cuánto tiempo falta para que llegue a tu parada.",
+      "notificationsTitle": "Notificaciones",
+      "notificationsDescription": "Recibe notificaciones instantáneas sobre cambios en horarios, tarifas y servicios especiales. Mantente informado sobre cualquier eventualidad que pueda afectar tu viaje.",
+      "ratesTitle": "Tarifas Accesibles",
+      "ratesDescription": "Ofrecemos tarifas competitivas y accesibles para todos nuestros servicios de transporte. Consulta nuestras tarifas y descubre las opciones de pago que mejor se adapten a tus necesidades.",
+      "serviceTitle": "Atención al Cliente",
+      "serviceDescription": "Brindamos un excelente servicio de atención al cliente para resolver todas tus dudas y consultas. Nuestro equipo está siempre disponible para ayudarte con cualquier problema o pregunta que puedas tener.",
+      "security": "Seguridad",
+      "securityDescription": "Garantizamos la seguridad de nuestros pasajeros en cada viaje. Nuestros ómnibus están equipados con las últimas tecnologías de seguridad y son operados por conductores altamente capacitados."
+    },
+    "video": "Estamos listos para ayudar",
+    "testimonials": "Testimonios",
+    "slider": {
+      "title": "Atención al Cliente",
+      "subTitle": "Nuestro equipo está aquí para ayudarte con cualquier consulta o problema. ¡Contáctanos y recibe asistencia personalizada!"
+    },
+    "news": {
+      "title": "Últimas noticias",
+      "subTitle": "Mantente Informado con las Últimas Actualizaciones"
+    },
+    "contact": {
+      "title": "¿Necesita ayuda?",
+      "subTitle": "Nuestro equipo de soporte se comunicará con usted lo antes posible por correo electrónico.",
+      "form": {
+        "name": "Tu Nombre",
+        "email": "Tu Correo Electrónico",
+        "message": "Tu Mensaje",
+        "namePlaceholder": "Ingresa tu nombre",
+        "emailPlaceholder": "Ingresa tu correo electrónico",
+        "messagePlaceholder": "Ingresa tu mensaje",
+        "submit": "Enviar"
+      }
+    },
+    "subscribe": {
+      "title": "Suscríbete para recibir futuras actualizaciones",
+      "subTitle": "Recibe las últimas noticias directamente en tu correo",
+      "note": "Garantizamos no enviar spam, así que por favor no envíes correos no deseados.",
+      "submit": "Suscribirse"
+    }
+  },
+  "signIn": {
+    "title": "Iniciar sesión",
+    "subTitle": "Inicie sesión para realizar un pago más rápido",
+    "keepMeIn": "Mantenerme conectado",
+    "forgotPass": "¿Has olvidado tu contraseña?",
+    "button": "Ingresar",
+    "notAccount": "¿No tienes una cuenta?",
+    "register": "Registrarse",
+    "form": {
+      "username": "Correo",
+      "password": "Contraseña",
+      "usernamePlaceholder": "Coloque su correo",
+      "passwordPlaceholder": "Coloque su clave"
+    }
+  },
+  "signUp": {
+    "title": "Crea tu cuenta",
+    "subTitle": "Es totalmente gratis y súper fácil.",
+    "button": "Registrarse",
+    "alreadyRegistered": "¿Ya estás registrado?",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Ingrese su nombre",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Ingrese su apellido",
+      "idCard": "Cédula",
+      "idCardPlaceholder": "Ingrese su cédula",
+      "username": "Nombre de usuario",
+      "usernamePlaceholder": "Ingrese su Nombre de usuario",
+      "email": "Correo",
+      "emailPlaceholder": "Ingrese su correo",
+      "phone": "Número de Teléfono",
+      "phonePlaceholder": "Ingrese su teléfono",
+      "password": "Tu contraseña",
+      "passwordPlaceholder": "Ingrese su contraseña",
+      "rePassword": "Repetir contraseña",
+      "rePasswordPlaceholder": "Repita su contraseña"
+    },
+    "TermsAndConditions": {
+      "partOne": "Al crear una cuenta significa que aceptas los",
+      "partTwo": "Términos y condiciones",
+      "partThree": "Y nuestra",
+      "partFour": "Política de privacidad"
+    }
+  },
+  "cards": {
+    "title": "Tarjetas del usuario",
+    "new": "Nueva recarga",
+    "table": {
+      "number": "Número",
+      "name": "Nombre",
+      "balance": "Balance",
+      "date": "Fecha",
+      "actions": "Acciones"
+    }
+  },
+  "payments": {
+    "title": "Pagos realizados",
+    "table": {
+      "transaction": "Transacciones",
+      "status": "Estatus",
+      "amount": "Monto",
+      "via": "Via",
+      "date": "Fecha"
+    }
+  },
+  "welcome": "Bienvenido",
+  "description": "Este es un ejemplo de i18n en React con Vite."
+}
