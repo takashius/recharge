@@ -1,19 +1,26 @@
 import React, { useState } from 'react'
-import { ImageList, ImageListItem, Modal, Box } from '@mui/material'
+import { ImageList, ImageListItem, Modal, Box, CircularProgress } from '@mui/material'
 import { imageGallery } from 'src/types/general'
 
 const ImageGallery = ({ data }: { data: imageGallery }) => {
   const [open, setOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleOpen = (img: React.SetStateAction<string>) => {
     setSelectedImg(img)
     setOpen(true)
-  };
+    setLoading(true)
+  }
 
   const handleClose = () => {
     setOpen(false)
-  };
+    setLoading(false)
+  }
+
+  const handleImageLoad = () => {
+    setLoading(false)
+  }
 
   return (
     <div>
@@ -37,12 +44,23 @@ const ImageGallery = ({ data }: { data: imageGallery }) => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 400,
-            bgcolor: 'background.paper',
             boxShadow: 24,
-            p: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}
         >
-          <img src={selectedImg} alt="Selected" style={{ width: '100%' }} />
+          <span className={`${!loading ? 'hidden' : 'm-4'}`}>
+            <CircularProgress />
+          </span>
+
+          <img
+            src={selectedImg}
+            alt="Selected"
+            style={{ width: '100%' }}
+            onLoad={handleImageLoad}
+            className={`border-white border-2 rounded-xl ${loading && 'hidden'}`}
+          />
         </Box>
       </Modal>
     </div>
