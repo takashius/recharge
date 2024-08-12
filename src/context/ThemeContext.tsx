@@ -12,13 +12,13 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<string>('dark')
+  const [theme, setTheme] = useState<string>('light')
   const [first, setFirst] = useState<boolean>(true)
 
   useEffect(() => {
     if (first) {
       setFirst(false)
-      const currentTheme = localStorage.getItem('theme') || 'dark'
+      const currentTheme = localStorage.getItem('theme') || 'light'
       setTheme(currentTheme)
       document.documentElement.className = currentTheme
     } else {
