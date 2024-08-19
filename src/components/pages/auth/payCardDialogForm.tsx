@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { TextField, Button, MenuItem, Checkbox, FormControlLabel, InputAdornment, createTheme, ThemeProvider, Grid } from '@mui/material'
+import { TextField, MenuItem, Checkbox, FormControlLabel, InputAdornment, createTheme, ThemeProvider, Grid } from '@mui/material'
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCcVisa, faCcMastercard, faCcAmex, faCcDiscover, faPaypal } from '@fortawesome/free-brands-svg-icons'
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'src/context/ThemeContext'
+import { useTranslation } from 'react-i18next';
 
 interface Card {
   id: string
@@ -28,6 +29,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
   const [cvv, setCvv] = useState<string>('')
   const [acceptTerms, setAcceptTerms] = useState<boolean>(false)
   const { theme } = useTheme()
+  const { t } = useTranslation()
 
   const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
 
@@ -108,7 +110,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                   <div className="mb-4">
                     <TextField
                       select
-                      label="Select Card"
+                      label={t('formPay.selectedCard')}
                       value={selectedCard}
                       onChange={(e) => setSelectedCard(e.target.value)}
                       fullWidth
@@ -119,7 +121,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                     >
                       {cards.map((card) => (
                         <MenuItem key={card.id} value={card.id} className="bg-gray-700 text-white">
-                          {card.name} - Balance: ${card.balance}
+                          {card.name} - {t('formPay.balance')}: ${card.balance}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -127,7 +129,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
 
                   <div className="mb-4">
                     <TextField
-                      label="Reload Amount"
+                      label={t('formPay.amount')}
                       value={reloadAmount}
                       onChange={(e) => setReloadAmount(e.target.value)}
                       fullWidth
@@ -140,7 +142,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                   <div className="mb-4">
                     <TextField
                       select
-                      label="Payment Method"
+                      label={t('formPay.method')}
                       value={paymentMethod}
                       onChange={(e) => setPaymentMethod(e.target.value)}
                       fullWidth
@@ -156,7 +158,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                       }}
                       SelectProps={{ MenuProps: { PaperProps: { className: 'bg-gray-700 text-white' } } }}
                     >
-                      <MenuItem value="creditCard" className="bg-gray-700 text-white">Credit Card</MenuItem>
+                      <MenuItem value="creditCard" className="bg-gray-700 text-white">{t('formPay.creditCard')}</MenuItem>
                       <MenuItem value="paypal" className="bg-gray-700 text-white">PayPal</MenuItem>
                       {/* Add more payment methods as needed */}
                     </TextField>
@@ -166,7 +168,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                     <>
                       <div className="mb-4">
                         <TextField
-                          label="Card Holder Name"
+                          label={t('formPay.holderName')}
                           value={cardHolderName}
                           onChange={(e) => setCardHolderName(e.target.value)}
                           fullWidth
@@ -177,7 +179,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                       </div>
                       <div className="mb-4">
                         <TextField
-                          label="Card Number"
+                          label={t('formPay.cardNumber')}
                           value={cardNumber}
                           onChange={handleCardNumberChange}
                           fullWidth
@@ -197,7 +199,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                         <Grid container spacing={2}>
                           <Grid item xs={7}>
                             <TextField
-                              label="Expiry Date (MM/YY)"
+                              label={t('formPay.expiryDate')}
                               value={expiryDate}
                               onChange={handleExpiryDateChange}
                               fullWidth
@@ -232,14 +234,10 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                           onChange={(e) => setAcceptTerms(e.target.checked)}
                         />
                       }
-                      label="I accept the terms and conditions"
+                      label={t('formPay.termsAndConditions')}
                       className="dark:text-white"
                     />
                   </div>
-
-                  <Button type="submit" variant="contained" color="primary" fullWidth>
-                    Reload
-                  </Button>
                 </form>
               </ThemeProvider>
             </div>
@@ -250,7 +248,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
                 onClick={() => setOpen(false)}
                 className="text-sm font-bold text-white bg-primary py-2 px-4 md:px-5 lg:px-4 xl:px-5 hover:shadow-signUp hover:bg-opacity-90 rounded-full transition ease-in-up duration-300"
               >
-                Accept
+                {t('accept')}
               </button>
             </div>
           </DialogPanel>

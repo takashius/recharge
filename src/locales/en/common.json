@@ -1,5 +1,8 @@
 {
   "title": "CODESA",
+  "welcome": "Welcome",
+  "description": "This is an example of i18n in React with Vite.",
+  "accept": "Accept",
   "header": {
     "home": "Home",
     "schedules": "Schedules",
@@ -129,6 +132,15 @@
       "date": "Date"
     }
   },
-  "welcome": "Welcome",
-  "description": "This is an example of i18n in React with Vite."
+  "formPay": {
+    "selectedCard": "Select Card",
+    "balance": "Balance",
+    "amount": "Reload Amount",
+    "method": "Payment Method",
+    "creditCard": "Credit Card",
+    "holderName": "Card Holder Name",
+    "cardNumber": "Card Number",
+    "expiryDate": "Expiry Date (MM/YY)",
+    "termsAndConditions": "I accept the terms and conditions"
+  }
 }
