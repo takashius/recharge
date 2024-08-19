@@ -7,8 +7,11 @@ import { useTheme } from 'src/context/ThemeContext'
 import { Edit, Delete, Bills } from 'src/components/icons'
 import { Link } from 'react-router-dom'
 import { pageTitle } from 'src/hooks'
+import { useState } from 'react'
+import PayCardDialogForm from './payCardDialogForm'
 
 export default function Cards() {
+  const [open, setOpen] = useState<boolean>(false)
   const { theme } = useTheme()
   const { t, i18n } = useTranslation()
   pageTitle(`${t('title')} - ${t('cards.title')}`)
@@ -71,12 +74,27 @@ export default function Cards() {
       date: '22/05/2024'
     },
   ]
+
+  interface Card {
+    id: string
+    name: string
+    balance: number
+  }
+
+  const cards: Card[] = [
+    { id: '1', name: 'Tarjeta A', balance: 15.50 },
+    { id: '2', name: 'Tarjeta B', balance: 30.00 },
+    { id: '3', name: 'Tarjeta C', balance: 7.25 },
+    { id: '4', name: 'Tarjeta D', balance: 50.75 },
+  ]
+
   const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
   const currentLang = i18n.resolvedLanguage
   const langEsp = esES.components.MuiDataGrid.defaultProps.localeText
   const langEng = enUS.components.MuiDataGrid.defaultProps.localeText
 
   return (<>
+    <PayCardDialogForm cards={cards} open={open} setOpen={setOpen} />
     <section id="contact" className="pt-[120px] pb-20 overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap mx-[-16px]">
@@ -88,8 +106,8 @@ export default function Cards() {
                 <h2 className="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-2xl xl:text-3xl">
                   {t('cards.title')}
                 </h2>
-                <a href='#'
-                  className="text-sm font-bold text-white bg-primary py-2 px-4 md:px-5 lg:px-4 xl:px-5 hover:shadow-signUp hover:bg-opacity-90 rounded-full transition ease-in-up duration-300">
+                <a onClick={() => setOpen(true)}
+                  className="cursor-pointer text-sm font-bold text-white bg-primary py-2 px-4 md:px-5 lg:px-4 xl:px-5 hover:shadow-signUp hover:bg-opacity-90 rounded-full transition ease-in-up duration-300">
                   {t('cards.new')}
                 </a>
               </div>
