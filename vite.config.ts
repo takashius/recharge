@@ -6,11 +6,13 @@ export default defineConfig({
   plugins: [react({ include: /\.(mdx|js|jsx|ts|tsx)$/ })],
   build: {
     rollupOptions: {
-      external: [
-        "@fortawesome/fontawesome-svg-core",
-        "@fortawesome/free-solid-svg-icons",
-        "@fortawesome/free-brands-svg-icons",
-      ],
+      output: {
+        globals: {
+          "@fortawesome/fontawesome-svg-core": "FontAwesome",
+          "@fortawesome/free-solid-svg-icons": "FontAwesomeSolid",
+          "@fortawesome/free-brands-svg-icons": "FontAwesomeBrands",
+        },
+      },
     },
   },
   resolve: {
