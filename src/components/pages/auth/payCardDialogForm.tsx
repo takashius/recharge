@@ -1,11 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { TextField, MenuItem, Checkbox, FormControlLabel, InputAdornment, createTheme, ThemeProvider, Grid } from '@mui/material'
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCcVisa, faCcMastercard, faCcAmex, faCcDiscover, faPaypal } from '@fortawesome/free-brands-svg-icons'
-import { faCreditCard } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'src/context/ThemeContext'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
+import { Paypal, Visa, MasterCard, Amex, Discover } from 'src/components/icons'
+import CreditCardIcon from '@mui/icons-material/CreditCard'
 
 interface Card {
   id: string
@@ -68,24 +67,24 @@ export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarje
 
   const getCardTypeIcon = () => {
     const cardNumberWithoutSpaces = cardNumber.replace(/\s/g, '')
-    if (/^4[0-9]{12}(?:[0-9]{3})?$/.test(cardNumberWithoutSpaces)) {
-      return <FontAwesomeIcon icon={faCcVisa} />
-    } else if (/^5[1-5][0-9]{14}$/.test(cardNumberWithoutSpaces)) {
-      return <FontAwesomeIcon icon={faCcMastercard} />
-    } else if (/^3[47][0-9]{13}$/.test(cardNumberWithoutSpaces)) {
-      return <FontAwesomeIcon icon={faCcAmex} />
-    } else if (/^6(?:011|5[0-9]{2})[0-9]{12}$/.test(cardNumberWithoutSpaces)) {
-      return <FontAwesomeIcon icon={faCcDiscover} />
+    if (/^4[0-9]{12}(?:[0-9]{3})?$/.test(cardNumberWithoutSpaces)) { // Visa
+      return <Visa />
+    } else if (/^5[1-5][0-9]{14}$/.test(cardNumberWithoutSpaces)) {// MasterCard
+      return <MasterCard />
+    } else if (/^3[47][0-9]{13}$/.test(cardNumberWithoutSpaces)) {// Amex
+      return <Amex />
+    } else if (/^6(?:011|5[0-9]{2})[0-9]{12}$/.test(cardNumberWithoutSpaces)) { //Discover
+      return <Discover />
     } else {
-      return <FontAwesomeIcon icon={faCreditCard} />
+      return <CreditCardIcon />
     }
   }
 
   const getPaymentMethodIcon = () => {
     if (paymentMethod === 'creditCard') {
-      return <FontAwesomeIcon icon={faCreditCard} />
+      return <CreditCardIcon />
     } else if (paymentMethod === 'paypal') {
-      return <FontAwesomeIcon icon={faPaypal} />
+      return <Paypal />
     } else {
       return null
     }

@@ -7,6 +7,11 @@ import Warning from "./warning"
 import Refresh from "./refresh"
 import Check from "./check"
 import Bus from "./bus"
+import Paypal from "./paypal"
+import Visa from "./visa"
+import MasterCard from "./masterCard"
+import Amex from "./amex"
+import Discover from "./discover"
 
 export {
   Delete,
@@ -17,5 +22,10 @@ export {
   Warning,
   Refresh,
   Check,
-  Bus
+  Bus,
+  Paypal,
+  Visa,
+  MasterCard,
+  Amex,
+  Discover
 }
