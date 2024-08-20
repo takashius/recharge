@@ -99,6 +99,8 @@
       "emailPlaceholder": "Enter your email",
       "phone": "Phone Number",
       "phonePlaceholder": "Enter your phone",
+      "birthday": "Birthday",
+      "birthdayPlaceholder": "Enter your birthday",
       "password": "Your Password",
       "passwordPlaceholder": "Enter your password",
       "rePassword": "Repeat password",

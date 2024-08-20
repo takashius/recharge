@@ -1,10 +1,47 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { pageTitle } from 'src/hooks'
+import { auth } from 'src/credentials'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { getFirestore, collection, addDoc } from "firebase/firestore"
+import { useState } from 'react'
 
 export default function SignUp() {
   const { t } = useTranslation()
+  const db = getFirestore()
   pageTitle(`${t('title')} - ${t('signUp.title')}`)
+
+  const [idCard, setIdCard] = useState('');
+  const [birthday, setBirthday] = useState('');
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [rePassword, setRePassword] = useState('');
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Guardar información adicional en Firestore
+      await addDoc(collection(db, "users"), {
+        uid: user.uid,
+        name,
+        lastName,
+        phone,
+        idCard,
+        birthday
+      });
+
+      console.log("Usuario registrado y datos adicionales guardados");
+    } catch (error) {
+      console.error("Error al registrar usuario:", error);
+    }
+  };
+
   return (
     <>
       <section className="relative overflow-hidden z-10 pt-[180px] pb-[120px]">
@@ -16,52 +53,92 @@ export default function SignUp() {
                   {t('signUp.title')}
                 </h3>
                 <p className="font-medium text-base text-bodyColor mb-11 text-center">{t('signUp.subTitle')}</p>
-                <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
                   <div className="flex mb-8 col-span-2">
                     <div className='mr-6'>
                       <label htmlFor="name" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.name')} </label>
-                      <input type="text" name="name" placeholder={t('signUp.form.namePlaceholder')}
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder={t('signUp.form.namePlaceholder')}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.lastName')} </label>
-                      <input type="text" name="name" placeholder={t('signUp.form.lastNamePlaceholder')}
+                      <label htmlFor="lastName" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.lastName')} </label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        placeholder={t('signUp.form.lastNamePlaceholder')}
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
                   <div className="flex mb-8 col-span-2">
                     <div className='mr-6'>
                       <label htmlFor="idCard" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.idCard')} </label>
-                      <input type="text" name="idCard" placeholder={t('signUp.form.idCardPlaceholder')}
+                      <input
+                        type="text"
+                        name="idCard"
+                        placeholder={t('signUp.form.idCardPlaceholder')}
+                        value={idCard}
+                        onChange={(e) => setIdCard(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
-                      <label htmlFor="username" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.username')} </label>
-                      <input type="text" name="username" placeholder={t('signUp.form.usernamePlaceholder')}
+                      <label htmlFor="date" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.birthday')} </label>
+                      <input
+                        type="text"
+                        name="birthday"
+                        placeholder={t('signUp.form.birthdayPlaceholder')}
+                        value={birthday}
+                        onChange={(e) => setBirthday(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
                   <div className="flex mb-8 col-span-2">
                     <div className="mr-6">
                       <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.email')} </label>
-                      <input type="email" name="email" placeholder={t('signUp.form.emailPlaceholder')}
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder={t('signUp.form.emailPlaceholder')}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.phone')} </label>
-                      <input type="tel" name="phone" placeholder={t('signUp.form.phonePlaceholder')}
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder={t('signUp.form.phonePlaceholder')}
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
                   <div className="flex mb-8 col-span-2">
                     <div className="mr-6">
                       <label htmlFor="password" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.password')} </label>
-                      <input type="password" name="password" placeholder={t('signUp.form.passwordPlaceholder')}
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder={t('signUp.form.passwordPlaceholder')}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                     <div>
-                      <label htmlFor="rePassword" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.phone')} </label>
-                      <input type="password" name="rePassword" placeholder={t('signUp.form.phonePlaceholder')}
+                      <label htmlFor="rePassword" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.rePassword')} </label>
+                      <input
+                        type="password"
+                        name="rePassword"
+                        placeholder={t('signUp.form.rePasswordPlaceholder')}
+                        value={rePassword}
+                        onChange={(e) => setRePassword(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>
                   </div>
