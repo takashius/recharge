@@ -12,13 +12,13 @@ interface Card {
   balance: number
 }
 
-interface RecargaTarjetaFormProps {
+interface FormProps {
   cards: Card[]
   open: boolean
   setOpen: any
 }
 
-export default function PayCardDialogForm({ cards, open, setOpen }: RecargaTarjetaFormProps) {
+export default function PayCardDialogForm({ cards, open, setOpen }: FormProps) {
   const [selectedCard, setSelectedCard] = useState<string>('')
   const [reloadAmount, setReloadAmount] = useState<string>('')
   const [paymentMethod, setPaymentMethod] = useState<string>('')
