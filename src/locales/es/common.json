@@ -74,6 +74,8 @@
     "button": "Ingresar",
     "notAccount": "¿No tienes una cuenta?",
     "register": "Registrarse",
+    "signInGoogle": "Iniciar sesión con Google",
+    "googleMessage": "O ingresa con tu correo",
     "form": {
       "username": "Correo",
       "password": "Contraseña",
@@ -86,6 +88,8 @@
     "subTitle": "Es totalmente gratis y súper fácil.",
     "button": "Registrarse",
     "alreadyRegistered": "¿Ya estás registrado?",
+    "signUpGoogle": "Registrate con Google",
+    "googleMessage": "O registrate usando tu correo",
     "form": {
       "name": "Nombre",
       "namePlaceholder": "Ingrese su nombre",

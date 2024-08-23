@@ -74,6 +74,8 @@
     "button": "Sign in",
     "notAccount": "Don’t you have an account?",
     "register": "Sign up",
+    "signInGoogle": "Sign in with Google",
+    "googleMessage": "Or, sign in with your email",
     "form": {
       "username": "Your Email",
       "password": "Your Password",
@@ -86,6 +88,8 @@
     "subTitle": "It’s totally free and super easy",
     "button": "Sign up",
     "alreadyRegistered": "Already registered?",
+    "signUpGoogle": "Sign up with Google",
+    "googleMessage": "Or, register with your email",
     "form": {
       "name": "Name",
       "namePlaceholder": "Enter your name",

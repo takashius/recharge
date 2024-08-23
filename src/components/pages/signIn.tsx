@@ -90,11 +90,11 @@ export default function SignIn() {
                       </defs>
                     </svg>
                   </span>
-                  Sign in with Google
+                  {t('signIn.signInGoogle')}
                 </button>
                 <div className="flex items-center justify-center mb-8">
                   <span className="sm:block max-w-[70px] w-full h-[1px] bg-bodyColor"></span>
-                  <p className="w-full px-5 text-bodyColor text-center text-base font-medium">Or, sign in with your email</p>
+                  <p className="w-full px-5 text-bodyColor text-center text-base font-medium">{t('signIn.googleMessage')}</p>
                   <span className="sm:block max-w-[70px] w-full h-[1px] bg-bodyColor"></span>
                 </div>
 
