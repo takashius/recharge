@@ -82,10 +82,6 @@ export default function Profile() {
         updateProfile(user, {
           photoURL: url
         })
-        // updateProfile(user, {
-        //   displayName: "Nuevo Nombre",
-        //   photoURL: "https://example.com/nueva-foto.jpg"
-        // })
         setOpen(true)
         setSuccess('Imagen guardada')
       }
@@ -220,6 +216,11 @@ export default function Profile() {
         data.uid = currentUser?.uid
         await addDoc(collection(db, "users"), data);
       }
+      const user = auth.currentUser
+      if (user)
+        updateProfile(user, {
+          displayName: `${firstName} ${lastName}`
+        })
       setIsLoading(false)
       setSuccess('Perfil actualizado corretamente')
       setOpen(true)
