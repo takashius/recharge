@@ -17,6 +17,7 @@ import Infrastructure from "./components/pages/institutional/infrastructure"
 import Gallery from "./components/pages/institutional/gallery"
 
 import Cards from "./components/pages/auth/cards"
+import Profile from "./components/pages/auth/profile"
 import Payments from "./components/pages/auth/payments"
 
 export const routes = [
@@ -45,6 +46,7 @@ export const routes = [
     errorElement: <ErrorPage />,
     children: [
       { path: "/user/cards", element: <Cards /> },
+      { path: "/user/profile", element: <Profile /> },
       { path: "/user/payments", element: <Payments /> },
     ],
   },

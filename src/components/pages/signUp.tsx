@@ -18,7 +18,7 @@ export default function SignUp() {
   const { loading, setIsLoading } = useTheme()
 
   const [idCard, setIdCard] = useState('')
-  const [birthday, setBirthday] = useState('')
+  const [birthDate, setBirthday] = useState('')
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -41,7 +41,7 @@ export default function SignUp() {
         lastName,
         phone,
         idCard,
-        birthday
+        birthDate
       });
       navigate('/user/cards')
       setIsLoading(false)
@@ -169,7 +169,7 @@ export default function SignUp() {
                         type="text"
                         name="birthday"
                         placeholder={t('signUp.form.birthdayPlaceholder')}
-                        value={birthday}
+                        value={birthDate}
                         onChange={(e) => setBirthday(e.target.value)}
                         className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
                     </div>

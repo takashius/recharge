@@ -137,7 +137,6 @@ export default function Cards() {
         </div>
       </div>
     </section>
-
   </>
   );
 }

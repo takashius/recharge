@@ -14,8 +14,13 @@ export default function UserMenu() {
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(null)
   };
+
+  const goToProfile = () => {
+    setAnchorEl(null)
+    navigate('/user/profile')
+  }
 
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -83,7 +88,7 @@ export default function UserMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={goToProfile}>
           <Avatar /> {t('header.profile')}
         </MenuItem>
         <Divider />
