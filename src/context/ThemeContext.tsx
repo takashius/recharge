@@ -1,8 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, Dispatch, SetStateAction } from 'react';
 
 interface ThemeContextType {
-  theme: string;
-  toggleTheme: () => void;
+  theme: string
+  toggleTheme: () => void
+  loading: boolean
+  setIsLoading: Dispatch<SetStateAction<boolean>>
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,6 +16,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<string>('light')
   const [first, setFirst] = useState<boolean>(true)
+  const [loading, setIsLoading] = useState<boolean>(false)
 
   useEffect(() => {
     if (first) {
@@ -32,7 +35,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, loading, setIsLoading }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -5,6 +5,9 @@ import { auth } from 'src/credentials'
 import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 import { getFirestore, collection, addDoc } from "firebase/firestore"
 import { useState } from 'react'
+import Loader from '../ui/loader'
+import ErrorAlert from '../ui/errorAlert'
+import { useTheme } from 'src/context/ThemeContext'
 
 export default function SignUp() {
   const { t } = useTranslation()
@@ -12,19 +15,22 @@ export default function SignUp() {
   pageTitle(`${t('title')} - ${t('signUp.title')}`)
   const navigate = useNavigate()
   const provider = new GoogleAuthProvider()
+  const { loading, setIsLoading } = useTheme()
 
-  const [idCard, setIdCard] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [rePassword, setRePassword] = useState('');
+  const [idCard, setIdCard] = useState('')
+  const [birthday, setBirthday] = useState('')
+  const [name, setName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
+  const [rePassword, setRePassword] = useState('')
+  const [error, setError] = useState(null)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
+      setIsLoading(true)
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
@@ -37,15 +43,20 @@ export default function SignUp() {
         idCard,
         birthday
       });
+      navigate('/user/cards')
+      setIsLoading(false)
 
-      console.log("Usuario registrado y datos adicionales guardados");
-    } catch (error) {
+      // console.log("Usuario registrado y datos adicionales guardados");
+    } catch (error: any) {
+      setIsLoading(false)
+      setError(error.message)
       console.error("Error al registrar usuario:", error);
     }
   };
 
   const googleSignIn = async () => {
     try {
+      setIsLoading(true)
       const result = await signInWithPopup(auth, provider)
       const credential = GoogleAuthProvider.credentialFromResult(result)
       if (credential) {
@@ -53,8 +64,11 @@ export default function SignUp() {
         const user = result.user
         console.log(user, token)
         navigate('/user/cards')
+        setIsLoading(false)
       }
     } catch (error: any) {
+      setError(error.message)
+      setIsLoading(false)
       const errorCode = error.code
       const errorMessage = error.message
       const email = error.customData.email
@@ -65,6 +79,7 @@ export default function SignUp() {
 
   return (
     <>
+      {loading && <Loader />}
       <section className="relative overflow-hidden z-10 pt-[180px] pb-[120px]">
         <div className="container">
           <div className="flex flex-wrap mx-[-16px]">
@@ -109,7 +124,11 @@ export default function SignUp() {
                   <p className="w-full px-5 text-bodyColor text-center text-base font-medium">{t('signUp.googleMessage')}</p>
                   <span className="sm:block max-w-[70px] w-full h-[1px] bg-bodyColor"></span>
                 </div>
-
+                {error &&
+                  <div className='mb-5'>
+                    <ErrorAlert message={error} />
+                  </div>
+                }
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
                   <div className="flex mb-8 col-span-2">
                     <div className='mr-6'>

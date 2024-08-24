@@ -1,26 +1,19 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import FlagEsp from '../icons/flagEsp'
 import FlagUsa from '../icons/flagUsa'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useRef, useState } from 'react'
-import { Avatar, IconButton, Tooltip, Menu, MenuItem, ListItemIcon, Divider } from '@mui/material'
-import { Logout } from '@mui/icons-material'
 import DarkToggler from '../ui/darkToggler'
+import { useAuth } from 'src/context/AuthContext'
+import UserMenu from '../ui/userMenu'
 
 export default function Header() {
   const { t, i18n } = useTranslation()
+  const { currentUser } = useAuth()
   const [isEsp, setIsEsp] = useState(false)
   const [navToggle, setNavToggle] = useState(false)
-  const navRef = useRef<HTMLDivElement>(null);
-
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const navRef = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate()
 
   const changeLanguage = () => {
     setIsEsp(!isEsp);
@@ -28,11 +21,16 @@ export default function Header() {
   };
 
   const handleClickOutside = (event: { target: any }) => {
-    console.log('CLICK AFUERA', navRef.current)
     if (navRef.current && !navRef.current.contains(event.target)) {
       setNavToggle(false);
     }
   };
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigate('/signIn')
+    }
+  }, [currentUser])
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -72,64 +70,7 @@ export default function Header() {
               </nav>
             </div>
             <div className="flex justify-end items-center pr-16 lg:pr-0">
-              <Tooltip title="Account settings">
-                <IconButton
-                  onClick={handleClick}
-                  size="small"
-                  sx={{ ml: 2 }}
-                  aria-controls={open ? 'account-menu' : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
-                >
-                  <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                PaperProps={{
-                  elevation: 0,
-                  sx: {
-                    overflow: 'visible',
-                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                    mt: 1.5,
-                    '& .MuiAvatar-root': {
-                      width: 32,
-                      height: 32,
-                      ml: -0.5,
-                      mr: 1,
-                    },
-                    '&::before': {
-                      content: '""',
-                      display: 'block',
-                      position: 'absolute',
-                      top: 0,
-                      right: 14,
-                      width: 10,
-                      height: 10,
-                      bgcolor: 'background.paper',
-                      transform: 'translateY(-50%) rotate(45deg)',
-                      zIndex: 0,
-                    },
-                  },
-                }}
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-              >
-                <MenuItem onClick={handleClose}>
-                  <Avatar /> Profile
-                </MenuItem>
-                <Divider />
-                <MenuItem onClick={handleClose}>
-                  <ListItemIcon>
-                    <Logout fontSize="small" />
-                  </ListItemIcon>
-                  Logout
-                </MenuItem>
-              </Menu>
+              <UserMenu />
               <div>
                 <DarkToggler />
               </div>

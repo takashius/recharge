@@ -7,12 +7,13 @@ import { useTranslation } from 'react-i18next'
 import { Warning, Refresh, Check } from 'src/components/icons'
 import { useEffect, useState } from 'react'
 import { pageTitle } from 'src/hooks'
+import Loader from 'src/components/ui/loader'
 
 export default function Payments() {
-  const { theme } = useTheme()
+  const { theme, loading } = useTheme()
   const { t, i18n } = useTranslation()
   pageTitle(`${t('title')} - ${t('payments.title')}`)
-  const [loading, setLoading] = useState(true)
+  const [loadingData, setLoading] = useState(true)
   const [rows, setRows] = useState<any>([])
 
   const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
@@ -109,6 +110,7 @@ export default function Payments() {
   }, [])
 
   return (<>
+    {loading && <Loader />}
     <section id="contact" className="pt-[120px] pb-20 overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap mx-[-16px]">
@@ -135,7 +137,7 @@ export default function Payments() {
                         showQuickFilter: true,
                       },
                     }}
-                    loading={loading}
+                    loading={loadingData}
                   />
                 </ThemeProvider>
               </div>

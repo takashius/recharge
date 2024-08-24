@@ -4,29 +4,37 @@ import { pageTitle } from 'src/hooks'
 import { auth } from 'src/credentials'
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useEffect, useState } from 'react'
+import Loader from '../ui/loader'
+import ErrorAlert from '../ui/errorAlert'
+import { useTheme } from 'src/context/ThemeContext'
 
 export default function SignIn() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   pageTitle(`${t('title')} - ${t('signIn.title')}`)
-  const provider = new GoogleAuthProvider();
+  const provider = new GoogleAuthProvider()
+  const { loading, setIsLoading } = useTheme();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
+      setIsLoading(true)
       await signInWithEmailAndPassword(auth, email, password)
       navigate('/user/cards')
+      setIsLoading(false)
     } catch (error: any) {
-      setError(error.message);
+      setIsLoading(false)
+      setError(error.message)
     }
   };
 
   const googleSignIn = async () => {
     try {
+      setIsLoading(true)
       const result = await signInWithPopup(auth, provider)
       const credential = GoogleAuthProvider.credentialFromResult(result)
       if (credential) {
@@ -34,8 +42,10 @@ export default function SignIn() {
         const user = result.user
         console.log(user, token)
         navigate('/user/cards')
+        setIsLoading(false)
       }
     } catch (error: any) {
+      setIsLoading(false)
       const errorCode = error.code
       const errorMessage = error.message
       const email = error.customData.email
@@ -52,6 +62,7 @@ export default function SignIn() {
 
   return (
     <>
+      {loading && <Loader />}
       <section className="relative overflow-hidden z-10 pt-[180px] pb-[120px]">
         <div className="container">
           <div className="flex flex-wrap mx-[-16px]">
@@ -97,7 +108,11 @@ export default function SignIn() {
                   <p className="w-full px-5 text-bodyColor text-center text-base font-medium">{t('signIn.googleMessage')}</p>
                   <span className="sm:block max-w-[70px] w-full h-[1px] bg-bodyColor"></span>
                 </div>
-
+                {error &&
+                  <div className='mb-5'>
+                    <ErrorAlert message={error} />
+                  </div>
+                }
                 <form onSubmit={handleSubmit}>
                   <div className="mb-8">
                     <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signIn.form.username')} </label>

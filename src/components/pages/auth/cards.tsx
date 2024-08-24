@@ -9,10 +9,11 @@ import { Link } from 'react-router-dom'
 import { pageTitle } from 'src/hooks'
 import { useState } from 'react'
 import PayCardDialogForm from './payCardDialogForm'
+import Loader from 'src/components/ui/loader'
 
 export default function Cards() {
   const [open, setOpen] = useState<boolean>(false)
-  const { theme } = useTheme()
+  const { theme, loading } = useTheme()
   const { t, i18n } = useTranslation()
   pageTitle(`${t('title')} - ${t('cards.title')}`)
 
@@ -94,6 +95,7 @@ export default function Cards() {
   const langEng = enUS.components.MuiDataGrid.defaultProps.localeText
 
   return (<>
+    {loading && <Loader />}
     <PayCardDialogForm cards={cards} open={open} setOpen={setOpen} />
     <section id="contact" className="pt-[120px] pb-20 overflow-hidden">
       <div className="container">

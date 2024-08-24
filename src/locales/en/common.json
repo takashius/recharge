@@ -14,7 +14,10 @@
     "authorities": "Authorities",
     "infrastructure": "Infrastructure",
     "gallery": "Image gallery",
-    "videos": "Videos"
+    "videos": "Videos",
+    "cards": "Cards",
+    "profile": "Profile",
+    "logout": "Logout"
   },
   "home": {
     "cta": {
