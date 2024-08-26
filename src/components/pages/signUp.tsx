@@ -9,6 +9,8 @@ import Loader from '../ui/loader'
 import ErrorAlert from '../ui/errorAlert'
 import { useTheme } from 'src/context/ThemeContext'
 import { Google } from '../icons'
+import { IconButton, InputAdornment, TextField } from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 export default function SignUp() {
   const { t } = useTranslation()
@@ -23,6 +25,8 @@ export default function SignUp() {
   const [password, setPassword] = useState('')
   const [rePassword, setRePassword] = useState('')
   const [checked, setChecked] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showRePassword, setShowRePassword] = useState(false)
   const [error, setError] = useState('')
 
   const handleCheckboxChange = () => {
@@ -54,6 +58,14 @@ export default function SignUp() {
       console.error("Error al registrar usuario:", error);
     }
   };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword)
+  }
+
+  const toggleRePasswordVisibility = () => {
+    setShowRePassword(!showRePassword)
+  }
 
   const googleSignIn = async () => {
     try {
@@ -111,44 +123,74 @@ export default function SignUp() {
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
                   <div className="mb-2 col-span-2">
                     <label htmlFor="name" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.name')} </label>
-                    <input
-                      type="text"
+                    <TextField
+                      type='text'
                       name="name"
                       placeholder={t('signUp.form.namePlaceholder')}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                      fullWidth
+                      variant="outlined"
+                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary"
+                    />
                   </div>
                   <div className="mb-2 col-span-2">
                     <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.email')} </label>
-                    <input
-                      type="email"
+                    <TextField
+                      type='email'
                       name="email"
                       placeholder={t('signUp.form.emailPlaceholder')}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                      fullWidth
+                      variant="outlined"
+                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary"
+                    />
                   </div>
                   <div className="mb-2 col-span-2">
                     <label htmlFor="password" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.password')} </label>
-                    <input
-                      type="password"
+                    <TextField
+                      type={showPassword ? 'text' : 'password'}
                       name="password"
-                      placeholder={t('signUp.form.passwordPlaceholder')}
+                      placeholder={t('signIn.form.passwordPlaceholder')}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                      fullWidth
+                      variant="outlined"
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton onClick={togglePasswordVisibility} edge="end">
+                              {showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary"
+                    />
                   </div>
 
                   <div className="mb-2 col-span-2">
                     <label htmlFor="rePassword" className="block text-sm font-medium text-dark dark:text-white mb-3"> {t('signUp.form.rePassword')} </label>
-                    <input
-                      type="password"
+                    <TextField
+                      type={showRePassword ? 'text' : 'password'}
                       name="rePassword"
                       placeholder={t('signUp.form.rePasswordPlaceholder')}
                       value={rePassword}
                       onChange={(e) => setRePassword(e.target.value)}
-                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary" />
+                      fullWidth
+                      variant="outlined"
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton onClick={toggleRePasswordVisibility} edge="end">
+                              {showRePassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                      className="w-full border border-transparent dark:bg-[#242B51] rounded-md shadow-one dark:shadow-signUp py-3 px-6 text-bodyColor text-base placeholder-body-color outline-none focus-visible:shadow-none focus:border-primary"
+                    />
                   </div>
 
                   <div className="flex mb-8 col-span-2">
