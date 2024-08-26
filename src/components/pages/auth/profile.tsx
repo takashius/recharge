@@ -8,7 +8,8 @@ import {
   IconButton,
   Box,
   Typography,
-  Snackbar
+  Snackbar,
+  InputAdornment
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import dayjs, { Dayjs } from 'dayjs'
@@ -36,6 +37,7 @@ import {
   collection
 } from "firebase/firestore"
 import ErrorAlert from 'src/components/ui/errorAlert'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 interface UserData {
   [key: string]: any;
@@ -64,10 +66,25 @@ export default function Profile() {
   const [open, setOpen] = useState(false)
   const [error, setError] = useState<string>('')
   const [success, setSuccess] = useState<string>('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showRePassword, setShowRePassword] = useState(false)
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false)
   const db = getFirestore()
   const navigate = useNavigate()
 
   const [userData, setUserData] = useState<UserData | null>(null)
+
+  const toggleCurrentPasswordVisibility = () => {
+    setShowCurrentPassword(!showCurrentPassword)
+  }
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword)
+  }
+
+  const toggleRePasswordVisibility = () => {
+    setShowRePassword(!showRePassword)
+  }
 
   const handlePhotoChange = async (e: any) => {
     try {
@@ -415,7 +432,7 @@ export default function Profile() {
                                 <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
                                   {t('profile.changePassword')}
                                 </Typography>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} marginBottom={5}>
                                   <TextField
                                     variant="outlined"
                                     fullWidth
@@ -423,10 +440,19 @@ export default function Profile() {
                                     name="currentPassword"
                                     label={t('signUp.form.currentPassword')}
                                     placeholder={t('signUp.form.currentPasswordPlaceholder')}
-                                    type="password"
+                                    type={showCurrentPassword ? 'text' : 'password'}
                                     id="currentPassword"
                                     value={currentPassword}
                                     onChange={(e) => setCurrentPassword(e.target.value)}
+                                    InputProps={{
+                                      endAdornment: (
+                                        <InputAdornment position="end">
+                                          <IconButton onClick={toggleCurrentPasswordVisibility} edge="end">
+                                            {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
+                                          </IconButton>
+                                        </InputAdornment>
+                                      ),
+                                    }}
                                   />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -437,10 +463,19 @@ export default function Profile() {
                                     autoComplete='off'
                                     label={t('signUp.form.password')}
                                     placeholder={t('signUp.form.passwordPlaceholder')}
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     id="newPassword"
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
+                                    InputProps={{
+                                      endAdornment: (
+                                        <InputAdornment position="end">
+                                          <IconButton onClick={togglePasswordVisibility} edge="end">
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                          </IconButton>
+                                        </InputAdornment>
+                                      ),
+                                    }}
                                   />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -451,10 +486,19 @@ export default function Profile() {
                                     autoComplete='off'
                                     label={t('signUp.form.rePassword')}
                                     placeholder={t('signUp.form.rePasswordPlaceholder')}
-                                    type="password"
+                                    type={showRePassword ? 'text' : 'password'}
                                     id="confirmNewPassword"
                                     value={confirmNewPassword}
                                     onChange={(e) => setConfirmNewPassword(e.target.value)}
+                                    InputProps={{
+                                      endAdornment: (
+                                        <InputAdornment position="end">
+                                          <IconButton onClick={toggleRePasswordVisibility} edge="end">
+                                            {showRePassword ? <VisibilityOff /> : <Visibility />}
+                                          </IconButton>
+                                        </InputAdornment>
+                                      ),
+                                    }}
                                   />
                                 </Grid>
                               </Grid>
