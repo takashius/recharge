@@ -3,6 +3,7 @@
   "welcome": "Welcome",
   "description": "This is an example of i18n in React with Vite.",
   "accept": "Accept",
+  "save": "Save",
   "header": {
     "home": "Home",
     "schedules": "Schedules",
@@ -14,7 +15,10 @@
     "authorities": "Authorities",
     "infrastructure": "Infrastructure",
     "gallery": "Image gallery",
-    "videos": "Videos"
+    "videos": "Videos",
+    "cards": "Cards",
+    "profile": "Profile",
+    "logout": "Logout"
   },
   "home": {
     "cta": {
@@ -74,6 +78,8 @@
     "button": "Sign in",
     "notAccount": "Don’t you have an account?",
     "register": "Sign up",
+    "signInGoogle": "Sign in with Google",
+    "googleMessage": "Or, sign in with your email",
     "form": {
       "username": "Your Email",
       "password": "Your Password",
@@ -86,6 +92,12 @@
     "subTitle": "It’s totally free and super easy",
     "button": "Sign up",
     "alreadyRegistered": "Already registered?",
+    "signUpGoogle": "Sign up with Google",
+    "googleMessage": "Or, register with your email",
+    "acceptTYC": "You must accept the terms and conditions",
+    "emailVoid": "The email is required",
+    "passwordVoid": "Password is required",
+    "passwordMatch": "Passwords must be the same",
     "form": {
       "name": "Name",
       "namePlaceholder": "Enter your name",
@@ -99,9 +111,13 @@
       "emailPlaceholder": "Enter your email",
       "phone": "Phone Number",
       "phonePlaceholder": "Enter your phone",
-      "password": "Your Password",
+      "currentPassword": "Current password",
+      "currentPasswordPlaceholder": "Enter your current password",
+      "birthday": "Birthday",
+      "birthdayPlaceholder": "Enter your birthday",
+      "password": "New Password",
       "passwordPlaceholder": "Enter your password",
-      "rePassword": "Repeat password",
+      "rePassword": "Confirm password",
       "rePasswordPlaceholder": "Repeat your password"
     },
     "TermsAndConditions": {
@@ -110,6 +126,10 @@
       "partThree": "and our",
       "partFour": "Privacy Policy"
     }
+  },
+  "recovery": {
+    "title": "Recover password",
+    "subTitle": "Enter your email to request a password change"
   },
   "cards": {
     "title": "User cards",
@@ -142,5 +162,16 @@
     "cardNumber": "Card Number",
     "expiryDate": "Expiry Date (MM/YY)",
     "termsAndConditions": "I accept the terms and conditions"
+  },
+  "profile": {
+    "title": "User profile",
+    "personalData": "Personal Data",
+    "changePassword": "Change Password",
+    "setPassword": "Set Password",
+    "saveChanges": "Save Changes"
+  },
+  "firebase": {
+    "auth/email-already-in-use": "Email already in use",
+    "userOrPassInvalid": "The username or password is incorrect"
   }
 }

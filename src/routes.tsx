@@ -10,6 +10,7 @@ import BlogSidebar from "./components/pages/blogSidebar"
 import BlogDetail from "./components/pages/blogDetail"
 import SignIn from "./components/pages/signIn"
 import SignUp from "./components/pages/signUp"
+import Recovery from "./components/pages/recovery"
 
 import History from "./components/pages/institutional/history"
 import Philosophy from "./components/pages/institutional/philosophy"
@@ -17,6 +18,7 @@ import Infrastructure from "./components/pages/institutional/infrastructure"
 import Gallery from "./components/pages/institutional/gallery"
 
 import Cards from "./components/pages/auth/cards"
+import Profile from "./components/pages/auth/profile"
 import Payments from "./components/pages/auth/payments"
 
 export const routes = [
@@ -33,6 +35,7 @@ export const routes = [
       { path: "/contact", element: <Contact /> },
       { path: "/signIn", element: <SignIn /> },
       { path: "/signUp", element: <SignUp /> },
+      { path: "/recovery", element: <Recovery /> },
       { path: "/institutional/history", element: <History /> },
       { path: "/institutional/philosophy", element: <Philosophy /> },
       { path: "/institutional/infrastructure", element: <Infrastructure /> },
@@ -45,6 +48,7 @@ export const routes = [
     errorElement: <ErrorPage />,
     children: [
       { path: "/user/cards", element: <Cards /> },
+      { path: "/user/profile", element: <Profile /> },
       { path: "/user/payments", element: <Payments /> },
     ],
   },

@@ -2,17 +2,17 @@ import { DataGrid, GridToolbar, GridColDef } from '@mui/x-data-grid'
 import { esES, enUS } from '@mui/x-data-grid/locales'
 import Background from 'src/components/layout/background'
 import { useTranslation } from 'react-i18next'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useTheme } from 'src/context/ThemeContext'
 import { Edit, Delete, Bills } from 'src/components/icons'
 import { Link } from 'react-router-dom'
 import { pageTitle } from 'src/hooks'
 import { useState } from 'react'
 import PayCardDialogForm from './payCardDialogForm'
+import Loader from 'src/components/ui/loader'
 
 export default function Cards() {
   const [open, setOpen] = useState<boolean>(false)
-  const { theme } = useTheme()
+  const { loading } = useTheme()
   const { t, i18n } = useTranslation()
   pageTitle(`${t('title')} - ${t('cards.title')}`)
 
@@ -88,12 +88,12 @@ export default function Cards() {
     { id: '4', name: 'Tarjeta D', balance: 50.75 },
   ]
 
-  const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
   const currentLang = i18n.resolvedLanguage
   const langEsp = esES.components.MuiDataGrid.defaultProps.localeText
   const langEng = enUS.components.MuiDataGrid.defaultProps.localeText
 
   return (<>
+    {loading && <Loader />}
     <PayCardDialogForm cards={cards} open={open} setOpen={setOpen} />
     <section id="contact" className="pt-[120px] pb-20 overflow-hidden">
       <div className="container">
@@ -113,20 +113,18 @@ export default function Cards() {
               </div>
 
               <div className="w-full h-screen bg-white dark:bg-transparent">
-                <ThemeProvider theme={muiTheme}>
-                  <DataGrid
-                    columns={columns}
-                    rows={rows}
-                    localeText={currentLang === 'es' ? langEsp : langEng}
-                    disableColumnSelector
-                    slots={{ toolbar: GridToolbar }}
-                    slotProps={{
-                      toolbar: {
-                        showQuickFilter: true,
-                      },
-                    }}
-                  />
-                </ThemeProvider>
+                <DataGrid
+                  columns={columns}
+                  rows={rows}
+                  localeText={currentLang === 'es' ? langEsp : langEng}
+                  disableColumnSelector
+                  slots={{ toolbar: GridToolbar }}
+                  slotProps={{
+                    toolbar: {
+                      showQuickFilter: true,
+                    },
+                  }}
+                />
               </div>
 
               <Background />
@@ -135,7 +133,6 @@ export default function Cards() {
         </div>
       </div>
     </section>
-
   </>
   );
 }

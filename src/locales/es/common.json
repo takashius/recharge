@@ -3,6 +3,7 @@
   "welcome": "Bienvenido",
   "description": "Este es un ejemplo de i18n en React con Vite.",
   "accept": "Aceptar",
+  "save": "Guardar",
   "header": {
     "home": "Inicio",
     "schedules": "Horarios",
@@ -14,7 +15,10 @@
     "authorities": "Autoridades",
     "infrastructure": "Infraestructura",
     "gallery": "Galería de Imágenes",
-    "videos": "Videos"
+    "videos": "Videos",
+    "cards": "Tarjetas",
+    "profile": "Perfil",
+    "logout": "Cerrar Sesion"
   },
   "home": {
     "cta": {
@@ -74,6 +78,8 @@
     "button": "Ingresar",
     "notAccount": "¿No tienes una cuenta?",
     "register": "Registrarse",
+    "signInGoogle": "Iniciar sesión con Google",
+    "googleMessage": "O ingresa con tu correo",
     "form": {
       "username": "Correo",
       "password": "Contraseña",
@@ -86,22 +92,32 @@
     "subTitle": "Es totalmente gratis y súper fácil.",
     "button": "Registrarse",
     "alreadyRegistered": "¿Ya estás registrado?",
+    "signUpGoogle": "Registrate con Google",
+    "googleMessage": "O registrate con tu correo",
+    "acceptTYC": "Debe aceptar los términos y condiciones",
+    "emailVoid": "El correo es obligatorio",
+    "passwordVoid": "La contraseña es obligatoria",
+    "passwordMatch": "Las contraseñas deben ser iguales",
     "form": {
       "name": "Nombre",
       "namePlaceholder": "Ingrese su nombre",
       "lastName": "Apellido",
       "lastNamePlaceholder": "Ingrese su apellido",
-      "idCard": "Cédula",
-      "idCardPlaceholder": "Ingrese su cédula",
+      "idCard": "DNI",
+      "idCardPlaceholder": "Ingrese su DNI",
       "username": "Nombre de usuario",
       "usernamePlaceholder": "Ingrese su Nombre de usuario",
       "email": "Correo",
       "emailPlaceholder": "Ingrese su correo",
       "phone": "Número de Teléfono",
       "phonePlaceholder": "Ingrese su teléfono",
-      "password": "Tu contraseña",
+      "birthday": "Cumpleaños",
+      "birthdayPlaceholder": "Ingrese su cumpleaños",
+      "password": "Nueva contraseña",
       "passwordPlaceholder": "Ingrese su contraseña",
-      "rePassword": "Repetir contraseña",
+      "currentPassword": "Contraseña actual",
+      "currentPasswordPlaceholder": "Ingrese su contraseña actual",
+      "rePassword": "Confirmar contraseña",
       "rePasswordPlaceholder": "Repita su contraseña"
     },
     "TermsAndConditions": {
@@ -110,6 +126,10 @@
       "partThree": "Y nuestra",
       "partFour": "Política de privacidad"
     }
+  },
+  "recovery": {
+    "title": "Recuperar contraseña",
+    "subTitle": "Ingrese su correo para solicitar el cambio de contraseña"
   },
   "cards": {
     "title": "Tarjetas del usuario",
@@ -142,5 +162,16 @@
     "cardNumber": "Número de Tarjeta",
     "expiryDate": "Fecha de Vencimiento (MM/AA)",
     "termsAndConditions": "Acepto los términos y condiciones"
+  },
+  "profile": {
+    "title": "Perfil del usuario",
+    "personalData": "Datos Personales",
+    "changePassword": "Cambiar Contraseña",
+    "setPassword": "Establecer Contraseña",
+    "saveChanges": "Guardar Cambios"
+  },
+  "firebase": {
+    "auth/email-already-in-use": "El correo ya esta en uso",
+    "userOrPassInvalid": "El usuaio o la clave son incorrectos"
   }
 }

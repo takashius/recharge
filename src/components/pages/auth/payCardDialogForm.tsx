@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { TextField, MenuItem, Checkbox, FormControlLabel, InputAdornment, createTheme, ThemeProvider, Grid } from '@mui/material'
+import { TextField, MenuItem, Checkbox, FormControlLabel, InputAdornment, Grid } from '@mui/material'
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
-import { useTheme } from 'src/context/ThemeContext'
 import { useTranslation } from 'react-i18next'
 import { Paypal, Visa, MasterCard, Amex, Discover } from 'src/components/icons'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
@@ -27,10 +26,7 @@ export default function PayCardDialogForm({ cards, open, setOpen }: FormProps) {
   const [expiryDate, setExpiryDate] = useState<string>('')
   const [cvv, setCvv] = useState<string>('')
   const [acceptTerms, setAcceptTerms] = useState<boolean>(false)
-  const { theme } = useTheme()
   const { t } = useTranslation()
-
-  const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
 
   const expiryDateRef = useRef<HTMLInputElement>(null)
   const cvvRef = useRef<HTMLInputElement>(null)
@@ -104,141 +100,139 @@ export default function PayCardDialogForm({ cards, open, setOpen }: FormProps) {
             className="relative transform overflow-hidden rounded-lg bg-white dark:bg-dark text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             <div className="bg-white dark:bg-dark dark:text-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-              <ThemeProvider theme={muiTheme}>
-                <form onSubmit={handleReload} className="p-6 rounded-lg">
-                  <div className="mb-4">
-                    <TextField
-                      select
-                      label={t('formPay.selectedCard')}
-                      value={selectedCard}
-                      onChange={(e) => setSelectedCard(e.target.value)}
-                      fullWidth
-                      margin="normal"
-                      InputLabelProps={{ className: 'text-white' }}
-                      InputProps={{ className: 'text-white border-white' }}
-                      SelectProps={{ MenuProps: { PaperProps: { className: 'bg-gray-700 text-white' } } }}
-                    >
-                      {cards.map((card) => (
-                        <MenuItem key={card.id} value={card.id} className="bg-gray-700 text-white">
-                          {card.name} - {t('formPay.balance')}: ${card.balance}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-                  </div>
+              <form onSubmit={handleReload} className="p-6 rounded-lg">
+                <div className="mb-4">
+                  <TextField
+                    select
+                    label={t('formPay.selectedCard')}
+                    value={selectedCard}
+                    onChange={(e) => setSelectedCard(e.target.value)}
+                    fullWidth
+                    margin="normal"
+                    InputLabelProps={{ className: 'text-white' }}
+                    InputProps={{ className: 'text-white border-white' }}
+                    SelectProps={{ MenuProps: { PaperProps: { className: 'bg-gray-700 text-white' } } }}
+                  >
+                    {cards.map((card) => (
+                      <MenuItem key={card.id} value={card.id} className="bg-gray-700 text-white">
+                        {card.name} - {t('formPay.balance')}: ${card.balance}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
 
-                  <div className="mb-4">
-                    <TextField
-                      label={t('formPay.amount')}
-                      value={reloadAmount}
-                      onChange={(e) => setReloadAmount(e.target.value)}
-                      fullWidth
-                      margin="normal"
-                      InputLabelProps={{ className: 'text-white' }}
-                      InputProps={{ className: 'text-white border-white' }}
-                    />
-                  </div>
+                <div className="mb-4">
+                  <TextField
+                    label={t('formPay.amount')}
+                    value={reloadAmount}
+                    onChange={(e) => setReloadAmount(e.target.value)}
+                    fullWidth
+                    margin="normal"
+                    InputLabelProps={{ className: 'text-white' }}
+                    InputProps={{ className: 'text-white border-white' }}
+                  />
+                </div>
 
-                  <div className="mb-4">
-                    <TextField
-                      select
-                      label={t('formPay.method')}
-                      value={paymentMethod}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                      fullWidth
-                      margin="normal"
-                      InputLabelProps={{ className: 'text-white' }}
-                      InputProps={{
-                        className: 'text-white border-white',
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            {getPaymentMethodIcon()}
-                          </InputAdornment>
-                        ),
-                      }}
-                      SelectProps={{ MenuProps: { PaperProps: { className: 'bg-gray-700 text-white' } } }}
-                    >
-                      <MenuItem value="creditCard" className="bg-gray-700 text-white">{t('formPay.creditCard')}</MenuItem>
-                      <MenuItem value="paypal" className="bg-gray-700 text-white">PayPal</MenuItem>
-                      {/* Add more payment methods as needed */}
-                    </TextField>
-                  </div>
+                <div className="mb-4">
+                  <TextField
+                    select
+                    label={t('formPay.method')}
+                    value={paymentMethod}
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    fullWidth
+                    margin="normal"
+                    InputLabelProps={{ className: 'text-white' }}
+                    InputProps={{
+                      className: 'text-white border-white',
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          {getPaymentMethodIcon()}
+                        </InputAdornment>
+                      ),
+                    }}
+                    SelectProps={{ MenuProps: { PaperProps: { className: 'bg-gray-700 text-white' } } }}
+                  >
+                    <MenuItem value="creditCard" className="bg-gray-700 text-white">{t('formPay.creditCard')}</MenuItem>
+                    <MenuItem value="paypal" className="bg-gray-700 text-white">PayPal</MenuItem>
+                    {/* Add more payment methods as needed */}
+                  </TextField>
+                </div>
 
-                  {paymentMethod === 'creditCard' && (
-                    <>
-                      <div className="mb-4">
-                        <TextField
-                          label={t('formPay.holderName')}
-                          value={cardHolderName}
-                          onChange={(e) => setCardHolderName(e.target.value)}
-                          fullWidth
-                          margin="normal"
-                          InputLabelProps={{ className: 'text-white' }}
-                          InputProps={{ className: 'text-white border-white' }}
-                        />
-                      </div>
-                      <div className="mb-4">
-                        <TextField
-                          label={t('formPay.cardNumber')}
-                          value={cardNumber}
-                          onChange={handleCardNumberChange}
-                          fullWidth
-                          margin="normal"
-                          InputLabelProps={{ className: 'text-white' }}
-                          InputProps={{
-                            className: 'text-white border-white',
-                            endAdornment: (
-                              <InputAdornment position="end">
-                                {getCardTypeIcon()}
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                      </div>
-                      <div className="mb-4">
-                        <Grid container spacing={2}>
-                          <Grid item xs={7}>
-                            <TextField
-                              label={t('formPay.expiryDate')}
-                              value={expiryDate}
-                              onChange={handleExpiryDateChange}
-                              fullWidth
-                              margin="normal"
-                              inputRef={expiryDateRef}
-                              InputLabelProps={{ className: 'text-white' }}
-                              InputProps={{ className: 'text-white border-white' }}
-                            />
-                          </Grid>
-                          <Grid item xs={5}>
-                            <TextField
-                              label="CVV"
-                              value={cvv}
-                              onChange={handleCvvChange}
-                              fullWidth
-                              margin="normal"
-                              inputRef={cvvRef}
-                              InputLabelProps={{ className: 'text-white' }}
-                              InputProps={{ className: 'text-white border-white' }}
-                            />
-                          </Grid>
+                {paymentMethod === 'creditCard' && (
+                  <>
+                    <div className="mb-4">
+                      <TextField
+                        label={t('formPay.holderName')}
+                        value={cardHolderName}
+                        onChange={(e) => setCardHolderName(e.target.value)}
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{ className: 'text-white' }}
+                        InputProps={{ className: 'text-white border-white' }}
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <TextField
+                        label={t('formPay.cardNumber')}
+                        value={cardNumber}
+                        onChange={handleCardNumberChange}
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{ className: 'text-white' }}
+                        InputProps={{
+                          className: 'text-white border-white',
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              {getCardTypeIcon()}
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <Grid container spacing={2}>
+                        <Grid item xs={7}>
+                          <TextField
+                            label={t('formPay.expiryDate')}
+                            value={expiryDate}
+                            onChange={handleExpiryDateChange}
+                            fullWidth
+                            margin="normal"
+                            inputRef={expiryDateRef}
+                            InputLabelProps={{ className: 'text-white' }}
+                            InputProps={{ className: 'text-white border-white' }}
+                          />
                         </Grid>
-                      </div>
-                    </>
-                  )}
+                        <Grid item xs={5}>
+                          <TextField
+                            label="CVV"
+                            value={cvv}
+                            onChange={handleCvvChange}
+                            fullWidth
+                            margin="normal"
+                            inputRef={cvvRef}
+                            InputLabelProps={{ className: 'text-white' }}
+                            InputProps={{ className: 'text-white border-white' }}
+                          />
+                        </Grid>
+                      </Grid>
+                    </div>
+                  </>
+                )}
 
-                  <div className="mb-4">
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={acceptTerms}
-                          onChange={(e) => setAcceptTerms(e.target.checked)}
-                        />
-                      }
-                      label={t('formPay.termsAndConditions')}
-                      className="dark:text-white"
-                    />
-                  </div>
-                </form>
-              </ThemeProvider>
+                <div className="mb-4">
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={acceptTerms}
+                        onChange={(e) => setAcceptTerms(e.target.checked)}
+                      />
+                    }
+                    label={t('formPay.termsAndConditions')}
+                    className="dark:text-white"
+                  />
+                </div>
+              </form>
             </div>
             <div className=" dark:bg-dark px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button

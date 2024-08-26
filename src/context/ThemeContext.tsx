@@ -1,8 +1,11 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, Dispatch, SetStateAction } from 'react'
+import { ThemeProvider as ThemeProviderMui, createTheme } from '@mui/material/styles'
 
 interface ThemeContextType {
-  theme: string;
-  toggleTheme: () => void;
+  theme: string
+  toggleTheme: () => void
+  loading: boolean
+  setIsLoading: Dispatch<SetStateAction<boolean>>
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,6 +17,8 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<string>('light')
   const [first, setFirst] = useState<boolean>(true)
+  const [loading, setIsLoading] = useState<boolean>(false)
+  const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
 
   useEffect(() => {
     if (first) {
@@ -32,8 +37,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+    <ThemeContext.Provider value={{ theme, toggleTheme, loading, setIsLoading }}>
+      <ThemeProviderMui theme={muiTheme}>
+        {children}
+      </ThemeProviderMui>
     </ThemeContext.Provider>
   );
 };

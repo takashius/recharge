@@ -4,9 +4,13 @@ import FlagUsa from '../icons/flagUsa'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect, useRef } from 'react'
 import DarkToggler from '../ui/darkToggler'
+import LoginButtons from '../ui/loginButtons'
+import { useAuth } from 'src/context/AuthContext'
+import UserMenu from '../ui/userMenu'
 
 export default function Header() {
   const { t, i18n } = useTranslation()
+  const { currentUser } = useAuth()
   const [isEsp, setIsEsp] = useState(false)
   const [navToggle, setNavToggle] = useState(false)
   const [submenuOpen, setSubmenuOpen] = useState(false)
@@ -158,18 +162,7 @@ export default function Header() {
               </nav>
             </div>
             <div className="flex justify-end items-center pr-16 lg:pr-0">
-              <Link
-                to={'/signIn'}
-                className="hidden md:block text-base font-bold text-dark dark:text-white hover:opacity-70 py-3 px-7"
-              >
-                {t('signIn.button')}
-              </Link>
-              <Link
-                to={'/signUp'}
-                className="hidden md:block text-base font-bold text-white bg-primary py-3 px-8 md:px-9 lg:px-6 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 rounded-md transition ease-in-up duration-300"
-              >
-                {t('signUp.button')}
-              </Link>
+              {currentUser ? <UserMenu /> : <LoginButtons />}
               <div>
                 <DarkToggler />
               </div>

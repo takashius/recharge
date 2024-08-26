@@ -1,21 +1,20 @@
 import { DataGrid, GridToolbar, GridColDef } from '@mui/x-data-grid'
 import { esES, enUS } from '@mui/x-data-grid/locales'
 import Background from 'src/components/layout/background'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useTheme } from 'src/context/ThemeContext'
 import { useTranslation } from 'react-i18next'
 import { Warning, Refresh, Check } from 'src/components/icons'
 import { useEffect, useState } from 'react'
 import { pageTitle } from 'src/hooks'
+import Loader from 'src/components/ui/loader'
 
 export default function Payments() {
-  const { theme } = useTheme()
+  const { loading } = useTheme()
   const { t, i18n } = useTranslation()
   pageTitle(`${t('title')} - ${t('payments.title')}`)
-  const [loading, setLoading] = useState(true)
+  const [loadingData, setLoading] = useState(true)
   const [rows, setRows] = useState<any>([])
 
-  const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
   const currentLang = i18n.resolvedLanguage
   const langEsp = esES.components.MuiDataGrid.defaultProps.localeText
   const langEng = enUS.components.MuiDataGrid.defaultProps.localeText
@@ -109,6 +108,7 @@ export default function Payments() {
   }, [])
 
   return (<>
+    {loading && <Loader />}
     <section id="contact" className="pt-[120px] pb-20 overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap mx-[-16px]">
@@ -123,21 +123,19 @@ export default function Payments() {
               </div>
 
               <div className="w-full h-screen bg-white dark:bg-transparent">
-                <ThemeProvider theme={muiTheme}>
-                  <DataGrid
-                    columns={columns}
-                    rows={rows}
-                    localeText={currentLang === 'es' ? langEsp : langEng}
-                    disableColumnSelector
-                    slots={{ toolbar: GridToolbar }}
-                    slotProps={{
-                      toolbar: {
-                        showQuickFilter: true,
-                      },
-                    }}
-                    loading={loading}
-                  />
-                </ThemeProvider>
+                <DataGrid
+                  columns={columns}
+                  rows={rows}
+                  localeText={currentLang === 'es' ? langEsp : langEng}
+                  disableColumnSelector
+                  slots={{ toolbar: GridToolbar }}
+                  slotProps={{
+                    toolbar: {
+                      showQuickFilter: true,
+                    },
+                  }}
+                  loading={loadingData}
+                />
               </div>
 
               <Background />
