@@ -93,6 +93,10 @@
     "alreadyRegistered": "Already registered?",
     "signUpGoogle": "Sign up with Google",
     "googleMessage": "Or, register with your email",
+    "acceptTYC": "You must accept the terms and conditions",
+    "emailVoid": "The email is required",
+    "passwordVoid": "Password is required",
+    "passwordMatch": "Passwords must be the same",
     "form": {
       "name": "Name",
       "namePlaceholder": "Enter your name",
@@ -119,6 +123,10 @@
       "partThree": "and our",
       "partFour": "Privacy Policy"
     }
+  },
+  "recovery": {
+    "title": "Recover password",
+    "subTitle": "Enter your email to request a password change"
   },
   "cards": {
     "title": "User cards",
@@ -151,5 +159,9 @@
     "cardNumber": "Card Number",
     "expiryDate": "Expiry Date (MM/YY)",
     "termsAndConditions": "I accept the terms and conditions"
+  },
+  "firebase": {
+    "auth/email-already-in-use": "Email already in use",
+    "userOrPassInvalid": "The username or password is incorrect"
   }
 }

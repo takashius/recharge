@@ -92,7 +92,11 @@
     "button": "Registrarse",
     "alreadyRegistered": "¿Ya estás registrado?",
     "signUpGoogle": "Registrate con Google",
-    "googleMessage": "O registrate usando tu correo",
+    "googleMessage": "O registrate con tu correo",
+    "acceptTYC": "Debe aceptar los términos y condiciones",
+    "emailVoid": "El correo es obligatorio",
+    "passwordVoid": "La contraseña es obligatoria",
+    "passwordMatch": "Las contraseñas deben ser iguales",
     "form": {
       "name": "Nombre",
       "namePlaceholder": "Ingrese su nombre",
@@ -119,6 +123,10 @@
       "partThree": "Y nuestra",
       "partFour": "Política de privacidad"
     }
+  },
+  "recovery": {
+    "title": "Recuperar contraseña",
+    "subTitle": "Ingrese su correo para solicitar el cambio de contraseña"
   },
   "cards": {
     "title": "Tarjetas del usuario",
@@ -151,5 +159,9 @@
     "cardNumber": "Número de Tarjeta",
     "expiryDate": "Fecha de Vencimiento (MM/AA)",
     "termsAndConditions": "Acepto los términos y condiciones"
+  },
+  "firebase": {
+    "auth/email-already-in-use": "El correo ya esta en uso",
+    "userOrPassInvalid": "El usuaio o la clave son incorrectos"
   }
 }

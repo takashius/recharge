@@ -12,6 +12,7 @@ import Visa from "./visa"
 import MasterCard from "./masterCard"
 import Amex from "./amex"
 import Discover from "./discover"
+import Google from "./google"
 
 export {
   Delete,
@@ -27,5 +28,6 @@ export {
   Visa,
   MasterCard,
   Amex,
-  Discover
+  Discover,
+  Google
 }

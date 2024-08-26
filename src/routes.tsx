@@ -10,6 +10,7 @@ import BlogSidebar from "./components/pages/blogSidebar"
 import BlogDetail from "./components/pages/blogDetail"
 import SignIn from "./components/pages/signIn"
 import SignUp from "./components/pages/signUp"
+import Recovery from "./components/pages/recovery"
 
 import History from "./components/pages/institutional/history"
 import Philosophy from "./components/pages/institutional/philosophy"
@@ -34,6 +35,7 @@ export const routes = [
       { path: "/contact", element: <Contact /> },
       { path: "/signIn", element: <SignIn /> },
       { path: "/signUp", element: <SignUp /> },
+      { path: "/recovery", element: <Recovery /> },
       { path: "/institutional/history", element: <History /> },
       { path: "/institutional/philosophy", element: <Philosophy /> },
       { path: "/institutional/infrastructure", element: <Infrastructure /> },

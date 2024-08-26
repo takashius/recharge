@@ -218,9 +218,7 @@ export default function Profile() {
       }
       const user = auth.currentUser
       if (user)
-        updateProfile(user, {
-          displayName: `${firstName} ${lastName}`
-        })
+        updateProfile(user, { displayName: `${firstName} ${lastName}` })
       setIsLoading(false)
       setSuccess('Perfil actualizado corretamente')
       setOpen(true)
