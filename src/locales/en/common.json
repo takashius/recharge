@@ -3,6 +3,7 @@
   "welcome": "Welcome",
   "description": "This is an example of i18n in React with Vite.",
   "accept": "Accept",
+  "save": "Save",
   "header": {
     "home": "Home",
     "schedules": "Schedules",
@@ -110,11 +111,13 @@
       "emailPlaceholder": "Enter your email",
       "phone": "Phone Number",
       "phonePlaceholder": "Enter your phone",
+      "currentPassword": "Current password",
+      "currentPasswordPlaceholder": "Enter your current password",
       "birthday": "Birthday",
       "birthdayPlaceholder": "Enter your birthday",
-      "password": "Your Password",
+      "password": "New Password",
       "passwordPlaceholder": "Enter your password",
-      "rePassword": "Repeat password",
+      "rePassword": "Confirm password",
       "rePasswordPlaceholder": "Repeat your password"
     },
     "TermsAndConditions": {
@@ -159,6 +162,13 @@
     "cardNumber": "Card Number",
     "expiryDate": "Expiry Date (MM/YY)",
     "termsAndConditions": "I accept the terms and conditions"
+  },
+  "profile": {
+    "title": "User profile",
+    "personalData": "Personal Data",
+    "changePassword": "Change Password",
+    "setPassword": "Set Password",
+    "saveChanges": "Save Changes"
   },
   "firebase": {
     "auth/email-already-in-use": "Email already in use",

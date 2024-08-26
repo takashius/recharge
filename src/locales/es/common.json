@@ -3,6 +3,7 @@
   "welcome": "Bienvenido",
   "description": "Este es un ejemplo de i18n en React con Vite.",
   "accept": "Aceptar",
+  "save": "Guardar",
   "header": {
     "home": "Inicio",
     "schedules": "Horarios",
@@ -102,8 +103,8 @@
       "namePlaceholder": "Ingrese su nombre",
       "lastName": "Apellido",
       "lastNamePlaceholder": "Ingrese su apellido",
-      "idCard": "Cédula",
-      "idCardPlaceholder": "Ingrese su cédula",
+      "idCard": "DNI",
+      "idCardPlaceholder": "Ingrese su DNI",
       "username": "Nombre de usuario",
       "usernamePlaceholder": "Ingrese su Nombre de usuario",
       "email": "Correo",
@@ -112,9 +113,11 @@
       "phonePlaceholder": "Ingrese su teléfono",
       "birthday": "Cumpleaños",
       "birthdayPlaceholder": "Ingrese su cumpleaños",
-      "password": "Tu contraseña",
+      "password": "Nueva contraseña",
       "passwordPlaceholder": "Ingrese su contraseña",
-      "rePassword": "Repetir contraseña",
+      "currentPassword": "Contraseña actual",
+      "currentPasswordPlaceholder": "Ingrese su contraseña actual",
+      "rePassword": "Confirmar contraseña",
       "rePasswordPlaceholder": "Repita su contraseña"
     },
     "TermsAndConditions": {
@@ -159,6 +162,13 @@
     "cardNumber": "Número de Tarjeta",
     "expiryDate": "Fecha de Vencimiento (MM/AA)",
     "termsAndConditions": "Acepto los términos y condiciones"
+  },
+  "profile": {
+    "title": "Perfil del usuario",
+    "personalData": "Datos Personales",
+    "changePassword": "Cambiar Contraseña",
+    "setPassword": "Establecer Contraseña",
+    "saveChanges": "Guardar Cambios"
   },
   "firebase": {
     "auth/email-already-in-use": "El correo ya esta en uso",

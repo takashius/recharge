@@ -286,7 +286,7 @@ export default function Profile() {
               data-wow-delay=".2s">
               <div className="flex justify-between items-center mb-3">
                 <h2 className="font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-2xl xl:text-3xl">
-                  {t('cards.title')}
+                  {t('profile.title')}
                 </h2>
               </div>
 
@@ -328,7 +328,7 @@ export default function Profile() {
                             <form onSubmit={handleSubmit}>
                               <Grid container spacing={2}>
                                 <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
-                                  Datos Personales
+                                  {t('profile.personalData')}
                                 </Typography>
                                 <Grid item xs={12} sm={6}>
                                   <TextField
@@ -337,7 +337,8 @@ export default function Profile() {
                                     required
                                     fullWidth
                                     id="firstName"
-                                    label="Nombre"
+                                    label={t('signUp.form.name')}
+                                    placeholder={t('signUp.form.namePlaceholder')}
                                     autoFocus
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
@@ -350,7 +351,8 @@ export default function Profile() {
                                     required
                                     fullWidth
                                     id="lastName"
-                                    label="Apellido"
+                                    label={t('signUp.form.lastName')}
+                                    placeholder={t('signUp.form.lastNamePlaceholder')}
                                     value={lastName}
                                     onChange={(e) => setLastName(e.target.value)}
                                   />
@@ -361,7 +363,8 @@ export default function Profile() {
                                     required
                                     fullWidth
                                     id="idNumber"
-                                    label="Cédula de Identidad"
+                                    label={t('signUp.form.idCard')}
+                                    placeholder={t('signUp.form.idCardPlaceholder')}
                                     name="idNumber"
                                     value={idNumber}
                                     onChange={(e) => setIdNumber(e.target.value)}
@@ -372,7 +375,7 @@ export default function Profile() {
                                     <DatePicker
                                       className='w-full'
                                       format="DD/MM/YYYY"
-                                      label="Fecha de nacimiento"
+                                      label={t('signUp.form.birthday')}
                                       value={birthDate ? dayjs(birthDate, 'DD/MM/YYYY') : null}
                                       onChange={handleDateChange}
                                     />
@@ -386,7 +389,8 @@ export default function Profile() {
                                     required
                                     fullWidth
                                     id="phoneNumber"
-                                    label="Número de Teléfono"
+                                    label={t('signUp.form.phone')}
+                                    placeholder={t('signUp.form.phonePlaceholder')}
                                     name="phoneNumber"
                                     value={phoneNumber}
                                     inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
@@ -402,7 +406,7 @@ export default function Profile() {
                                   variant="contained"
                                   color="primary"
                                 >
-                                  Guardar Cambios
+                                  {t('profile.saveChanges')}
                                 </Button>
                               </div>
                             </form>
@@ -413,7 +417,7 @@ export default function Profile() {
                               <form onSubmit={handlePasswordChange}>
                                 <Grid container spacing={2}>
                                   <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
-                                    Cambiar Contraseña
+                                    {t('profile.changePassword')}
                                   </Typography>
                                   <Grid item xs={12}>
                                     <TextField
@@ -421,7 +425,8 @@ export default function Profile() {
                                       fullWidth
                                       autoComplete='off'
                                       name="currentPassword"
-                                      label="Contraseña Actual"
+                                      label={t('signUp.form.currentPassword')}
+                                      placeholder={t('signUp.form.currentPasswordPlaceholder')}
                                       type="password"
                                       id="currentPassword"
                                       value={currentPassword}
@@ -434,7 +439,8 @@ export default function Profile() {
                                       fullWidth
                                       name="newPassword"
                                       autoComplete='off'
-                                      label="Nueva Contraseña"
+                                      label={t('signUp.form.password')}
+                                      placeholder={t('signUp.form.passwordPlaceholder')}
                                       type="password"
                                       id="newPassword"
                                       value={newPassword}
@@ -447,7 +453,8 @@ export default function Profile() {
                                       fullWidth
                                       name="confirmNewPassword"
                                       autoComplete='off'
-                                      label="Confirmar Nueva Contraseña"
+                                      label={t('signUp.form.rePassword')}
+                                      placeholder={t('signUp.form.rePasswordPlaceholder')}
                                       type="password"
                                       id="confirmNewPassword"
                                       value={confirmNewPassword}
@@ -461,7 +468,7 @@ export default function Profile() {
                                     variant="contained"
                                     color="primary"
                                   >
-                                    Cambiar contraseña
+                                    {t('profile.changePassword')}
                                   </Button>
                                 </div>
                               </form>
@@ -470,7 +477,7 @@ export default function Profile() {
                               <form onSubmit={handlePasswordNew}>
                                 <Grid container spacing={2}>
                                   <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
-                                    Establecer Contraseña
+                                    {t('profile.setPassword')}
                                   </Typography>
                                   <Grid item xs={12}>
                                     <TextField
@@ -478,7 +485,8 @@ export default function Profile() {
                                       fullWidth
                                       name="newPassword"
                                       autoComplete='off'
-                                      label="Nueva Contraseña"
+                                      label={t('signUp.form.password')}
+                                      placeholder={t('signUp.form.passwordPlaceholder')}
                                       type="password"
                                       id="newPassword"
                                       value={newPassword}
@@ -491,7 +499,8 @@ export default function Profile() {
                                       fullWidth
                                       name="confirmNewPassword"
                                       autoComplete='off'
-                                      label="Confirmar Nueva Contraseña"
+                                      label={t('signUp.form.rePassword')}
+                                      placeholder={t('signUp.form.rePasswordPlaceholder')}
                                       type="password"
                                       id="confirmNewPassword"
                                       value={confirmNewPassword}
@@ -505,7 +514,7 @@ export default function Profile() {
                                     variant="contained"
                                     color="primary"
                                   >
-                                    Guardar
+                                    {t('save')}
                                   </Button>
                                 </div>
                               </form>
