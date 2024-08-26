@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode, Dispatch, SetStateAction } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, Dispatch, SetStateAction } from 'react'
+import { ThemeProvider as ThemeProviderMui, createTheme } from '@mui/material/styles'
 
 interface ThemeContextType {
   theme: string
@@ -17,6 +18,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<string>('light')
   const [first, setFirst] = useState<boolean>(true)
   const [loading, setIsLoading] = useState<boolean>(false)
+  const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
 
   useEffect(() => {
     if (first) {
@@ -36,7 +38,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, loading, setIsLoading }}>
-      {children}
+      <ThemeProviderMui theme={muiTheme}>
+        {children}
+      </ThemeProviderMui>
     </ThemeContext.Provider>
   );
 };

@@ -13,7 +13,6 @@ import {
 import { useNavigate } from 'react-router-dom'
 import dayjs, { Dayjs } from 'dayjs'
 import 'dayjs/locale/es'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
@@ -51,7 +50,7 @@ interface UserData {
 
 export default function Profile() {
   const { t } = useTranslation()
-  const { theme, loading, setIsLoading } = useTheme()
+  const { loading, setIsLoading } = useTheme()
   const { currentUser } = useAuth()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -266,8 +265,6 @@ export default function Profile() {
     }
   }, [userData])
 
-  const muiTheme = createTheme({ palette: { mode: theme == 'dark' ? 'dark' : 'light' } })
-
   return (<>
     {loading && <Loader />}
     <Snackbar
@@ -291,240 +288,238 @@ export default function Profile() {
               </div>
 
               <div className="w-full h-screen bg-transparent">
-                <ThemeProvider theme={muiTheme}>
-                  <Container component="main" maxWidth="xl">
-                    <div className="flex flex-col items-center mt-9">
-                      <Box position="relative" marginBottom={5} display="inline-block">
-                        <Avatar
-                          sx={{ width: 100, height: 100 }}
-                          src={currentUser?.photoURL ? currentUser.photoURL : ''}
-                        />
-                        <IconButton
-                          color="primary"
-                          aria-label="upload picture"
-                          component="label"
-                          sx={{
-                            position: 'absolute',
-                            bottom: 0,
-                            right: 0,
+                <Container component="main" maxWidth="xl">
+                  <div className="flex flex-col items-center mt-9">
+                    <Box position="relative" marginBottom={5} display="inline-block">
+                      <Avatar
+                        sx={{ width: 100, height: 100 }}
+                        src={currentUser?.photoURL ? currentUser.photoURL : ''}
+                      />
+                      <IconButton
+                        color="primary"
+                        aria-label="upload picture"
+                        component="label"
+                        sx={{
+                          position: 'absolute',
+                          bottom: 0,
+                          right: 0,
+                          bgcolor: 'white',
+                          '&:hover': {
                             bgcolor: 'white',
-                            '&:hover': {
-                              bgcolor: 'white',
-                            },
-                          }}
-                        >
-                          <input hidden accept="image/*" type="file" onChange={handlePhotoChange} />
-                          <EditIcon />
-                        </IconButton>
-                      </Box>
-                      {error &&
-                        <div className='mb-5'>
-                          <ErrorAlert message={error} />
-                        </div>
-                      }
-                      <div className="w-full mt-3">
-                        <Grid container spacing={2} marginBottom={4}>
-                          <Grid item xs={12} md={5}>
-                            <form onSubmit={handleSubmit}>
+                          },
+                        }}
+                      >
+                        <input hidden accept="image/*" type="file" onChange={handlePhotoChange} />
+                        <EditIcon />
+                      </IconButton>
+                    </Box>
+                    {error &&
+                      <div className='mb-5'>
+                        <ErrorAlert message={error} />
+                      </div>
+                    }
+                    <div className="w-full mt-3">
+                      <Grid container spacing={2} marginBottom={4}>
+                        <Grid item xs={12} md={5}>
+                          <form onSubmit={handleSubmit}>
+                            <Grid container spacing={2}>
+                              <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
+                                {t('profile.personalData')}
+                              </Typography>
+                              <Grid item xs={12} sm={6}>
+                                <TextField
+                                  name="firstName"
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  id="firstName"
+                                  label={t('signUp.form.name')}
+                                  placeholder={t('signUp.form.namePlaceholder')}
+                                  autoFocus
+                                  value={firstName}
+                                  onChange={(e) => setFirstName(e.target.value)}
+                                />
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <TextField
+                                  name="lastName"
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  id="lastName"
+                                  label={t('signUp.form.lastName')}
+                                  placeholder={t('signUp.form.lastNamePlaceholder')}
+                                  value={lastName}
+                                  onChange={(e) => setLastName(e.target.value)}
+                                />
+                              </Grid>
+                              <Grid item xs={12}>
+                                <TextField
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  id="idNumber"
+                                  label={t('signUp.form.idCard')}
+                                  placeholder={t('signUp.form.idCardPlaceholder')}
+                                  name="idNumber"
+                                  value={idNumber}
+                                  onChange={(e) => setIdNumber(e.target.value)}
+                                />
+                              </Grid>
+                              <Grid item xs={12}>
+                                <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="es">
+                                  <DatePicker
+                                    className='w-full'
+                                    format="DD/MM/YYYY"
+                                    label={t('signUp.form.birthday')}
+                                    value={birthDate ? dayjs(birthDate, 'DD/MM/YYYY') : null}
+                                    onChange={handleDateChange}
+                                  />
+                                </LocalizationProvider>
+                              </Grid>
+                              <Grid item xs={12}>
+                                <TextField
+                                  variant="outlined"
+                                  type='tel'
+                                  accessKey='number'
+                                  required
+                                  fullWidth
+                                  id="phoneNumber"
+                                  label={t('signUp.form.phone')}
+                                  placeholder={t('signUp.form.phonePlaceholder')}
+                                  name="phoneNumber"
+                                  value={phoneNumber}
+                                  inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                                  autoComplete="off"
+                                  onChange={(e) => setPhoneNumber(e.target.value)}
+                                />
+                              </Grid>
+                            </Grid>
+
+                            <div className='w-full text-center mt-9'>
+                              <Button
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                              >
+                                {t('profile.saveChanges')}
+                              </Button>
+                            </div>
+                          </form>
+                        </Grid>
+                        <Grid item xs={12} md={2}></Grid>
+                        <Grid item xs={12} md={5}>
+                          {(providerId === 'ambos' || providerId === 'password') &&
+                            <form onSubmit={handlePasswordChange}>
                               <Grid container spacing={2}>
                                 <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
-                                  {t('profile.personalData')}
+                                  {t('profile.changePassword')}
                                 </Typography>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12}>
                                   <TextField
-                                    name="firstName"
                                     variant="outlined"
-                                    required
                                     fullWidth
-                                    id="firstName"
-                                    label={t('signUp.form.name')}
-                                    placeholder={t('signUp.form.namePlaceholder')}
-                                    autoFocus
-                                    value={firstName}
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                  />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                  <TextField
-                                    name="lastName"
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="lastName"
-                                    label={t('signUp.form.lastName')}
-                                    placeholder={t('signUp.form.lastNamePlaceholder')}
-                                    value={lastName}
-                                    onChange={(e) => setLastName(e.target.value)}
+                                    autoComplete='off'
+                                    name="currentPassword"
+                                    label={t('signUp.form.currentPassword')}
+                                    placeholder={t('signUp.form.currentPasswordPlaceholder')}
+                                    type="password"
+                                    id="currentPassword"
+                                    value={currentPassword}
+                                    onChange={(e) => setCurrentPassword(e.target.value)}
                                   />
                                 </Grid>
                                 <Grid item xs={12}>
                                   <TextField
                                     variant="outlined"
-                                    required
                                     fullWidth
-                                    id="idNumber"
-                                    label={t('signUp.form.idCard')}
-                                    placeholder={t('signUp.form.idCardPlaceholder')}
-                                    name="idNumber"
-                                    value={idNumber}
-                                    onChange={(e) => setIdNumber(e.target.value)}
+                                    name="newPassword"
+                                    autoComplete='off'
+                                    label={t('signUp.form.password')}
+                                    placeholder={t('signUp.form.passwordPlaceholder')}
+                                    type="password"
+                                    id="newPassword"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
                                   />
-                                </Grid>
-                                <Grid item xs={12}>
-                                  <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="es">
-                                    <DatePicker
-                                      className='w-full'
-                                      format="DD/MM/YYYY"
-                                      label={t('signUp.form.birthday')}
-                                      value={birthDate ? dayjs(birthDate, 'DD/MM/YYYY') : null}
-                                      onChange={handleDateChange}
-                                    />
-                                  </LocalizationProvider>
                                 </Grid>
                                 <Grid item xs={12}>
                                   <TextField
                                     variant="outlined"
-                                    type='tel'
-                                    accessKey='number'
-                                    required
                                     fullWidth
-                                    id="phoneNumber"
-                                    label={t('signUp.form.phone')}
-                                    placeholder={t('signUp.form.phonePlaceholder')}
-                                    name="phoneNumber"
-                                    value={phoneNumber}
-                                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                                    autoComplete="off"
-                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                    name="confirmNewPassword"
+                                    autoComplete='off'
+                                    label={t('signUp.form.rePassword')}
+                                    placeholder={t('signUp.form.rePasswordPlaceholder')}
+                                    type="password"
+                                    id="confirmNewPassword"
+                                    value={confirmNewPassword}
+                                    onChange={(e) => setConfirmNewPassword(e.target.value)}
                                   />
                                 </Grid>
                               </Grid>
-
                               <div className='w-full text-center mt-9'>
                                 <Button
                                   type="submit"
                                   variant="contained"
                                   color="primary"
                                 >
-                                  {t('profile.saveChanges')}
+                                  {t('profile.changePassword')}
                                 </Button>
                               </div>
                             </form>
-                          </Grid>
-                          <Grid item xs={12} md={2}></Grid>
-                          <Grid item xs={12} md={5}>
-                            {(providerId === 'ambos' || providerId === 'password') &&
-                              <form onSubmit={handlePasswordChange}>
-                                <Grid container spacing={2}>
-                                  <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
-                                    {t('profile.changePassword')}
-                                  </Typography>
-                                  <Grid item xs={12}>
-                                    <TextField
-                                      variant="outlined"
-                                      fullWidth
-                                      autoComplete='off'
-                                      name="currentPassword"
-                                      label={t('signUp.form.currentPassword')}
-                                      placeholder={t('signUp.form.currentPasswordPlaceholder')}
-                                      type="password"
-                                      id="currentPassword"
-                                      value={currentPassword}
-                                      onChange={(e) => setCurrentPassword(e.target.value)}
-                                    />
-                                  </Grid>
-                                  <Grid item xs={12}>
-                                    <TextField
-                                      variant="outlined"
-                                      fullWidth
-                                      name="newPassword"
-                                      autoComplete='off'
-                                      label={t('signUp.form.password')}
-                                      placeholder={t('signUp.form.passwordPlaceholder')}
-                                      type="password"
-                                      id="newPassword"
-                                      value={newPassword}
-                                      onChange={(e) => setNewPassword(e.target.value)}
-                                    />
-                                  </Grid>
-                                  <Grid item xs={12}>
-                                    <TextField
-                                      variant="outlined"
-                                      fullWidth
-                                      name="confirmNewPassword"
-                                      autoComplete='off'
-                                      label={t('signUp.form.rePassword')}
-                                      placeholder={t('signUp.form.rePasswordPlaceholder')}
-                                      type="password"
-                                      id="confirmNewPassword"
-                                      value={confirmNewPassword}
-                                      onChange={(e) => setConfirmNewPassword(e.target.value)}
-                                    />
-                                  </Grid>
+                          }
+                          {(providerId === 'google.com') &&
+                            <form onSubmit={handlePasswordNew}>
+                              <Grid container spacing={2}>
+                                <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
+                                  {t('profile.setPassword')}
+                                </Typography>
+                                <Grid item xs={12}>
+                                  <TextField
+                                    variant="outlined"
+                                    fullWidth
+                                    name="newPassword"
+                                    autoComplete='off'
+                                    label={t('signUp.form.password')}
+                                    placeholder={t('signUp.form.passwordPlaceholder')}
+                                    type="password"
+                                    id="newPassword"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                  />
                                 </Grid>
-                                <div className='w-full text-center mt-9'>
-                                  <Button
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                  >
-                                    {t('profile.changePassword')}
-                                  </Button>
-                                </div>
-                              </form>
-                            }
-                            {(providerId === 'google.com') &&
-                              <form onSubmit={handlePasswordNew}>
-                                <Grid container spacing={2}>
-                                  <Typography variant="h4" component="h2" className='text-dark dark:text-white text-center w-full'>
-                                    {t('profile.setPassword')}
-                                  </Typography>
-                                  <Grid item xs={12}>
-                                    <TextField
-                                      variant="outlined"
-                                      fullWidth
-                                      name="newPassword"
-                                      autoComplete='off'
-                                      label={t('signUp.form.password')}
-                                      placeholder={t('signUp.form.passwordPlaceholder')}
-                                      type="password"
-                                      id="newPassword"
-                                      value={newPassword}
-                                      onChange={(e) => setNewPassword(e.target.value)}
-                                    />
-                                  </Grid>
-                                  <Grid item xs={12}>
-                                    <TextField
-                                      variant="outlined"
-                                      fullWidth
-                                      name="confirmNewPassword"
-                                      autoComplete='off'
-                                      label={t('signUp.form.rePassword')}
-                                      placeholder={t('signUp.form.rePasswordPlaceholder')}
-                                      type="password"
-                                      id="confirmNewPassword"
-                                      value={confirmNewPassword}
-                                      onChange={(e) => setConfirmNewPassword(e.target.value)}
-                                    />
-                                  </Grid>
+                                <Grid item xs={12}>
+                                  <TextField
+                                    variant="outlined"
+                                    fullWidth
+                                    name="confirmNewPassword"
+                                    autoComplete='off'
+                                    label={t('signUp.form.rePassword')}
+                                    placeholder={t('signUp.form.rePasswordPlaceholder')}
+                                    type="password"
+                                    id="confirmNewPassword"
+                                    value={confirmNewPassword}
+                                    onChange={(e) => setConfirmNewPassword(e.target.value)}
+                                  />
                                 </Grid>
-                                <div className='w-full text-center mt-9'>
-                                  <Button
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                  >
-                                    {t('save')}
-                                  </Button>
-                                </div>
-                              </form>
-                            }
-                          </Grid>
+                              </Grid>
+                              <div className='w-full text-center mt-9'>
+                                <Button
+                                  type="submit"
+                                  variant="contained"
+                                  color="primary"
+                                >
+                                  {t('save')}
+                                </Button>
+                              </div>
+                            </form>
+                          }
                         </Grid>
-                      </div>
+                      </Grid>
                     </div>
-                  </Container>
-                </ThemeProvider>
+                  </div>
+                </Container>
               </div>
               <Background />
             </div>
