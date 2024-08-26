@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from 'react'
 import DarkToggler from '../ui/darkToggler'
 import { useAuth } from 'src/context/AuthContext'
 import UserMenu from '../ui/userMenu'
+import { Alert, Snackbar } from '@mui/material'
+import { useTheme } from 'src/context/ThemeContext'
+import { sendEmailVerification } from 'firebase/auth'
 
 export default function Header() {
   const { t, i18n } = useTranslation()
@@ -13,12 +16,19 @@ export default function Header() {
   const [isEsp, setIsEsp] = useState(false)
   const [navToggle, setNavToggle] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
+  const [message, setMessage] = useState<string>('')
+  const [open, setOpen] = useState(false)
   const navigate = useNavigate()
+  const { setIsLoading } = useTheme()
 
   const changeLanguage = () => {
     setIsEsp(!isEsp);
     i18n.changeLanguage(isEsp ? 'es' : 'en')
-  };
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   const handleClickOutside = (event: { target: any }) => {
     if (navRef.current && !navRef.current.contains(event.target)) {
@@ -27,10 +37,28 @@ export default function Header() {
   };
 
   useEffect(() => {
+    console.log('currentUser', currentUser?.emailVerified)
     if (!currentUser) {
       navigate('/signIn')
     }
   }, [currentUser])
+
+  const handleSendVerificationEmail = () => {
+    if (currentUser) {
+      setIsLoading(true)
+      sendEmailVerification(currentUser)
+        .then(() => {
+          setOpen(true)
+          setMessage(t('firebase.sendEmailSuccessful'))
+        })
+        .catch((error) => {
+          setOpen(true)
+          setMessage(`${t('firebase.sendEmailError')} ${error.message}`)
+        }).finally(() => {
+          setIsLoading(false)
+        })
+    }
+  }
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -41,6 +69,13 @@ export default function Header() {
 
   return (
     <header className="header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center">
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={message}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      />
       <div className="container">
         <div className="flex mx-[-16px] items-center justify-between relative">
           <div className="px-4 w-60 max-w-full">
@@ -70,6 +105,11 @@ export default function Header() {
               </nav>
             </div>
             <div className="flex justify-end items-center pr-16 lg:pr-0">
+              {!currentUser?.emailVerified &&
+                <Alert severity="warning" className='cursor-pointer' onClick={handleSendVerificationEmail}>
+                  {t('firebase.invalidEmail')}
+                </Alert>
+              }
               <UserMenu />
               <div>
                 <DarkToggler />

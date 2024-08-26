@@ -172,6 +172,9 @@
   },
   "firebase": {
     "auth/email-already-in-use": "Email already in use",
-    "userOrPassInvalid": "The username or password is incorrect"
+    "userOrPassInvalid": "The username or password is incorrect",
+    "invalidEmail": "Please verify your email to continue.",
+    "sendEmailSuccessful": "Verification email sent successfully",
+    "sendEmailError": "Error sending verification email:"
   }
 }

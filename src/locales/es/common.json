@@ -172,6 +172,9 @@
   },
   "firebase": {
     "auth/email-already-in-use": "El correo ya esta en uso",
-    "userOrPassInvalid": "El usuaio o la clave son incorrectos"
+    "userOrPassInvalid": "El usuaio o la clave son incorrectos",
+    "invalidEmail": "Por favor, verifica tu correo electrónico para continuar.",
+    "sendEmailSuccessful": "Correo de verificación enviado exitosamente",
+    "sendEmailError": "Error al enviar el correo de verificación:"
   }
 }
