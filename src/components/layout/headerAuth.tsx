@@ -111,9 +111,9 @@ export default function Header() {
                       </Link>
                     </li>
                     <li className="relative group">
-                      <Link to={'/user/cards'}
+                      <Link to={'/user/posts'}
                         className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
-                        Admin
+                        {t('posts.titlePage')}
                       </Link>
                     </li>
                   </ul>
