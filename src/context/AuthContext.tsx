@@ -1,9 +1,13 @@
 import React, { useContext, useState, useEffect, ReactNode } from 'react'
-import { auth } from 'src/credentials'
+import { auth, appFirebase } from 'src/credentials'
 import { User } from 'firebase/auth'
+import { UserData } from 'src/types/general'
+import { getFirestore, query, collection, where, getDocs } from 'firebase/firestore'
+const db = getFirestore(appFirebase)
 
 interface AuthContextType {
   currentUser: User | null;
+  profile: UserData | null;
 }
 
 const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
@@ -23,11 +27,28 @@ interface AuthProviderProps {
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState<UserData | null>(null);
+
+  const getProfile = async (uid: string) => {
+    const q = query(collection(db, 'users'), where('uid', '==', uid))
+    const querySnapshot = await getDocs(q)
+    if (!querySnapshot.empty) {
+      const userDoc = querySnapshot.docs[0]
+      const userData = userDoc.data() as UserData
+      return userData
+    }
+    return null
+  }
+
+  useEffect(() => {
+    if (currentUser)
+      getProfile(currentUser.uid).then(data => setProfile(data))
+  }, [currentUser])
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
-      setCurrentUser(user);
-      setLoading(false);
+      setCurrentUser(user)
+      setLoading(false)
     });
 
     return unsubscribe;
@@ -35,6 +56,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const value = {
     currentUser,
+    profile
   };
 
   return (

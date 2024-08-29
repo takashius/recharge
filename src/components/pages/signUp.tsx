@@ -42,13 +42,20 @@ export default function SignUp() {
       if (password !== rePassword) throw ({ message: t('signUp.passwordMatch') })
 
       setIsLoading(true)
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      const user = userCredential.user
+
+      const dataUser = {
+        uid: user.uid,
+        name: '',
+        rol: 'user'
+      }
 
       if (name) {
-        await addDoc(collection(db, "users"), { uid: user.uid, name });
+        dataUser.name = name
         updateProfile(user, { displayName: name })
       }
+      await addDoc(collection(db, "users"), dataUser)
       navigate('/user/cards')
       setIsLoading(false)
 
@@ -73,9 +80,15 @@ export default function SignUp() {
       const result = await signInWithPopup(auth, provider)
       const credential = GoogleAuthProvider.credentialFromResult(result)
       if (credential) {
-        const token = credential.accessToken
         const user = result.user
-        console.log(user, token)
+
+        const dataUser = {
+          uid: user.uid,
+          name: user.displayName,
+          rol: 'user'
+        }
+        await addDoc(collection(db, "users"), dataUser)
+
         navigate('/user/cards')
         setIsLoading(false)
       }

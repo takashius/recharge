@@ -12,7 +12,7 @@ import { sendEmailVerification } from 'firebase/auth'
 
 export default function Header() {
   const { t, i18n } = useTranslation()
-  const { currentUser } = useAuth()
+  const { currentUser, profile } = useAuth()
   const [isEsp, setIsEsp] = useState(false)
   const [navToggle, setNavToggle] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
@@ -37,7 +37,6 @@ export default function Header() {
   };
 
   useEffect(() => {
-    console.log('currentUser', currentUser?.emailVerified)
     if (!currentUser) {
       navigate('/signIn')
     }
@@ -94,14 +93,31 @@ export default function Header() {
               </button>
               <nav id="navbarCollapse"
                 className={`${!navToggle && 'hidden'} absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white dark:bg-dark lg:dark:bg-transparent lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full lg:block lg:static lg:shadow-none`}>
-                <ul className="block lg:flex">
-                  <li className="relative group">
-                    <Link to={'/user/cards'}
-                      className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
-                      {t('header.home')}
-                    </Link>
-                  </li>
-                </ul>
+
+                {profile?.rol === 'user' ?
+                  <ul className="block lg:flex">
+                    <li className="relative group">
+                      <Link to={'/user/cards'}
+                        className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
+                        {t('header.home')}
+                      </Link>
+                    </li>
+                  </ul> :
+                  <ul className="block lg:flex">
+                    <li className="relative group">
+                      <Link to={'/user/cards'}
+                        className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
+                        {t('header.home')}
+                      </Link>
+                    </li>
+                    <li className="relative group">
+                      <Link to={'/user/cards'}
+                        className="menu-scroll text-base  dark:text-white text-dark group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
+                        Admin
+                      </Link>
+                    </li>
+                  </ul>
+                }
               </nav>
             </div>
             <div className="flex justify-end items-center pr-16 lg:pr-0">

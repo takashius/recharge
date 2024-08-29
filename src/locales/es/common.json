@@ -4,6 +4,10 @@
   "description": "Este es un ejemplo de i18n en React con Vite.",
   "accept": "Aceptar",
   "save": "Guardar",
+  "cancel": "Cancelar",
+  "delete": "Borrar",
+  "deleteConfirmationTitle": "¿Seguro que desea eliminar?",
+  "deleteConfirmationText": "Esta accion no se puede deshacer",
   "header": {
     "home": "Inicio",
     "schedules": "Horarios",
@@ -169,6 +173,23 @@
     "changePassword": "Cambiar Contraseña",
     "setPassword": "Establecer Contraseña",
     "saveChanges": "Guardar Cambios"
+  },
+  "posts": {
+    "titlePage": "Posts",
+    "createPost": "Crear Nueva Publicación",
+    "editPost": "Editar Publicación",
+    "title": "Título",
+    "summary": "Resumen",
+    "content": "Contenido",
+    "postDate": "Fecha de Publicación",
+    "image": "Imagen",
+    "accept": "Crear Publicación",
+    "titleRequired": "El título es obligatorio",
+    "summaryRequired": "El resumen es obligatorio",
+    "contentRequired": "El contenido es obligatorio",
+    "imageRequired": "La imagen es obligatoria",
+    "postDateRequired": "La fecha de publicación es obligatoria",
+    "new": "Nueva publicación"
   },
   "firebase": {
     "auth/email-already-in-use": "El correo ya esta en uso",

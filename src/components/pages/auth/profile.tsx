@@ -38,17 +38,7 @@ import {
 } from "firebase/firestore"
 import ErrorAlert from 'src/components/ui/errorAlert'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-
-interface UserData {
-  [key: string]: any;
-  name: string;
-  lastName: string;
-  idCard: string;
-  birthDate: string;
-  phone: string;
-  uid?: string;
-  id?: string;
-}
+import { UserData } from 'src/types/general'
 
 export default function Profile() {
   const { t } = useTranslation()

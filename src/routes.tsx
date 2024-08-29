@@ -21,6 +21,8 @@ import Cards from "./components/pages/auth/cards"
 import Profile from "./components/pages/auth/profile"
 import Payments from "./components/pages/auth/payments"
 
+import Posts from "./components/pages/auth/posts"
+
 export const routes = [
   {
     path: '/',
@@ -50,6 +52,7 @@ export const routes = [
       { path: "/user/cards", element: <Cards /> },
       { path: "/user/profile", element: <Profile /> },
       { path: "/user/payments", element: <Payments /> },
+      { path: "/user/posts", element: <Posts /> },
     ],
   },
 ]

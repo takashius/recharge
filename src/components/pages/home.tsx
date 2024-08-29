@@ -188,7 +188,7 @@ export default function Home() {
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <NotificationsIcon fontSize="large" className="text-primary" />
                 </div>
-                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">All
+                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
                   {t('home.features.notificationsTitle')}
                 </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
@@ -202,7 +202,7 @@ export default function Home() {
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <TicketIcon fontSize="large" className="text-primary" />
                 </div>
-                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">Speed
+                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
                   {t('home.features.ratesTitle')}
                 </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
@@ -216,7 +216,7 @@ export default function Home() {
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <PeopleIcon fontSize="large" className="text-primary" />
                 </div>
-                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">Fully
+                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
                   {t('home.features.serviceTitle')}
                 </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
@@ -230,7 +230,7 @@ export default function Home() {
                   className="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
                   <SecurityIcon fontSize="large" className="text-primary" />
                 </div>
-                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">Regular
+                <h3 className="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
                   {t('home.features.security')}
                 </h3>
                 <p className="text-bodyColor text-base leading-relaxed font-medium pr-[10px]">
