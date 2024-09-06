@@ -80,6 +80,12 @@ export default function Posts() {
     fetchData()
   }, [])
 
+  useEffect(() => {
+    if (!open) {
+      setSelectedPostId(null)
+    }
+  }, [open])
+
   const columns: GridColDef[] = [
     { field: 'title', headerName: t('posts.title'), flex: 1 },
     {

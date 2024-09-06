@@ -1,31 +1,79 @@
+import { collection, getDocs, query, getFirestore, QueryDocumentSnapshot, startAfter, limit, orderBy } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { pageTitle } from 'src/hooks'
+import { PostFormInputs } from 'src/types/general'
+import Loader from '../ui/loader'
+import { useTheme } from 'src/context/ThemeContext'
+import { Link } from 'react-router-dom'
+import PostCard from '../ui/postCard'
+
 export default function BlogGrid() {
   const { t } = useTranslation()
+  const { loading, setIsLoading } = useTheme()
+  const db = getFirestore()
+  const [posts, setPosts] = useState<PostFormInputs[]>()
+  const [lastDoc, setLastDoc] = useState<QueryDocumentSnapshot | null>(null)
+  const [hasMore, setHasMore] = useState(true)
+
   pageTitle(`${t('title')} - ${t('header.news')}`)
+
+  const fetchData = async (isNextPage: boolean = false) => {
+    setIsLoading(true)
+    let q;
+    if (isNextPage && lastDoc) {
+      q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'), startAfter(lastDoc), limit(10))
+    } else {
+      q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'), limit(10))
+    }
+
+    const querySnapshot = await getDocs(q)
+    const postsData: PostFormInputs[] = []
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      postsData.push({
+        id: doc.id,
+        title: data.title,
+        summary: data.summary,
+        postDate: data.postDate,
+        content: data.content,
+        imageUrl: data.imageUrl,
+      });
+    });
+
+    if (querySnapshot.docs.length < 10) {
+      setHasMore(false)
+    } else {
+      setLastDoc(querySnapshot.docs[querySnapshot.docs.length - 1])
+    }
+
+    setIsLoading(false)
+    setPosts((prevPosts = []) => (isNextPage ? [...prevPosts, ...postsData] : postsData))
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <>
-
+      {loading && <Loader />}
       <section className="relative z-10 pt-[150px] overflow-hidden">
         <div className="container">
           <div className="flex flex-wrap items-center mx-[-16px]">
             <div className="w-full md:w-8/12 lg:w-7/12 px-4">
               <div className="max-w-[570px] mb-12 md:mb-0">
-                <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">Blog Grids</h1>
-                <p className="font-medium text-base text-bodyColor leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices.
-                  Ut quis dapibus libero.
-                </p>
+                <h1 className="font-bold text-black dark:text-white text-2xl sm:text-3xl mb-5">{t('header.news')}</h1>
               </div>
             </div>
             <div className="w-full md:w-4/12 lg:w-5/12 px-4">
               <div className="text-end">
                 <ul className="flex items-center md:justify-end">
                   <li className="flex items-center">
-                    <a href="index.html" className="font-medium text-base text-bodyColor pr-1 hover:text-primary"> Home </a>
+                    <Link to='/' className="font-medium text-base text-bodyColor pr-1 hover:text-primary"> {t('header.home')} </Link>
                     <span className="block w-2 h-2 border-t-2 border-r-2 border-body-color rotate-45 mr-3"></span>
                   </li>
-                  <li className="font-medium text-base text-primary">Blog Grids</li>
+                  <li className="font-medium text-base text-primary">{t('title')}</li>
                 </ul>
               </div>
             </div>
@@ -67,586 +115,19 @@ export default function BlogGrid() {
         </div>
       </section>
 
-
       <section className="pt-[120px] pb-[120px]">
         <div className="container">
           <div className="flex flex-wrap mx-[-16px] justify-center">
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".1s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-01.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Best UI components for modern websites
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-01.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".15s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Design
-                  </span>
-                  <img src="images/blog-02.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      9 simple ways to improve your design skills
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-02.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Content Writer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".2s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-03.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Tips to quickly improve your coding speed.
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-03.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".1s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-01.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Best UI components for modern websites
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-01.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".15s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Design
-                  </span>
-                  <img src="images/blog-02.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      9 simple ways to improve your design skills
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-02.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Content Writer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".2s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-03.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Tips to quickly improve your coding speed.
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-03.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".1s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-01.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Best UI components for modern websites
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-01.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".15s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Design
-                  </span>
-                  <img src="images/blog-02.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      9 simple ways to improve your design skills
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-02.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Content Writer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".2s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-03.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Tips to quickly improve your coding speed.
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-03.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".1s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-01.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Best UI components for modern websites
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-01.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Samuyl Joshi </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".15s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Design
-                  </span>
-                  <img src="images/blog-02.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      9 simple ways to improve your design skills
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-02.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Musharof Chy </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Content Writer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 px-4">
-              <div className="relative bg-white dark:bg-dark shadow-one rounded-md overflow-hidden mb-10 wow fadeInUp"
-                data-wow-delay=".2s">
-                <a href="blog-details.html" className="w-full block relative">
-                  <span
-                    className="absolute top-6 right-6 bg-primary rounded-full inline-flex items-center justify-center py-2 px-4 font-semibold text-sm text-white">
-                    Computer
-                  </span>
-                  <img src="images/blog-03.jpg" alt="image" className="w-full" />
-                </a>
-                <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
-                  <h3>
-                    <a href="blog-details.html"
-                      className="font-bold text-black dark:text-white text-xl sm:text-2xl block mb-4 hover:text-primary dark:hover:text-primary">
-                      Tips to quickly improve your coding speed.
-                    </a>
-                  </h3>
-                  <p
-                    className="text-base text-bodyColor font-medium pb-6 mb-6 border-b border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className="flex items-center pr-5 mr-5 xl:pr-3 2xl:pr-5 xl:mr-3 2xl:mr-5 border-r border-body-color border-opacity-10 dark:border-white dark:border-opacity-10">
-                      <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
-                        <img src="images/author-03.png" alt="author" className="w-full" />
-                      </div>
-                      <div className="w-full">
-                        <h4 className="text-sm font-medium text-dark dark:text-white mb-1">
-                          By
-                          <a href="#"
-                            className="text-dark dark:text-white hover:text-primary dark:hover:text-primary"> Lethium Deo </a>
-                        </h4>
-                        <p className="text-xs text-bodyColor">Graphic Designer</p>
-                      </div>
-                    </div>
-                    <div className="inline-block">
-                      <h4 className="text-sm font-medium text-dark dark:text-white mb-1">Date</h4>
-                      <p className="text-xs text-bodyColor">15 Dec, 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {posts && posts.map((post: PostFormInputs) => (
+              <PostCard post={post} />
+            ))}
           </div>
-          <div className="flex flex-wrap mx-[-16px] wow fadeInUp" data-wow-delay=".15s">
-            <div className="w-full px-4">
-              <ul className="flex items-center pt-8 justify-center">
-                <li className="mx-1">
-                  <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
-                    Prev
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
-                    1
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
-                    2
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
-                    3
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] text-bodyColor px-4 text-sm min-w-[36px] h-9 cursor-not-allowed">
-                    ...
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
-                    12
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a href="#"
-                    className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9">
-                    Next
-                  </a>
-                </li>
-              </ul>
-            </div>
+
+          <div className="flex flex-wrap mx-[-16px] wow fadeInUp justify-center">
+            {hasMore && !loading &&
+              <button className="flex items-center justify-center rounded-md bg-body-color bg-opacity-[15%] hover:bg-primary hover:bg-opacity-100 transition hover:text-white text-bodyColor px-4 text-sm min-w-[36px] h-9" onClick={() => fetchData(true)}>
+                {t('loadMore')}
+              </button>}
           </div>
         </div>
       </section>

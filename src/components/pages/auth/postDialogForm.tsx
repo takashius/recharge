@@ -103,6 +103,7 @@ export default function PostDialogForm({ open, setOpen, fetchData, postId }: For
                       label={t('posts.title')}
                       fullWidth
                       margin="normal"
+                      InputLabelProps={!postId ? {} : { shrink: true }}
                       {...register('title', { required: t('posts.titleRequired') })}
                       error={!!errors.title}
                       helperText={errors.title?.message}
@@ -113,6 +114,7 @@ export default function PostDialogForm({ open, setOpen, fetchData, postId }: For
                       label={t('posts.summary')}
                       fullWidth
                       margin="normal"
+                      InputLabelProps={!postId ? {} : { shrink: true }}
                       {...register('summary', { required: t('posts.summaryRequired') })}
                       error={!!errors.summary}
                       helperText={errors.summary?.message}
@@ -123,6 +125,7 @@ export default function PostDialogForm({ open, setOpen, fetchData, postId }: For
                       label={t('posts.content')}
                       fullWidth
                       margin="normal"
+                      InputLabelProps={!postId ? {} : { shrink: true }}
                       multiline
                       rows={4}
                       {...register('content', { required: t('posts.contentRequired') })}
@@ -142,16 +145,21 @@ export default function PostDialogForm({ open, setOpen, fetchData, postId }: For
                       helperText={errors.postDate?.message}
                     />
                   </div>
-                  <div className="mb-4">
-                    <input
+                  <div className="mb-0">
+                    <TextField
+                      label={t('posts.image')}
                       type="file"
+                      fullWidth
+                      margin="normal"
+                      InputLabelProps={{ shrink: true }}
                       {...register('image', { required: !postId && t('posts.imageRequired') })}
+                      error={!!errors.image}
+                      helperText={errors.image?.message}
                     />
-                    {errors.image && <p className="text-red-500">{errors.image.message}</p>}
                   </div>
                 </div>
               </div>
-              <div className=" dark:bg-dark px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <div className=" dark:bg-dark px-4 pb-3 sm:flex sm:flex-row-reverse sm:px-6">
                 <button
                   type="submit"
                   data-autofocus

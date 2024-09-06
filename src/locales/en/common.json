@@ -6,6 +6,7 @@
   "save": "Save",
   "cancel": "Cancel",
   "delete": "Delete",
+  "loadMore": "Load More",
   "deleteConfirmationTitle": "Are you sure you want to delete?",
   "deleteConfirmationText": "This action cannot be undone",
   "header": {
@@ -71,7 +72,9 @@
       "title": "Subscribe to receive future updates",
       "subTitle": "Receive the latest news directly to your email",
       "note": "No spam guaranteed, So please don’t send any spam mail.",
-      "submit": "Subscribe"
+      "submit": "Subscribe",
+      "successful": "The subscription was completed correctly",
+      "duplicate": "The email is already subscribed"
     }
   },
   "signIn": {

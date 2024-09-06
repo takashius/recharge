@@ -6,6 +6,7 @@
   "save": "Guardar",
   "cancel": "Cancelar",
   "delete": "Borrar",
+  "loadMore": "Cargar más",
   "deleteConfirmationTitle": "¿Seguro que desea eliminar?",
   "deleteConfirmationText": "Esta accion no se puede deshacer",
   "header": {
@@ -71,7 +72,9 @@
       "title": "Suscríbete para recibir futuras actualizaciones",
       "subTitle": "Recibe las últimas noticias directamente en tu correo",
       "note": "Garantizamos no enviar spam, así que por favor no envíes correos no deseados.",
-      "submit": "Suscribirse"
+      "submit": "Suscribirse",
+      "successful": "Se realizo la suscripcion correctamente",
+      "duplicate": "El correo ya está suscrito"
     }
   },
   "signIn": {

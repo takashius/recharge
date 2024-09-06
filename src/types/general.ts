@@ -32,6 +32,7 @@ export interface PostFormInputs {
   title: string;
   summary: string;
   content: string;
-  image: FileList;
+  imageUrl?: string;
+  image?: FileList;
   postDate: string;
 }
