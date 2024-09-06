@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
 import emailjs from 'emailjs-com'
 import { useState } from 'react'
-import { Button, Snackbar, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
+import { Snackbar } from '@mui/material'
 
 interface ContactFormInputs {
   name: string;
@@ -15,8 +15,7 @@ export default function Contact() {
   const [loading, setLoading] = useState<boolean>(false)
   const { register, handleSubmit, reset } = useForm<ContactFormInputs>()
   const [openSnackbar, setOpenSnackbar] = useState(false)
-  const [openDialog, setOpenDialog] = useState(false)
-  const [dialogMessage, setDialogMessage] = useState('')
+  const [message, setMessage] = useState('')
 
   const onSubmit = (data: ContactFormInputs) => {
     const emailData: Record<string, unknown> = {
@@ -27,14 +26,12 @@ export default function Contact() {
     setLoading(true)
     emailjs.send('service_epk88mp', 'template_ljepdw2', emailData, 'dw4jKVZF2HjTVw-Y9')
       .then(() => {
-        setDialogMessage('Email enviado con éxito')
-        setOpenDialog(true)
+        setMessage('Email enviado con éxito')
+        setOpenSnackbar(true)
         reset();
       })
       .catch((error: any) => {
         console.error('FAILED...', error)
-        setDialogMessage('Error al enviar el email')
-        setOpenDialog(true)
       })
       .finally(() => {
         setLoading(false)
@@ -100,25 +97,11 @@ export default function Contact() {
 
     <Snackbar
       open={openSnackbar}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
       autoHideDuration={6000}
       onClose={() => setOpenSnackbar(false)}
-      message="Email enviado con éxito"
+      message={message}
     />
-
-    <Dialog
-      open={openDialog}
-      onClose={() => setOpenDialog(false)}
-    >
-      <DialogTitle>Notificación</DialogTitle>
-      <DialogContent>
-        <p>{dialogMessage}</p>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setOpenDialog(false)} color="primary">
-          Cerrar
-        </Button>
-      </DialogActions>
-    </Dialog>
   </>
   )
 }
