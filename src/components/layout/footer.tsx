@@ -17,7 +17,7 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-4/12 px-4">
+            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-4/12 px-4 text-center">
               <p className="text-bodyColor text-base font-medium leading-relaxed mb-9">
                 © 2024 CODESA All rights reserved
               </p>
