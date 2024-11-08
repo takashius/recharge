@@ -20,16 +20,19 @@ export default function PayCardDialogForm({ open, setOpen }: FormProps) {
   const [cvv, setCvv] = useState<string>('')
   const [acceptTerms, setAcceptTerms] = useState<boolean>(false)
   const { t } = useTranslation()
+  const [paypalKey, setPaypalKey] = useState(0)
 
   const isPaymentMethodDisabled = !reloadAmount
 
   const expiryDateRef = useRef<HTMLInputElement>(null)
   const cvvRef = useRef<HTMLInputElement>(null)
 
-  const handleReload = (event: React.FormEvent) => {
-    event.preventDefault()
-    // Logic to handle reload
-  }
+  const handleReloadAmountChange = (e: any) => {
+    const value = e.target.value;
+    setReloadAmount(value);
+    setPaypalKey(paypalKey + 1);
+    // Update the PayPal component key to force re-render 
+  };
 
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, '') // Remove non-numeric characters
@@ -95,12 +98,12 @@ export default function PayCardDialogForm({ open, setOpen }: FormProps) {
             className="relative transform overflow-hidden rounded-lg bg-white dark:bg-dark text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             <div className="bg-white dark:bg-dark dark:text-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-              <form onSubmit={handleReload} className="p-6 rounded-lg">
+              <form className="p-6 rounded-lg">
                 <div className="mb-4">
                   <TextField
                     label={t('formPay.amount')}
                     value={reloadAmount}
-                    onChange={(e) => setReloadAmount(e.target.value)}
+                    onChange={handleReloadAmountChange}
                     fullWidth
                     type='number'
                     margin="normal"
@@ -197,7 +200,7 @@ export default function PayCardDialogForm({ open, setOpen }: FormProps) {
                   </>
                 )}
                 {paymentMethod === 'paypal' &&
-                  <PayPalCheckout amount={reloadAmount} />
+                  <PayPalCheckout amount={reloadAmount} key={paypalKey} />
                 }
 
                 <div className="mb-4">
