@@ -21,6 +21,8 @@ export default function PayCardDialogForm({ open, setOpen }: FormProps) {
   const [acceptTerms, setAcceptTerms] = useState<boolean>(false)
   const { t } = useTranslation()
 
+  const isPaymentMethodDisabled = !reloadAmount
+
   const expiryDateRef = useRef<HTMLInputElement>(null)
   const cvvRef = useRef<HTMLInputElement>(null)
 
@@ -100,6 +102,7 @@ export default function PayCardDialogForm({ open, setOpen }: FormProps) {
                     value={reloadAmount}
                     onChange={(e) => setReloadAmount(e.target.value)}
                     fullWidth
+                    type='number'
                     margin="normal"
                     InputLabelProps={{ className: 'text-white' }}
                     InputProps={{ className: 'text-white border-white' }}
@@ -124,6 +127,7 @@ export default function PayCardDialogForm({ open, setOpen }: FormProps) {
                       ),
                     }}
                     SelectProps={{ MenuProps: { PaperProps: { className: 'bg-gray-700 text-white' } } }}
+                    disabled={isPaymentMethodDisabled}
                   >
                     <MenuItem value="creditCard" className="bg-gray-700 text-white">{t('formPay.creditCard')}</MenuItem>
                     <MenuItem value="paypal" className="bg-gray-700 text-white">PayPal</MenuItem>
