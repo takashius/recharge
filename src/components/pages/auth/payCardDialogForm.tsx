@@ -4,21 +4,14 @@ import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { useTranslation } from 'react-i18next'
 import { Paypal, Visa, MasterCard, Amex, Discover } from 'src/components/icons'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
-
-interface Card {
-  id: string
-  name: string
-  balance: number
-}
+import PayPalCheckout from 'src/components/ui/PayPalCheckout';
 
 interface FormProps {
-  cards: Card[]
   open: boolean
   setOpen: any
 }
 
-export default function PayCardDialogForm({ cards, open, setOpen }: FormProps) {
-  const [selectedCard, setSelectedCard] = useState<string>('')
+export default function PayCardDialogForm({ open, setOpen }: FormProps) {
   const [reloadAmount, setReloadAmount] = useState<string>('')
   const [paymentMethod, setPaymentMethod] = useState<string>('')
   const [cardHolderName, setCardHolderName] = useState<string>('')
@@ -101,26 +94,6 @@ export default function PayCardDialogForm({ cards, open, setOpen }: FormProps) {
           >
             <div className="bg-white dark:bg-dark dark:text-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               <form onSubmit={handleReload} className="p-6 rounded-lg">
-                <div className="mb-4">
-                  <TextField
-                    select
-                    label={t('formPay.selectedCard')}
-                    value={selectedCard}
-                    onChange={(e) => setSelectedCard(e.target.value)}
-                    fullWidth
-                    margin="normal"
-                    InputLabelProps={{ className: 'text-white' }}
-                    InputProps={{ className: 'text-white border-white' }}
-                    SelectProps={{ MenuProps: { PaperProps: { className: 'bg-gray-700 text-white' } } }}
-                  >
-                    {cards.map((card) => (
-                      <MenuItem key={card.id} value={card.id} className="bg-gray-700 text-white">
-                        {card.name} - {t('formPay.balance')}: ${card.balance}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                </div>
-
                 <div className="mb-4">
                   <TextField
                     label={t('formPay.amount')}
@@ -219,6 +192,9 @@ export default function PayCardDialogForm({ cards, open, setOpen }: FormProps) {
                     </div>
                   </>
                 )}
+                {paymentMethod === 'paypal' &&
+                  <PayPalCheckout amount={reloadAmount} />
+                }
 
                 <div className="mb-4">
                   <FormControlLabel

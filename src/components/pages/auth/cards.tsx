@@ -3,10 +3,9 @@ import { esES, enUS } from '@mui/x-data-grid/locales'
 import Background from 'src/components/layout/background'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from 'src/context/ThemeContext'
-import { Edit, Delete, Bills } from 'src/components/icons'
-import { Link } from 'react-router-dom'
+import { Warning, Check, Refresh } from 'src/components/icons'
 import { pageTitle } from 'src/hooks'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PayCardDialogForm from './payCardDialogForm'
 import Loader from 'src/components/ui/loader'
 
@@ -15,30 +14,51 @@ export default function Cards() {
   const { loading } = useTheme()
   const { t, i18n } = useTranslation()
   pageTitle(`${t('title')} - ${t('cards.title')}`)
+  const [loadingData, setLoading] = useState(true)
+  const [rows, setRows] = useState<any>([])
 
-  const renderButton = (value: any) => {
+
+  const statusBadge = (params: any) => {
+    let borderColor, textColor, icon;
+
+    switch (params.value) {
+      case 'Rejected':
+        borderColor = 'border-red-500'
+        textColor = 'text-red-500'
+        icon = <Warning />
+        break;
+      case 'Accepted':
+        borderColor = 'border-green-500'
+        textColor = 'text-green-500'
+        icon = <Check />
+        break;
+      case 'In Progress':
+        borderColor = 'border-orange-500'
+        textColor = 'text-orange-500'
+        icon = <Refresh />
+        break;
+      default:
+        borderColor = 'border-gray-500'
+        textColor = 'text-gray-500'
+    }
+
     return (
-      <div className="flex items-center justify-center h-full">
-        <a href='#' data-id={value}
-          className="text-sm font-bold text-white bg-primary py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
-          <Edit />
-        </a>
-        <Link to={'/user/payments'} data-id={value}
-          className="text-sm font-bold ml-2 text-white bg-orange-400 py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
-          <Bills />
-        </Link>
-        <a href='#' data-id={value}
-          className="text-sm font-bold ml-2 text-white bg-red-600 py-2 px-2 hover:shadow-signUp hover:bg-opacity-50 rounded-full transition ease-in-up duration-300">
-          <Delete />
-        </a>
-      </div>
-    )
-  }
+      <span className={`inline-flex items-center px-2 py-1 border ${borderColor} ${textColor} rounded-full text-xs`}>
+        {icon} <span className="ml-2">{params.value}</span>
+      </span>
+    );
+  };
 
   const columns: GridColDef[] = [
-    { field: 'number', headerName: t('cards.table.number'), flex: 1 },
-    { field: 'name', headerName: t('cards.table.name'), flex: 1 },
-    { field: 'balance', headerName: t('cards.table.balance'), flex: 1 },
+    { field: 'transaction', headerName: t('payments.table.transaction'), flex: 1 },
+    {
+      field: 'status',
+      headerName: t('payments.table.status'),
+      flex: 1,
+      renderCell: statusBadge,
+    },
+    { field: 'amount', headerName: t('payments.table.amount'), flex: 1 },
+    { field: 'via', headerName: t('payments.table.via'), flex: 1 },
     {
       field: 'date',
       headerName: t('cards.table.date'),
@@ -50,43 +70,41 @@ export default function Cards() {
         const timezoneOffset = date.getTimezoneOffset() * 60000;
         return new Date(date.getTime() + timezoneOffset);
       },
-    },
-    {
-      field: 'actions',
-      headerName: t('cards.table.actions'),
-      renderCell: renderButton,
-      flex: 1
     }
   ]
-  const rows = [
-    {
-      id: 1,
-      number: 'ERGDF354',
-      name: 'Pedro Perez',
-      balance: '14.587,00',
-      date: '17/05/2024'
-    },
-    {
-      id: 2,
-      number: 'AS54ER5',
-      name: 'Juan Ramirez',
-      balance: '14.658,20',
-      date: '22/05/2024'
-    },
-  ]
-
-  interface Card {
-    id: string
-    name: string
-    balance: number
-  }
-
-  const cards: Card[] = [
-    { id: '1', name: 'Tarjeta A', balance: 15.50 },
-    { id: '2', name: 'Tarjeta B', balance: 30.00 },
-    { id: '3', name: 'Tarjeta C', balance: 7.25 },
-    { id: '4', name: 'Tarjeta D', balance: 50.75 },
-  ]
+  useEffect(() => {
+    setTimeout(() => {
+      setRows(
+        [
+          {
+            id: 1,
+            transaction: 'QWE3QW54E6AS87',
+            status: 'In Progress',
+            amount: '120,00',
+            via: 'WEB',
+            date: '17/05/2024'
+          },
+          {
+            id: 2,
+            transaction: '38R4GSV3DS5REW',
+            status: 'Accepted',
+            amount: '60,00',
+            via: 'TAQUILLA',
+            date: '15/06/2024'
+          },
+          {
+            id: 3,
+            transaction: '3154SDSDSE8R4S',
+            status: 'Rejected',
+            amount: '70,00',
+            via: 'WEB',
+            date: '3/06/2024'
+          },
+        ]
+      )
+      setLoading(false)
+    }, 2000)
+  }, [])
 
   const currentLang = i18n.resolvedLanguage
   const langEsp = esES.components.MuiDataGrid.defaultProps.localeText
@@ -94,7 +112,7 @@ export default function Cards() {
 
   return (<>
     {loading && <Loader />}
-    <PayCardDialogForm cards={cards} open={open} setOpen={setOpen} />
+    <PayCardDialogForm open={open} setOpen={setOpen} />
     <section id="contact" className="pt-[120px] pb-20 overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap mx-[-16px]">
@@ -124,6 +142,7 @@ export default function Cards() {
                       showQuickFilter: true,
                     },
                   }}
+                  loading={loadingData}
                 />
               </div>
 

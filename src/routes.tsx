@@ -49,7 +49,7 @@ export const routes = [
     element: <Auth />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/user/cards", element: <Cards /> },
+      { path: "/user/card", element: <Cards /> },
       { path: "/user/profile", element: <Profile /> },
       { path: "/user/payments", element: <Payments /> },
       { path: "/user/posts", element: <Posts /> },
